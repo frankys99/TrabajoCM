@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="52dp" />
+
+        <TextView
+            android:id="@+id/titulo_pantalla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selección Clase" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_spinner_clase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Seleccion su clase:" />
+
+                <Spinner
+                    android:id="@+id/clases_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/comp_armas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Competencias con Armas:" />
+
+                <TextView
+                    android:id="@+id/text_comp_armas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/comp_armaduras"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Competencias con Armaduras:" />
+
+                <TextView
+                    android:id="@+id/text_comp_armaduras"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/text_comp_hab_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Competencias con Habilidades" />
+
+                <Spinner
+                    android:id="@+id/spinner_comp_hab_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner_comp_hab_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/info_clase"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
