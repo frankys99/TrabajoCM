@@ -12,10 +12,8 @@ import java.util.Arrays;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SeleccionClase extends AppCompatActivity {
-
+    /*
     private Spinner clases_spiner;
-
-
 
     public List<Clase>ls_clases = new ArrayList<>();
 
@@ -71,4 +69,6 @@ public class SeleccionClase extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones_spinner_clases);
         clases_spiner.setAdapter(adapter);
     }
+
+     */
 }

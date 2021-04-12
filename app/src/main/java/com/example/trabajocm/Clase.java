@@ -11,14 +11,16 @@ public class Clase {
     public String nombre;
     public String doc_info;
     public HashMap<String, List<String>> proficiencias;
+    public List<String> hab_especial;
     public List<String>equipo;
     public Double dinero;
 
     //Constructor
-    public Clase (String nombre, String doc,  HashMap<String, List<String>>profi, List<String>equipo, Double dinero){
+    public Clase (String nombre, String doc,  HashMap<String, List<String>>profi,List<String> hab_esp, List<String>equipo, Double dinero){
         this.nombre = nombre;
         this.doc_info = doc;
         this.proficiencias = profi;
+        this.hab_especial = hab_esp;
         this.equipo = equipo;
         this.dinero = dinero;
     }
@@ -70,6 +72,7 @@ public class Clase {
                 "nombre='" + nombre + '\'' +
                 ", doc_info='" + doc_info + '\'' +
                 ", proficiencias=" + proficiencias +
+                ", habilidad especial ="+ hab_especial +
                 ", equipo=" + equipo +
                 ", dinero=" + dinero +
                 '}';
