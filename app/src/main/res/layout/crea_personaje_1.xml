@@ -176,6 +176,7 @@
         android:id="@+id/button3"
         android:layout_width="164dp"
         android:layout_height="39dp"
+        android:onClick="onclick"
         android:text="@string/btn_galeria"
         app:backgroundTint="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -184,4 +185,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.289" />
+
+    <ImageView
+        android:id="@+id/imageId"
+        android:layout_width="162dp"
+        android:layout_height="117dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.026"
+        app:srcCompat="@drawable/descarga" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

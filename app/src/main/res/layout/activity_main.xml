@@ -24,6 +24,7 @@
         android:id="@+id/button4"
         android:layout_width="225dp"
         android:layout_height="44dp"
+        android:onClick="ejecuta_mis_personajes"
         android:text="@string/boton_personajes"
         app:backgroundTint="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
