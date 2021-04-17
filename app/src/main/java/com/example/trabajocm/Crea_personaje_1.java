@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import java.lang.reflect.Array;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,11 +31,38 @@ public class Crea_personaje_1 extends Activity {
     private Integer velocidad;
     private String tamaño;
     private Button atras;
+    private Map<String,List<String>> statsRazas = new HashMap<>();
+    // statsRazas = <Raza, [tamaño, velocidad, stat1, valorstat1, stat2, valorstat2]>
+    //                                                            opcional,opcional
 
+    //Listas auxiliares para statsRazas
+    List<String> dragonborn = new ArrayList<String>(Arrays.asList("Medium", "30", "Charisma", "1", "Strength", "2"));
+    List<String> dwarf = new ArrayList<String>(Arrays.asList("Medium", "25", "Constitution", "2"));
+    List<String> elf = new ArrayList<String>(Arrays.asList("Medium", "30", "Dexterity", "2"));
+    List<String> gnome = new ArrayList<String>(Arrays.asList("Small", "25", "Intelligence", "2"));
+    List<String> half_elf = new ArrayList<String>(Arrays.asList("Medium", "30", "Charisma", "2"));
+    List<String> half_orc = new ArrayList<String>(Arrays.asList("Medium", "30", "Constitution", "1", "Strength", "2"));
+    List<String> halfling = new ArrayList<String>(Arrays.asList("Small", "30", "Dexterity", "2"));
+    List<String> human = new ArrayList<String>(Arrays.asList("Small", "30"));
+    List<String> tiefling = new ArrayList<String>(Arrays.asList("Small", "30"));
+
+    public void setStatsRazas(Map<String, List<String>> statsRazas) {
+        this.statsRazas.put("Dragonborn",dragonborn);
+        this.statsRazas.put("Dwarf",dwarf);
+        this.statsRazas.put("Elf",elf);
+        this.statsRazas.put("Gnome",gnome);
+        this.statsRazas.put("Half-Elf",half_elf);
+        this.statsRazas.put("Half-Orc",half_orc);
+        this.statsRazas.put("Halfling",halfling);
+        this.statsRazas.put("Human",human);
+        this.statsRazas.put("Tiefling",tiefling);
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crea_personaje_1);
+        // Inicializamos el diccionario con los datos de las razas
+        setStatsRazas(statsRazas);
         imagen = (ImageView) findViewById(R.id.imageId);
         spinner1 = (Spinner) findViewById(R.id.spinner);
         spinner2 = (Spinner) findViewById(R.id.spinner2);
