@@ -27,6 +27,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
+    //PANTALLA PROVISIONAL
+    //YA QUE RETROFIT ES UNA PETICIÓN ASYNC => CARGAR PREVIAMENTE
+    // API REST =>  https://github.com/keffren/CM2021-API
+    // HACER PREVIAMENTE : https://cm2021.herokuapp.com/api/v1/clases/loadInitialData
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
