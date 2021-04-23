@@ -10,11 +10,12 @@
     tools:context=".PopUpPaladin">
 
     <TextView
-        android:layout_marginTop="20dp"
-        android:text="@string/info_clase_paladin"
-        android:textStyle="bold"
-        android:textSize="12sp"
+        android:id="@+id/txtInfo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text=""
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

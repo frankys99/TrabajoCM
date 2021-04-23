@@ -10,12 +10,13 @@
     tools:context=".PopUpBrujo">
 
     <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="382dp"
+        android:layout_height="654dp"
         android:layout_marginTop="20dp"
-        android:text="@string/info_clase_brujo"
-        android:textStyle="bold"
+        android:text=""
         android:textSize="12sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:textStyle="bold" />
 
 
 </LinearLayout>
