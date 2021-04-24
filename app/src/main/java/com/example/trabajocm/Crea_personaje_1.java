@@ -1,18 +1,21 @@
 package com.example.trabajocm;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import java.lang.reflect.Array;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,9 +25,10 @@ import java.util.Map;
 public class Crea_personaje_1 extends Activity {
 
     ImageView imagen;
-
-    private Spinner spinner1;
-    private Spinner spinner2;
+    private String nombrePersonaje;
+    private TextView textoRazas;
+    private Spinner spinnerAlineamientos;
+    private Spinner spinnerRazas;
     private String alineamiento;
     private String raza;
     private String nombre;
@@ -63,19 +67,57 @@ public class Crea_personaje_1 extends Activity {
         setContentView(R.layout.crea_personaje_1);
         // Inicializamos el diccionario con los datos de las razas
         setStatsRazas(statsRazas);
-        imagen = (ImageView) findViewById(R.id.imageId);
-        spinner1 = (Spinner) findViewById(R.id.spinner);
-        spinner2 = (Spinner) findViewById(R.id.spinner2);
 
-        String [] opciones1 ={"Dragonborn","Dwarf","Elf","Gnome","Half-Elf",
-        "Half-Orc","Halfling","Human","Tiefling"};
-        String [] opciones2 = {"Lawful Good","Lawful Neutral","Lawful Evil",
-        "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Evil",
-                "Chaotic Neutral"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones1);
-        spinner1.setAdapter(adapter);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones2);
-        spinner2.setAdapter(adapter2);
+        imagen = (ImageView) findViewById(R.id.imageId);
+        textoRazas= (TextView) findViewById(R.id.textoRaza);
+        spinnerAlineamientos = (Spinner) findViewById(R.id.spinnerAlineamientos);
+        spinnerRazas = (Spinner) findViewById(R.id.spinnerRazas);
+
+        // Proporcionamos la identificación de los cuadros de texto para modificarlos después
+        TextView vel = (TextView) findViewById(R.id.velocidad);
+        TextView tam = (TextView) findViewById(R.id.tamaño);
+        TextView comp = (TextView) findViewById(R.id.competencias);
+
+        // Obtenemos el nombre del personaje
+        EditText nombre= (EditText) findViewById(R.id.nombrePersonaje);
+        nombrePersonaje = String.valueOf(nombre.getText());
+
+        // Adaptadores spinners
+        ArrayAdapter<CharSequence> adapterAlineamientos = ArrayAdapter.createFromResource(this,R.array.ArrayAlineamientos, android.R.layout.simple_spinner_item);
+        spinnerAlineamientos.setAdapter(adapterAlineamientos);
+        ArrayAdapter<CharSequence> adapterRazas = ArrayAdapter.createFromResource(this,R.array.ArrayRazas, android.R.layout.simple_spinner_item);
+        spinnerRazas.setAdapter(adapterRazas);
+
+        spinnerRazas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Poner en setText el texto diseñado para cada raza
+                String razaSeleccionada = parent.getItemAtPosition(position).toString();
+                textoRazas.setText("Seleccionado "+ razaSeleccionada);
+                // statsRazas = <Raza, [tamaño, velocidad, stat1, valorstat1, stat2, valorstat2]>
+                vel.setText("Velocidad:");
+                tam.setText("Tamaño:");
+                comp.setText("Competencias de habilidades:");
+
+                vel.setText(vel.getText() + " " + statsRazas.get(razaSeleccionada).get(1));
+                tam.setText(tam.getText() + " " + statsRazas.get(razaSeleccionada).get(0));
+                if(statsRazas.get(razaSeleccionada).size()==6){
+                    comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(2) + " +"+ statsRazas.get(razaSeleccionada).get(3) +
+                            ", " + statsRazas.get(razaSeleccionada).get(4) + " +" + statsRazas.get(razaSeleccionada).get(5));
+                }else if(statsRazas.get(razaSeleccionada).size()==4){
+                    comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(2) + " +"+ statsRazas.get(razaSeleccionada).get(3));
+                }else{
+                    comp.setText(comp.getText() + " Esta raza no tiene competencias extra");
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // NO hacer nada
+            }
+        });
+
 
 
         atras =findViewById(R.id.atras);
@@ -87,16 +129,6 @@ public class Crea_personaje_1 extends Activity {
             }
         });
     }
-    // Funciones para los spinner
-    public void raza(View view){
-        String valor = spinner2.getSelectedItem().toString();
-    }
-    public void alineamiento(View view){
-        alineamiento = spinner1.getSelectedItem().toString();
-    }
-
-
-
 
     // Funciones para el boton de seleccion de imagen de galeria
     public void onclick(View view) {
