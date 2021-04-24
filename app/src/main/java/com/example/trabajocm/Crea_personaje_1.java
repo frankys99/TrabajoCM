@@ -89,15 +89,20 @@ public class Crea_personaje_1 extends Activity {
         spinnerRazas.setAdapter(adapterRazas);
 
         spinnerRazas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // Poner en setText el texto diseñado para cada raza
                 String razaSeleccionada = parent.getItemAtPosition(position).toString();
                 textoRazas.setText("Seleccionado "+ razaSeleccionada);
-                // statsRazas = <Raza, [tamaño, velocidad, stat1, valorstat1, stat2, valorstat2]>
+
+                // Reiniciamos los text view para que al seleccionar otro elemento no hayaduplicidades en el texto
                 vel.setText("Velocidad:");
                 tam.setText("Tamaño:");
                 comp.setText("Competencias de habilidades:");
+
+                // Actualizamos los valores de los atributos con la raza seleccionada
+                // statsRazas = <Raza, [tamaño, velocidad, stat1, valorstat1, stat2, valorstat2]>
 
                 vel.setText(vel.getText() + " " + statsRazas.get(razaSeleccionada).get(1));
                 tam.setText(tam.getText() + " " + statsRazas.get(razaSeleccionada).get(0));
