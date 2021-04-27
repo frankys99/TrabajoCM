@@ -12,7 +12,7 @@
         android:ems="10"
         android:inputType="number"
         tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="357dp" />
+        tools:layout_editor_absoluteY="177dp" />
 
     <EditText
         android:id="@+id/editTextNumber3"
@@ -20,8 +20,8 @@
         android:layout_height="59dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="357dp" />
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="177dp" />
 
     <EditText
         android:id="@+id/editTextNumber4"
@@ -29,8 +29,8 @@
         android:layout_height="59dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="279dp"
-        tools:layout_editor_absoluteY="357dp" />
+        tools:layout_editor_absoluteX="278dp"
+        tools:layout_editor_absoluteY="177dp" />
 
     <EditText
         android:id="@+id/editTextNumber6"
@@ -38,8 +38,8 @@
         android:layout_height="59dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="357dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="177dp" />
 
     <EditText
         android:id="@+id/editTextTextPersonName7"
@@ -49,7 +49,7 @@
         android:inputType="textPersonName"
         android:text="SAB"
         tools:layout_editor_absoluteX="278dp"
-        tools:layout_editor_absoluteY="429dp" />
+        tools:layout_editor_absoluteY="303dp" />
 
     <EditText
         android:id="@+id/editTextTextPersonName6"
@@ -58,8 +58,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="CON"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="429dp" />
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="303dp" />
 
     <EditText
         android:id="@+id/editTextTextPersonName5"
@@ -69,7 +69,7 @@
         android:inputType="textPersonName"
         android:text="INT"
         tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="429dp" />
+        tools:layout_editor_absoluteY="303dp" />
 
     <EditText
         android:id="@+id/editTextTextPersonName4"
@@ -78,8 +78,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="FUE"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="429dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="303dp" />
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
@@ -89,31 +89,31 @@
         android:inputType="textPersonName"
         android:text="CAR"
         tools:layout_editor_absoluteX="342dp"
-        tools:layout_editor_absoluteY="429dp" />
+        tools:layout_editor_absoluteY="304dp" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Generar"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="568dp" />
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="462dp" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
-        android:layout_width="49dp"
-        android:layout_height="43dp"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="DES"
-        tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="430dp" />
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="302dp" />
 
     <FrameLayout
         android:layout_width="217dp"
         android:layout_height="100dp"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="545dp">
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="444dp">
 
     </FrameLayout>
 
@@ -123,8 +123,8 @@
         android:layout_height="59dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="357dp" />
+        tools:layout_editor_absoluteX="211dp"
+        tools:layout_editor_absoluteY="177dp" />
 
     <EditText
         android:id="@+id/editTextNumber5"
@@ -133,6 +133,6 @@
         android:ems="10"
         android:inputType="number"
         tools:layout_editor_absoluteX="342dp"
-        tools:layout_editor_absoluteY="357dp" />
+        tools:layout_editor_absoluteY="177dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
