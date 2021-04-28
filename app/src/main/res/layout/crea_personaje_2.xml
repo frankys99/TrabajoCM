@@ -41,7 +41,7 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="177dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/sabiduria"
         android:layout_width="48dp"
         android:layout_height="44dp"
@@ -51,7 +51,7 @@
         tools:layout_editor_absoluteX="278dp"
         tools:layout_editor_absoluteY="303dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/constitucion"
         android:layout_width="50dp"
         android:layout_height="44dp"
@@ -61,7 +61,7 @@
         tools:layout_editor_absoluteX="141dp"
         tools:layout_editor_absoluteY="303dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/inteligencia"
         android:layout_width="49dp"
         android:layout_height="44dp"
@@ -71,7 +71,7 @@
         tools:layout_editor_absoluteX="209dp"
         tools:layout_editor_absoluteY="303dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/fuerza"
         android:layout_width="49dp"
         android:layout_height="44dp"
@@ -81,7 +81,7 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="303dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/carisma"
         android:layout_width="47dp"
         android:layout_height="44dp"
@@ -99,7 +99,7 @@
         tools:layout_editor_absoluteX="30dp"
         tools:layout_editor_absoluteY="462dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/destreza"
         android:layout_width="50dp"
         android:layout_height="45dp"

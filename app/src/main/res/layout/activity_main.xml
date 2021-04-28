@@ -24,7 +24,7 @@
         android:layout_width="180dp"
         android:layout_height="50dp"
         android:layout_marginTop="408dp"
-        android:text="@string/crear_personaje"
+        android:text="Crear Personaje"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
