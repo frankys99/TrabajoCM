@@ -11,26 +11,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.trabajocm.interfaces.ClaseService;
 import com.example.trabajocm.modelos.Clase;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SeleccClase extends AppCompatActivity {
     private Spinner clases_spiner;
     private Spinner comp_hab_1;
     private Spinner comp_hab_2;
-    private Spinner selec_equipo;
+    //private Spinner selec_equipo;
 
     private TextView info_clase;
     private TextView comp_armas;
@@ -48,13 +39,13 @@ public class SeleccClase extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.test_api_rest);
 
         setContentView(R.layout.creacion_pj_clase_2);
 
         //Cargar las clases de la API
         //getMethod();
         ls_clases = Datos.getLs_clases();
+        Log.i("---CARGA\n", Datos.getLs_razas().toString());
 
         //Declarar TextView
         info_clase = (TextView)findViewById(R.id.text_info_clase);
@@ -71,7 +62,7 @@ public class SeleccClase extends AppCompatActivity {
         clases_spiner = (Spinner)findViewById(R.id.clases_spinner);
         comp_hab_1 = (Spinner)findViewById(R.id.spinner_comp_hab_1);
         comp_hab_2 = (Spinner)findViewById(R.id.spinner_comp_hab_2);
-        selec_equipo = (Spinner)findViewById(R.id.spinner_selec_equipo);
+        //selec_equipo = (Spinner)findViewById(R.id.spinner_selec_equipo);
 
 
         //Spinner de selec clases
@@ -79,6 +70,7 @@ public class SeleccClase extends AppCompatActivity {
         for(int i = 0; i < ls_clases.size(); i++){
             opciones_spinner_clases[i] = ls_clases.get(i).getNombre();
         };
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones_spinner_clases);
         clases_spiner.setAdapter(adapter);
 
@@ -123,10 +115,14 @@ public class SeleccClase extends AppCompatActivity {
                 //TODO Elminar var seleccionada
 
                 //Spinner selec equipo/oro
+                /*
                 String[] opciones_equipo_def = new String[]{"Equipo inicial","Oro"};
                 ArrayAdapter<String>adapter4 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_equipo_def);
                 selec_equipo.setAdapter(adapter4);
                 //TODO añadir a DB
+
+                 */
+                res_spinner_sel_equipo.setText("Equipo Inicial:\n" + clase_Seleccionada.getEquipo_inicial());
             }
 
             @Override
@@ -139,7 +135,7 @@ public class SeleccClase extends AppCompatActivity {
         icono_info_clase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(clase_Seleccionada.getNombre().equals("Paladín")){
+                if(clase_Seleccionada.getNombre().equals("Paladin")){
                     startActivity(new Intent(SeleccClase.this, PopUpPaladin.class));
                 }else if(clase_Seleccionada.getNombre().equals("Brujo")){
                     startActivity(new Intent(SeleccClase.this,PopUpBrujo.class));
@@ -148,6 +144,7 @@ public class SeleccClase extends AppCompatActivity {
         });
 
         //Spinner selec_equipo metodo
+        /* DESPRECIADO -> NO SE DA A ESCOGER
         selec_equipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -165,50 +162,7 @@ public class SeleccClase extends AppCompatActivity {
 
             }
         });
+        */
 
     }
-
-    /*
-    private void getMethod(){
-        //Create Retrofit
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://cm2021.herokuapp.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        //Create service
-        ClaseService claseService = retrofit.create(ClaseService.class);
-        Call<List<Clase>> call = claseService.getClases();
-
-        ls_clases = new ArrayList<>();
-
-        call.enqueue(new Callback<List<Clase>>() {
-
-            @Override
-            public void onResponse(Call<List<Clase>> call, Response<List<Clase>> response) {
-
-                if(response.isSuccessful()){
-                    List<Clase> aux = response.body();
-
-                    for(Clase c : aux){
-                        if(c.getId()!= 0){
-                            //Log.i("----DATA clase", c.toString());
-                            ls_clases.add(c);
-                        }
-                    }
-                    //Log.i("----DATA clase", ls_clases.toString());
-                }else{
-                    Log.e("ResponseFail", "on Response: "+response.errorBody());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Clase>> call, Throwable t) {
-                Log.e("----- ERROR",t.getMessage());
-            }
-        });
-    }
-
-     */
-
 }

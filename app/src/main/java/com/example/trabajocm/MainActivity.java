@@ -6,15 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.trabajocm.interfaces.ClaseService;
+import com.example.trabajocm.interfaces.ApiService;
 import com.example.trabajocm.modelos.Clase;
+import com.example.trabajocm.modelos.Raza;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getClases();
+        obtenerDatos();
     }
 
     //Se ejecuta haciendo click boton de activity_main.xml
@@ -46,9 +41,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void getClases(){
+    private void obtenerDatos(){
         //Ls a crear
         List<Clase> ls_clases = new ArrayList<>();
+        List<Raza> ls_razas = new ArrayList<>();
 
         //Create Retrofit
         Retrofit retrofit = new Retrofit.Builder()
@@ -57,11 +53,13 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         //Create service
-        ClaseService claseService = retrofit.create(ClaseService.class);
-        Call<List<Clase>> call = claseService.getClases();
+        //ClaseService claseService = retrofit.create(ClaseService.class);
+        //Call<List<Clase>> call = claseService.getClases();
+        ApiService apiService = retrofit.create(ApiService.class);
+        Call<List<Clase>> call_clases = apiService.getClases();
+        Call<List<Raza>> call_razas = apiService.getRazas();
 
-
-        call.enqueue(new Callback<List<Clase>>() {
+        call_clases.enqueue(new Callback<List<Clase>>() {
 
             @Override
             public void onResponse(Call<List<Clase>> call, Response<List<Clase>> response) {
@@ -87,6 +85,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        call_razas.enqueue(new Callback<List<Raza>>() {
+            @Override
+            public void onResponse(Call<List<Raza>> call, Response<List<Raza>> response) {
+                if(response.isSuccessful()){
+                    List<Raza> aux = response.body();
+
+                    for(Raza r : aux){
+                        if(r.getId()!= 0){
+                            ls_razas.add(r);
+                        }
+                    }
+                }else{
+                    Log.e("ResponseFail", "on Response: "+response.errorBody());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Raza>> call, Throwable t) {
+                Log.e("----- ERROR",t.getMessage());
+            }
+        });
+
         Datos.iniDatosClases(ls_clases);
+        Datos.initDatosRazas(ls_razas);
     }
 }

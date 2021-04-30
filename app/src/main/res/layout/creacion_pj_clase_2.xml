@@ -133,12 +133,7 @@
             android:id="@+id/titulo_selec_equipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selección de equipo:" />
-
-        <Spinner
-            android:id="@+id/spinner_selec_equipo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:text="Equipo inicial:" />
 
         <TextView
             android:id="@+id/res_spinner_equipo"
