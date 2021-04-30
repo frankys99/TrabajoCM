@@ -11,13 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-import java.lang.reflect.Array;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class Crea_personaje_1 extends Activity {
 
     ImageView imagen;
@@ -54,11 +47,12 @@ public class Crea_personaje_1 extends Activity {
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Crea_personaje_1.this, MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }
+
+
     // Funciones para los spinner
     public void raza(View view){
         String valor = spinner2.getSelectedItem().toString();
