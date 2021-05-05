@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Crea_personaje_1 extends Activity {
+public class  Crea_personaje_1 extends Activity {
 
     ImageView imagen;
 

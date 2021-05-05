@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Crea_personaje_2 extends Activity {
 
@@ -17,7 +21,7 @@ public class Crea_personaje_2 extends Activity {
     Integer carisma = 10;
     Integer inteligencia = 10;
     String cadena = "";
-
+    String delim = ", ";
     private Boolean reroll;
 
     private EditText edtFuerza;
@@ -39,15 +43,30 @@ public class Crea_personaje_2 extends Activity {
         return listaStats;
     }
 
+    public List<String> listaCadenas (List<Integer> l) {
+        List<String> a = new ArrayList<String>();
+        for (Integer i : l) {
+            String s =String.valueOf(i);
+            a.add(s);
+        }
+        return a;
+    }
     public void onclick(View view) {
         muestraNumeros(reroll);
     }
 
     private void muestraNumeros(Boolean r) {
+        lm = generaNumeros();
         if (r == Boolean.FALSE){
-            lm = generaNumeros();
             cadena = "Estos son tus stats. Pulsa otra vez Generar para generar nuevos stats";
-
+            TextView textoNumeros = findViewById(R.id.textoNumeros);
+            StringBuilder sb = new StringBuilder();
+            for (Integer s : lm)
+            {
+                sb.append(s);
+                sb.append("\t");
+            }
+            textoNumeros.setText(sb);
         } else {
             lm = generaNumeros();
             cadena = "Estos son tus stats definitivos, no pueden cambiarse";
@@ -73,6 +92,8 @@ public class Crea_personaje_2 extends Activity {
         edtInteligencia =  (EditText) findViewById(R.id.numeroInteligencia);
         edtInteligencia.setText(inteligencia.toString());
 
-
     }
+
+
+
 }

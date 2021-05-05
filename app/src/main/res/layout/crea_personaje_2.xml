@@ -109,13 +109,14 @@
         tools:layout_editor_absoluteX="75dp"
         tools:layout_editor_absoluteY="302dp" />
 
-    <FrameLayout
-        android:layout_width="217dp"
-        android:layout_height="100dp"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="444dp">
+    <TextView
+        android:id="@+id/textoNumeros"
+        android:layout_width="237dp"
+        android:layout_height="47dp"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="462dp">
 
-    </FrameLayout>
+    </TextView>
 
     <EditText
         android:id="@+id/numeroInteligencia"
@@ -134,5 +135,13 @@
         android:inputType="number"
         tools:layout_editor_absoluteX="342dp"
         tools:layout_editor_absoluteY="177dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="307dp"
+        android:layout_height="43dp"
+        android:text="Aquí puedes generar tus stats aleatoriamente y ajustarlos a tu gusto"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="69dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
