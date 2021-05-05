@@ -7,20 +7,18 @@ import android.widget.EditText;
 import java.util.Random;
 import java.util.List;
 
-
-
 public class Crea_personaje_2 extends Activity {
 
     Random rand = new Random();
     Integer fuerza = 10;
-    Integer destreza;
-    Integer constitucion;
-    Integer sabiduria;
-    Integer carisma;
-    Integer inteligencia;
-    String cadena;
+    Integer destreza = 10;
+    Integer constitucion = 10;
+    Integer sabiduria = 10;
+    Integer carisma = 10;
+    Integer inteligencia = 10;
+    String cadena = "";
 
-    private Boolean reroll = Boolean.FALSE;
+    private Boolean reroll;
 
     private EditText edtFuerza;
     private EditText edtDestreza;
@@ -52,13 +50,29 @@ public class Crea_personaje_2 extends Activity {
 
         } else {
             lm = generaNumeros();
+            cadena = "Estos son tus stats definitivos, no pueden cambiarse";
         }
+
     }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crea_personaje_2);
+
+        reroll = Boolean.FALSE;
         edtFuerza = (EditText) findViewById(R.id.numeroFuerza);
         edtFuerza.setText(fuerza.toString());
+        edtDestreza = (EditText) findViewById(R.id.numeroDestreza);
+        edtDestreza.setText(destreza.toString());
+        edtConstitucion = (EditText) findViewById(R.id.numeroConstitucion);
+        edtConstitucion.setText(constitucion.toString());
+        edtSabiduria = (EditText) findViewById(R.id.numeroFuerza);
+        edtSabiduria.setText(sabiduria.toString());
+        edtCarisma = (EditText) findViewById(R.id.numeroCarisma);
+        edtCarisma.setText(carisma.toString());
+        edtInteligencia =  (EditText) findViewById(R.id.numeroInteligencia);
+        edtInteligencia.setText(inteligencia.toString());
+
+
     }
 }
