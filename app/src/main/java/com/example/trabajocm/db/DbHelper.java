@@ -10,7 +10,7 @@ import com.example.trabajocm.utilidades.Utilidades;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION=11;
+    private static final int DATABASE_VERSION=12;
     private static final String DATABASE_NOMBRE="Personaje.db";
 
 

@@ -16,10 +16,10 @@ public class Personaje {
     private int inteligencia;
     private int sabiduria;
     private int carisma;
-    private int pv;
-    private int ca;
+
+
     private int nivel;
-    private int turno;
+
     private int xp;
     private String lengua1;
     private String lengua2;
@@ -152,21 +152,9 @@ public class Personaje {
         this.carisma = carisma;
     }
 
-    public int getPv() {
-        return pv;
-    }
 
-    public void setPv(int pv) {
-        this.pv = pv;
-    }
 
-    public int getCa() {
-        return ca;
-    }
 
-    public void setCa(int ca) {
-        this.ca = ca;
-    }
 
     public int getNivel() {
         return nivel;
@@ -176,13 +164,7 @@ public class Personaje {
         this.nivel = nivel;
     }
 
-    public int getTurno() {
-        return turno;
-    }
 
-    public void setTurno(int turno) {
-        this.turno = turno;
-    }
 
     public int getXp() {
         return xp;

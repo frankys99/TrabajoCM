@@ -92,17 +92,140 @@ public class Resumen_Personaje extends AppCompatActivity {
             salvaciones.setText(personaje.getSalvaciones());
             secundarias.setText(personaje.getSecundarias());
             dotes.setText(personaje.getDotes());
-            Fuerza.setText(String.valueOf(personaje.getFuerza()));
-            Destreza.setText(String.valueOf(personaje.getDestreza()));
-            Constitucion.setText(String.valueOf(personaje.getConstitucion()));
-            Inteligencia.setText(String.valueOf(personaje.getInteligencia()));
-            Sabiduria.setText(String.valueOf(personaje.getSabiduria()));
-            Carisma.setText(String.valueOf(personaje.getCarisma()));
+            if(personaje.getRaza().equals("Humano")){
+                Fuerza.setText(String.valueOf(personaje.getFuerza()+1));
+                Destreza.setText(String.valueOf(personaje.getDestreza()+1));
+                Constitucion.setText(String.valueOf(personaje.getConstitucion()+1));
+                Inteligencia.setText(String.valueOf(personaje.getInteligencia()+1));
+                Sabiduria.setText(String.valueOf(personaje.getSabiduria()+1));
+                Carisma.setText(String.valueOf(personaje.getCarisma()+1));
+            }else if(personaje.getRaza().equals("Elfo")){
+                Fuerza.setText(String.valueOf(personaje.getFuerza()));
+                Destreza.setText(String.valueOf(personaje.getDestreza()+2));
+                Constitucion.setText(String.valueOf(personaje.getConstitucion()));
+                Inteligencia.setText(String.valueOf(personaje.getInteligencia()));
+                Sabiduria.setText(String.valueOf(personaje.getSabiduria()));
+                Carisma.setText(String.valueOf(personaje.getCarisma()));
+            }else if (personaje.getRaza().equals("Dracónido")){
+                Fuerza.setText(String.valueOf(personaje.getFuerza()+2));
+                Destreza.setText(String.valueOf(personaje.getDestreza()));
+                Constitucion.setText(String.valueOf(personaje.getConstitucion()));
+                Inteligencia.setText(String.valueOf(personaje.getInteligencia()));
+                Sabiduria.setText(String.valueOf(personaje.getSabiduria()));
+                Carisma.setText(String.valueOf(personaje.getCarisma()+1));
+            }else if (personaje.getRaza().equals("Enano")){
+                Fuerza.setText(String.valueOf(personaje.getFuerza()));
+                Destreza.setText(String.valueOf(personaje.getDestreza()));
+                Constitucion.setText(String.valueOf(personaje.getConstitucion()+2));
+                Inteligencia.setText(String.valueOf(personaje.getInteligencia()));
+                Sabiduria.setText(String.valueOf(personaje.getSabiduria()));
+                Carisma.setText(String.valueOf(personaje.getCarisma()));
+            }else if (personaje.getRaza().equals("Gnomo")){
+                Fuerza.setText(String.valueOf(personaje.getFuerza()));
+                Destreza.setText(String.valueOf(personaje.getDestreza()));
+                Constitucion.setText(String.valueOf(personaje.getConstitucion()));
+                Inteligencia.setText(String.valueOf(personaje.getInteligencia()+2));
+                Sabiduria.setText(String.valueOf(personaje.getSabiduria()));
+                Carisma.setText(String.valueOf(personaje.getCarisma()));
+            }else if (personaje.getRaza().equals("Medio elfo")){
+                Fuerza.setText(String.valueOf(personaje.getFuerza()));
+                Destreza.setText(String.valueOf(personaje.getDestreza()));
+                Constitucion.setText(String.valueOf(personaje.getConstitucion()));
+                Inteligencia.setText(String.valueOf(personaje.getInteligencia()));
+                Sabiduria.setText(String.valueOf(personaje.getSabiduria()));
+                Carisma.setText(String.valueOf(personaje.getCarisma()+2));
+            }else if (personaje.getRaza().equals("Medio orco")){
+                Fuerza.setText(String.valueOf(personaje.getFuerza()+2));
+                Destreza.setText(String.valueOf(personaje.getDestreza()));
+                Constitucion.setText(String.valueOf(personaje.getConstitucion()+1));
+                Inteligencia.setText(String.valueOf(personaje.getInteligencia()));
+                Sabiduria.setText(String.valueOf(personaje.getSabiduria()));
+                Carisma.setText(String.valueOf(personaje.getCarisma()));
+            }else if (personaje.getRaza().equals("Mediano")){
+                Fuerza.setText(String.valueOf(personaje.getFuerza()));
+                Destreza.setText(String.valueOf(personaje.getDestreza()+2));
+                Constitucion.setText(String.valueOf(personaje.getConstitucion()));
+                Inteligencia.setText(String.valueOf(personaje.getInteligencia()));
+                Sabiduria.setText(String.valueOf(personaje.getSabiduria()));
+                Carisma.setText(String.valueOf(personaje.getCarisma()));
+            }else if (personaje.getRaza().equals("Tiefling")){
+                Fuerza.setText(String.valueOf(personaje.getFuerza()));
+                Destreza.setText(String.valueOf(personaje.getDestreza()));
+                Constitucion.setText(String.valueOf(personaje.getConstitucion()));
+                Inteligencia.setText(String.valueOf(personaje.getInteligencia()+1));
+                Sabiduria.setText(String.valueOf(personaje.getSabiduria()));
+                Carisma.setText(String.valueOf(personaje.getCarisma()+2));
+            }else{
+                Fuerza.setText(String.valueOf(personaje.getFuerza()));
+                Destreza.setText(String.valueOf(personaje.getDestreza()));
+                Constitucion.setText(String.valueOf(personaje.getConstitucion()));
+                Inteligencia.setText(String.valueOf(personaje.getInteligencia()));
+                Sabiduria.setText(String.valueOf(personaje.getSabiduria()));
+                Carisma.setText(String.valueOf(personaje.getCarisma()));
+            }
+            int consti =Integer.parseInt(String.valueOf(Constitucion.getText()));
+            int bono_consti;
 
-            PV.setText(String.valueOf(personaje.getPv()));
-            CA.setText(String.valueOf(personaje.getCa()));
+            if (consti==1){bono_consti=-5;}else if(consti==2||consti==3){bono_consti=-4;}else if(consti==4||consti==5){bono_consti=-3;}
+            else if(consti==6||consti==7){bono_consti=-2;}else if(consti==8||consti==9){bono_consti=-1;}else if(consti==10||consti==11){bono_consti=0;}
+            else if(consti==12||consti==13){bono_consti=1;} else if(consti==14||consti==15){bono_consti=2;} else if(consti==16||consti==17){bono_consti=3;}
+            else if(consti==18||consti==19){bono_consti=4;}else{bono_consti=5;}
+
+
+
+            if(personaje.getClase().equals("Bárbaro")){
+                PV.setText(String.valueOf(bono_consti+12));
+            } else if (personaje.getClase().equals("Bardo")||personaje.getClase().equals("Clérigo")||personaje.getClase().equals("Druida")||personaje.getClase().equals("Monje")||personaje.getClase().equals("Pícaro")||personaje.getClase().equals("Brujo")){
+                PV.setText(String.valueOf(bono_consti+8));
+            }else if(personaje.getClase().equals("Guerrero")||personaje.getClase().equals("Paladín")||personaje.getClase().equals("Explorador")){
+                PV.setText(String.valueOf(bono_consti+10));
+            }else if(personaje.getClase().equals("Hechizero")||personaje.getClase().equals("Mago")){
+                PV.setText(String.valueOf(bono_consti+6));
+            }
+
+            int detrez =Integer.parseInt(String.valueOf(Constitucion.getText()));
+            int bono_destreza;
+            if (detrez==1){bono_destreza=-5;}else if(detrez==2||detrez==3){bono_destreza=-4;}else if(detrez==4||detrez==5){bono_destreza=-3;}
+            else if(detrez==6||detrez==7){bono_destreza=-2;}else if(detrez==8||detrez==9){bono_destreza=-1;}else if(detrez==10||detrez==11){ bono_destreza=0;}
+            else if(detrez==12||detrez==13){bono_destreza=1;} else if(detrez==14||detrez==15){bono_destreza=2;} else if(detrez==16||detrez==17){bono_destreza=3;}
+            else if(detrez==18||detrez==19){bono_destreza=4;}else{bono_destreza=5;}
+
+
+            if (personaje.getEquipo().equals("vacio")){
+                CA.setText(String.valueOf(10+bono_destreza));
+
+            }else{
+                if (personaje.getEquipo().contains("Acolchada")||personaje.getEquipo().contains("Cuero")){
+                    CA.setText(String.valueOf(11+bono_destreza));
+                }else if (personaje.getEquipo().contains("Cuero tachonado")){
+                    CA.setText(String.valueOf(12+bono_destreza));
+                }else if (personaje.getEquipo().contains("Pieles")){
+                    if (bono_destreza>2){bono_destreza=2;}
+                    CA.setText(String.valueOf(12+bono_destreza));
+                }else if (personaje.getEquipo().contains("camiseta de mallas")){
+                    if (bono_destreza>2){bono_destreza=2;}
+                    CA.setText(String.valueOf(13+bono_destreza));
+                }else if (personaje.getEquipo().contains("Cota de escamas")||personaje.getEquipo().contains("Coraza")){
+                    if (bono_destreza>2){bono_destreza=2;}
+                    CA.setText(String.valueOf(14+bono_destreza));
+                }else if (personaje.getEquipo().contains("Semiplacas")){
+                    if (bono_destreza>2){bono_destreza=2;}
+                    CA.setText(String.valueOf(15+bono_destreza));
+                }else if(personaje.getEquipo().contains("Cota de anillas")){
+                    CA.setText(String.valueOf(14));
+                }else if(personaje.getEquipo().contains("Cota de mallas")){
+                    CA.setText(String.valueOf(16));
+                }else if(personaje.getEquipo().contains("Bandas")){
+                    CA.setText(String.valueOf(17));
+                }else if(personaje.getEquipo().contains("Placas")){
+                    CA.setText(String.valueOf(18));
+                }
+                if (personaje.getEquipo().contains("Escudo")){
+                    CA.setText(String.valueOf(2+Integer.parseInt(String.valueOf(CA.getText()))));
+                }
+            }
             Nivel.setText(String.valueOf(personaje.getNivel()));
-            Turno.setText(String.valueOf(personaje.getTurno()));
+            Turno.setText(String.valueOf(bono_destreza));
             XP.setText(String.valueOf(personaje.getXp()));
             lenguaje1.setText(personaje.getLengua1());
             lenguaje2.setText(personaje.getLengua2());

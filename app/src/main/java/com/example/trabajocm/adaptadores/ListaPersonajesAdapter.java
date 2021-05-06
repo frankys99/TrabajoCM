@@ -38,6 +38,12 @@ public class ListaPersonajesAdapter extends RecyclerView.Adapter<ListaPersonajes
 
     @Override
     public void onBindViewHolder(@NonNull PersonajeViewHolder holder, int position) {
+        int fuerz=listaPersonajes.get(position).getFuerza();
+        int destrez=listaPersonajes.get(position).getDestreza();
+        int consti = listaPersonajes.get(position).getConstitucion();
+        int inteli = listaPersonajes.get(position).getInteligencia();
+        int Sabi = listaPersonajes.get(position).getSabiduria();
+        int Caris = listaPersonajes.get(position).getCarisma();
 
         holder.viewFoto.setImageURI(Uri.parse(listaPersonajes.get(position).getImagen()));
 
@@ -46,12 +52,78 @@ public class ListaPersonajesAdapter extends RecyclerView.Adapter<ListaPersonajes
         holder.viewRaza.setText(listaPersonajes.get(position).getRaza());
         holder.viewClase.setText(listaPersonajes.get(position).getClase());
 
-        holder.viewFuerza.setText("" +listaPersonajes.get(position).getFuerza());
-        holder.viewDestreza.setText("" +listaPersonajes.get(position).getDestreza());
-        holder.viewConstitucion.setText("" +listaPersonajes.get(position).getConstitucion());
-        holder.viewInteligencia.setText("" +listaPersonajes.get(position).getInteligencia());
-        holder.viewSabiduria.setText("" +listaPersonajes.get(position).getSabiduria());
-        holder.viewCarisma.setText("" +listaPersonajes.get(position).getCarisma());
+        if(listaPersonajes.get(position).getRaza().equals("Humano")){
+            holder.viewFuerza.setText("" +(fuerz+1));
+            holder.viewDestreza.setText("" +(destrez+1));
+            holder.viewConstitucion.setText("" +(consti+1));
+            holder.viewInteligencia.setText("" +(inteli+1));
+            holder.viewSabiduria.setText("" +(Sabi+1));
+            holder.viewCarisma.setText("" +(Caris+1));
+
+        }else if(listaPersonajes.get(position).getRaza().equals("Elfo")){
+            holder.viewFuerza.setText("" +(fuerz));
+            holder.viewDestreza.setText("" +(destrez+2));
+            holder.viewConstitucion.setText("" +(consti));
+            holder.viewInteligencia.setText("" +(inteli));
+            holder.viewSabiduria.setText("" +(Sabi));
+            holder.viewCarisma.setText("" +(Caris));
+        }else if (listaPersonajes.get(position).getRaza().equals("Dracónido")){
+            holder.viewFuerza.setText("" +(fuerz+2));
+            holder.viewDestreza.setText("" +(destrez));
+            holder.viewConstitucion.setText("" +(consti));
+            holder.viewInteligencia.setText("" +(inteli));
+            holder.viewSabiduria.setText("" +(Sabi));
+            holder.viewCarisma.setText("" +(Caris+1));
+        }else if (listaPersonajes.get(position).getRaza().equals("Enano")){
+            holder.viewFuerza.setText("" +(fuerz));
+            holder.viewDestreza.setText("" +(destrez));
+            holder.viewConstitucion.setText("" +(consti+2));
+            holder.viewInteligencia.setText("" +(inteli));
+            holder.viewSabiduria.setText("" +(Sabi));
+            holder.viewCarisma.setText("" +(Caris));
+        }else if (listaPersonajes.get(position).getRaza().equals("Gnomo")){
+            holder.viewFuerza.setText("" +(fuerz));
+            holder.viewDestreza.setText("" +(destrez));
+            holder.viewConstitucion.setText("" +(consti));
+            holder.viewInteligencia.setText("" +(inteli+2));
+            holder.viewSabiduria.setText("" +(Sabi));
+            holder.viewCarisma.setText("" +(Caris));
+        }else if (listaPersonajes.get(position).getRaza().equals("Medio elfo")){
+            holder.viewFuerza.setText("" +(fuerz));
+            holder.viewDestreza.setText("" +(destrez));
+            holder.viewConstitucion.setText("" +(consti));
+            holder.viewInteligencia.setText("" +(inteli));
+            holder.viewSabiduria.setText("" +(Sabi));
+            holder.viewCarisma.setText("" +(Caris+2));
+        }else if (listaPersonajes.get(position).getRaza().equals("Medio orco")){
+            holder.viewFuerza.setText("" +(fuerz+2));
+            holder.viewDestreza.setText("" +(destrez));
+            holder.viewConstitucion.setText("" +(consti+1));
+            holder.viewInteligencia.setText("" +(inteli));
+            holder.viewSabiduria.setText("" +(Sabi));
+            holder.viewCarisma.setText("" +(Caris));
+        }else if (listaPersonajes.get(position).getRaza().equals("Mediano")){
+            holder.viewFuerza.setText("" +(fuerz));
+            holder.viewDestreza.setText("" +(destrez+2));
+            holder.viewConstitucion.setText("" +(consti));
+            holder.viewInteligencia.setText("" +(inteli));
+            holder.viewSabiduria.setText("" +(Sabi));
+            holder.viewCarisma.setText("" +(Caris));
+        }else if (listaPersonajes.get(position).getRaza().equals("Tiefling")){
+            holder.viewFuerza.setText("" +(fuerz));
+            holder.viewDestreza.setText("" +(destrez));
+            holder.viewConstitucion.setText("" +(consti));
+            holder.viewInteligencia.setText("" +(inteli+1));
+            holder.viewSabiduria.setText("" +(Sabi));
+            holder.viewCarisma.setText("" +(Caris+2));
+        }else{
+            holder.viewFuerza.setText("" +(fuerz));
+            holder.viewDestreza.setText("" +(destrez));
+            holder.viewConstitucion.setText("" +(consti));
+            holder.viewInteligencia.setText("" +(inteli));
+            holder.viewSabiduria.setText("" +(Sabi));
+            holder.viewCarisma.setText("" +(Caris));
+        }
 
     }
 
