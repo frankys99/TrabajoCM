@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,18 +21,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Crea_personaje_1 extends Activity {
+/*  //TODO
+    QUEDA POR HACER:
+        - TEXTO A INTRODUCIR EN EL TEXTVIEW SOBRE LA RAZA (PREGUNTAR)
+*/
 
-    ImageView imagen;
-    private String nombrePersonaje;
-    private TextView textoRazas;
+public class Crea_personaje_1 extends Activity {
+    // Estas variables se enviaran a otra activity
+    private String raza;
+    private String velocidad;
+    private String tamaño;
+    private String alineamiento;
+    private String competencias;
+    private ImageView imagen;
+    private EditText nombre;
+    //////////////////////////////
+    private TextView textoRazas; // Texto que aparece en el cuadro según la raza que se seleccione
     private Spinner spinnerAlineamientos;
     private Spinner spinnerRazas;
-    private String alineamiento;
-    private String raza;
-    private String nombre;
-    private Integer velocidad;
-    private String tamaño;
     private Button atras;
     private Map<String,List<String>> statsRazas = new HashMap<>();
     // statsRazas = <Raza, [tamaño, velocidad, stat1, valorstat1, stat2, valorstat2]>
@@ -65,10 +70,16 @@ public class Crea_personaje_1 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crea_personaje_1);
+
+
         // Inicializamos el diccionario con los datos de las razas
         setStatsRazas(statsRazas);
 
         imagen = (ImageView) findViewById(R.id.imageId);
+        //Para pasar la imagen
+        imagen.buildDrawingCache();
+        Datos.setImagen(imagen.getDrawingCache());
+
         textoRazas= (TextView) findViewById(R.id.textoRaza);
         spinnerAlineamientos = (Spinner) findViewById(R.id.spinnerAlineamientos);
         spinnerRazas = (Spinner) findViewById(R.id.spinnerRazas);
@@ -79,14 +90,27 @@ public class Crea_personaje_1 extends Activity {
         TextView comp = (TextView) findViewById(R.id.competencias);
 
         // Obtenemos el nombre del personaje
-        EditText nombre= (EditText) findViewById(R.id.nombrePersonaje);
-        nombrePersonaje = String.valueOf(nombre.getText());
+        nombre= (EditText) findViewById(R.id.nombrePersonaje);
 
         // Adaptadores spinners
         ArrayAdapter<CharSequence> adapterAlineamientos = ArrayAdapter.createFromResource(this,R.array.ArrayAlineamientos, android.R.layout.simple_spinner_item);
         spinnerAlineamientos.setAdapter(adapterAlineamientos);
         ArrayAdapter<CharSequence> adapterRazas = ArrayAdapter.createFromResource(this,R.array.ArrayRazas, android.R.layout.simple_spinner_item);
         spinnerRazas.setAdapter(adapterRazas);
+
+        spinnerAlineamientos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            //Para seleccionar y pasar el alineamiento a otra pantalla
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Datos.setAlineamiento(parent.getItemAtPosition(position).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // NO hacer nada
+            }
+        });
 
         spinnerRazas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @SuppressLint("SetTextI18n")
@@ -96,7 +120,7 @@ public class Crea_personaje_1 extends Activity {
                 String razaSeleccionada = parent.getItemAtPosition(position).toString();
                 textoRazas.setText("Seleccionado "+ razaSeleccionada);
 
-                // Reiniciamos los text view para que al seleccionar otro elemento no hayaduplicidades en el texto
+                // Reiniciamos los text view para que al seleccionar otro elemento no haya duplicidades en el texto
                 vel.setText("Velocidad:");
                 tam.setText("Tamaño:");
                 comp.setText("Competencias de habilidades:");
@@ -105,13 +129,22 @@ public class Crea_personaje_1 extends Activity {
                 // statsRazas = <Raza, [tamaño, velocidad, stat1, valorstat1, stat2, valorstat2]>
 
                 vel.setText(vel.getText() + " " + statsRazas.get(razaSeleccionada).get(1));
+                Datos.setVelocidad(statsRazas.get(razaSeleccionada).get(1));
                 tam.setText(tam.getText() + " " + statsRazas.get(razaSeleccionada).get(0));
+                Datos.setTamaño(statsRazas.get(razaSeleccionada).get(0));
                 if(statsRazas.get(razaSeleccionada).size()==6){
+                    Datos.setRaza(razaSeleccionada);
+                    Datos.setCompetencias(statsRazas.get(razaSeleccionada).get(2) + " " +statsRazas.get(razaSeleccionada).get(3) + " " + statsRazas.get(razaSeleccionada).get(4) + " " +statsRazas.get(razaSeleccionada).get(5));
                     comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(2) + " +"+ statsRazas.get(razaSeleccionada).get(3) +
                             ", " + statsRazas.get(razaSeleccionada).get(4) + " +" + statsRazas.get(razaSeleccionada).get(5));
+
                 }else if(statsRazas.get(razaSeleccionada).size()==4){
+                    Datos.setRaza(razaSeleccionada);
+                    Datos.setCompetencias(statsRazas.get(razaSeleccionada).get(2) + statsRazas.get(razaSeleccionada).get(3));
                     comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(2) + " +"+ statsRazas.get(razaSeleccionada).get(3));
                 }else{
+                    Datos.setRaza(razaSeleccionada);
+                    Datos.setCompetencias("");
                     comp.setText(comp.getText() + " Esta raza no tiene competencias extra");
                 }
 
@@ -124,7 +157,7 @@ public class Crea_personaje_1 extends Activity {
         });
 
 
-
+        // Boton para ir hacia atrás
         atras =findViewById(R.id.atras);
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +166,17 @@ public class Crea_personaje_1 extends Activity {
                 startActivity(intent);
             }
         });
+
     }
+    // Funcion para pasar datos a otra activity
+    public void ejecuta_suguiente(View view){      // Cambiar por clase a la que va dirigida
+        Intent j = new Intent(this, Mis_personajes.class);
+        Datos.setNombre(nombre.getText().toString());
+        startActivity(j);
+    }
+
+
+
 
     // Funciones para el boton de seleccion de imagen de galeria
     public void onclick(View view) {
