@@ -42,9 +42,10 @@ public class SeleccClase extends AppCompatActivity {
 
         setContentView(R.layout.creacion_pj_clase_2);
 
-        //Cargar las clases de la API
-        //getMethod();
+        //Cargar las clases de la APIRest
         ls_clases = Datos.getLs_clases();
+
+        //TEST RAZASAPI
         Log.i("---CARGA\n", Datos.getLs_razas().toString());
 
         //Declarar TextView
@@ -84,45 +85,67 @@ public class SeleccClase extends AppCompatActivity {
                         //TODO añadir DB
                     }
                 }
+
                 info_clase.setText("Información sobre: " + clase_Seleccionada.getNombre());
-                //proficiencias
-                comp_armas.setText(Arrays.toString(clase_Seleccionada.getProficiencias().getArmas()));
-                //TODO añadir DB
-                comp_armaduras.setText(Arrays.toString(clase_Seleccionada.getProficiencias().getArmaduras()));
+
+                //PROFICIENCIAS
+                String armas_s = Datos.formatListaElem(clase_Seleccionada.getProficiencias().getArmas());
+                comp_armas.setText(armas_s);
                 //TODO añadir DB
 
-                //Habilidad especial
+                String armaduras_s = Datos.formatListaElem(clase_Seleccionada.getProficiencias().getArmaduras());
+                comp_armaduras.setText(armaduras_s);
+                //TODO añadir DB
+
+                //HABILIDAD ESPECIAL DE LA CLASE
                 cabecera_hab_esp.setText(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
                 //TODO añadir DB
-                text_hab_esp.setText(clase_Seleccionada.getHabilidad_esp().getDescripcion_hab().toString());
+                String descripcion_hab_s = Datos.formatListaTexto(clase_Seleccionada.getHabilidad_esp().getDescripcion_hab());
+                text_hab_esp.setText(descripcion_hab_s);
                 //TODO añadir DB
 
-                //Spinner de habilidades
-                /*
+                //HABILIDADES A ESCOGER
+                //Spinner de habilidad_1
                 List<String>ls_habilidades = clase_Seleccionada.getProficiencias().getHabilidades();
                 String[] opciones_hab_spinner = new String[ls_habilidades.size()];
                 ls_habilidades.toArray(opciones_hab_spinner);
-                */
-                String[] opciones_hab_spinner = clase_Seleccionada.getProficiencias().getHabilidades();
 
                 ArrayAdapter<String>adapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_hab_spinner);
+                //adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 comp_hab_1.setAdapter(adapter2);
                 //TODO añadir DB
-                //TODO Elminar var seleccionada
-                ArrayAdapter<String>adapter3 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_hab_spinner);
-                comp_hab_2.setAdapter(adapter3);
-                //TODO añadir DB
-                //TODO Elminar var seleccionada
 
-                //Spinner selec equipo/oro
+                    //TODO AÑADIR BLANK ITEM AL SPINNER -> ¿Con DropDownView?
+                    //Eliminar selección del spinner -> evitar duplicados
+                    comp_hab_1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            ls_habilidades.remove(comp_hab_1.getSelectedItem());
+
+                            //Spinner habilidad_2
+                            String[] opciones_hab_2_spinner = new String[ls_habilidades.size()];
+                            ls_habilidades.toArray(opciones_hab_2_spinner);
+                            ArrayAdapter<String>adapter3 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_hab_2_spinner);
+                            comp_hab_2.setAdapter(adapter3);
+                            //TODO añadir DB
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
                 /*
+                //Spinner selec equipo/oro
                 String[] opciones_equipo_def = new String[]{"Equipo inicial","Oro"};
                 ArrayAdapter<String>adapter4 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_equipo_def);
                 selec_equipo.setAdapter(adapter4);
-                //TODO añadir a DB
-
                  */
-                res_spinner_sel_equipo.setText("Equipo Inicial:\n" + clase_Seleccionada.getEquipo_inicial());
+
+                //EQUIPO INICIAL
+                String equipo_ini_s = Datos.formatListaElem(clase_Seleccionada.getEquipo_inicial());
+                res_spinner_sel_equipo.setText(equipo_ini_s);
             }
 
             @Override
@@ -131,7 +154,7 @@ public class SeleccClase extends AppCompatActivity {
             }
         });
 
-        //evento click_icono - > Info clase ventana emergente
+        //EVENTO ON-CLICK ÍCONO - > Info clase ventana emergente
         icono_info_clase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,6 +186,5 @@ public class SeleccClase extends AppCompatActivity {
             }
         });
         */
-
     }
 }

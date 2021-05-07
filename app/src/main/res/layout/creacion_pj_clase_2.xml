@@ -69,12 +69,14 @@
             android:id="@+id/comp_armas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Competencias con Armas:" />
+            android:text="Competencias con Armas:"
+            />
 
         <TextView
             android:id="@+id/text_comp_armas"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"/>
 
         <Space
             android:layout_width="match_parent"
@@ -89,7 +91,8 @@
         <TextView
             android:id="@+id/text_comp_armaduras"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"/>
 
         <Space
             android:layout_width="match_parent"
@@ -103,7 +106,8 @@
         <TextView
             android:id="@+id/text_hab_esp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"/>
 
         <Space
             android:layout_width="match_parent"
@@ -138,7 +142,8 @@
         <TextView
             android:id="@+id/res_spinner_equipo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"/>
 
         <Space
             android:layout_width="match_parent"

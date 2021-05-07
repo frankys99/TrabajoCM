@@ -20,4 +20,28 @@ public class Datos {
     }
 
     public static List<Raza> getLs_razas(){return ls_razas;}
+
+
+    //Metodos genericos para formatear datos de la api
+    public static String formatListaTexto(List<String>ls){
+        String res = "";
+        for(int i = 0; i<ls.size();i++){
+            if(ls.get(i).contains(".")){
+                String aux = ls.get(i).replace(".",".\n");
+                res += aux;
+            }else{
+                res += ls.get(i) + " ";
+            }
+        }
+        return  res;
+    }
+
+    public static String formatListaElem(List<String>ls){
+        String res = "";
+        for(int i = 0; i<ls.size();i++){
+            String aux = ls.get(i);
+            res += aux + "\n";
+        }
+        return  res;
+    }
 }

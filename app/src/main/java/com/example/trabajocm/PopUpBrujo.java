@@ -15,7 +15,7 @@ public class PopUpBrujo extends AppCompatActivity {
 
         setContentView(R.layout.activity_pop_up_brujo);
         txtBrujo = (TextView)findViewById(R.id.txtInfo);
-        txtBrujo.setText(Datos.getLs_clases().get(1).getInfo_clase().toString());
+        txtBrujo.setText(Datos.formatListaTexto(Datos.getLs_clases().get(1).getInfo_clase()));
 
         DisplayMetrics medidasPopup = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(medidasPopup);

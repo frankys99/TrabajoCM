@@ -16,7 +16,7 @@ public class PopUpPaladin extends AppCompatActivity {
         setContentView(R.layout.activity_pop_up_paladin);
 
         txtPaladin = (TextView)findViewById(R.id.txtInfo);
-        txtPaladin.setText(Datos.getLs_clases().get(0).getInfo_clase().toString());
+        txtPaladin.setText(Datos.formatListaTexto(Datos.getLs_clases().get(0).getInfo_clase()));
 
 
         DisplayMetrics medidasPopup = new DisplayMetrics();

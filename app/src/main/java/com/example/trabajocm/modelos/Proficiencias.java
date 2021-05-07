@@ -9,43 +9,24 @@ import java.util.List;
 public class Proficiencias {
 
     //Model class for proficiencias data
+
     @SerializedName("Armaduras")
     @Expose
-    private String[] armaduras;
+    private List<String> armaduras;
     @SerializedName("Armas")
     @Expose
-    private String[] armas;
+    private List<String> armas;
     @SerializedName("Herramientas")
     @Expose
-    private String[] herramientas;
+    private List<String> herramientas;
     @SerializedName("Salvaciones")
     @Expose
-    private String[] salvaciones;
+    private List<String> salvaciones;
     @SerializedName("Habilidades")
     @Expose
-    private String[] habilidades;
+    private List<String> habilidades;
 
-    public String[] getArmaduras() {
-        return armaduras;
-    }
-
-    public String[] getArmas() {
-        return armas;
-    }
-
-    public String[] getHerramientas() {
-        return herramientas;
-    }
-
-    public String[] getSalvaciones() {
-        return salvaciones;
-    }
-
-    public String[] getHabilidades() {
-        return habilidades;
-    }
-
-    public Proficiencias(String[] armaduras, String[] armas, String[] herramientas, String[] salvaciones, String[] habilidades) {
+    public Proficiencias(List<String> armaduras, List<String> armas, List<String> herramientas, List<String> salvaciones, List<String> habilidades) {
         this.armaduras = armaduras;
         this.armas = armas;
         this.herramientas = herramientas;
@@ -53,14 +34,34 @@ public class Proficiencias {
         this.habilidades = habilidades;
     }
 
+    public List<String> getArmaduras() {
+        return armaduras;
+    }
+
+    public List<String> getArmas() {
+        return armas;
+    }
+
+    public List<String> getHerramientas() {
+        return herramientas;
+    }
+
+    public List<String> getSalvaciones() {
+        return salvaciones;
+    }
+
+    public List<String> getHabilidades() {
+        return habilidades;
+    }
+
     @Override
     public String toString() {
         return "Proficiencias{" +
-                "armaduras=" + Arrays.toString(armaduras) +
-                ", armas=" + Arrays.toString(armas) +
-                ", herramientas=" + Arrays.toString(herramientas) +
-                ", salvaciones=" + Arrays.toString(salvaciones) +
-                ", habilidades=" + Arrays.toString(habilidades) +
+                "armaduras=" + armaduras +
+                ", armas=" + armas +
+                ", herramientas=" + herramientas +
+                ", salvaciones=" + salvaciones +
+                ", habilidades=" + habilidades +
                 '}';
     }
 }
