@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Crea_personaje_1 extends Activity {
 
@@ -23,6 +24,8 @@ public class Crea_personaje_1 extends Activity {
     private Integer velocidad;
     private String tamaño;
     private Button atras;
+    private Button siguiente;
+    private int contador = 0;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class Crea_personaje_1 extends Activity {
         imagen = (ImageView) findViewById(R.id.imageId);
         spinner1 = (Spinner) findViewById(R.id.spinner);
         spinner2 = (Spinner) findViewById(R.id.spinner2);
+
 
         String [] opciones1 ={"Dragonborn","Dwarf","Elf","Gnome","Half-Elf",
         "Half-Orc","Halfling","Human","Tiefling"};
@@ -48,6 +52,25 @@ public class Crea_personaje_1 extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+
+        siguiente =findViewById(R.id.button2);
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+                if (contador ==0){
+                    Toast.makeText(Crea_personaje_1.this,"Primer click", Toast.LENGTH_LONG).show();
+                    contador++;
+                }else if(contador ==1){
+                    Toast.makeText(Crea_personaje_1.this,"Segundo click", Toast.LENGTH_LONG).show();
+                    contador++;
+                }else if(contador==2){
+                    Toast.makeText(Crea_personaje_1.this,"Tercer click y a la verga", Toast.LENGTH_LONG).show();
+                    contador++;
+                }else if(contador==3){}
             }
         });
     }
