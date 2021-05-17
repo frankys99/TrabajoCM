@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Crea_personaje_2 extends Activity {
-
     Random rand = new Random();
     Integer fuerza = 10;
     Integer destreza = 10;
@@ -22,7 +21,7 @@ public class Crea_personaje_2 extends Activity {
     Integer inteligencia = 10;
     String cadena = "";
     String delim = ", ";
-    private Boolean reroll;
+    private Integer reroll;
 
     private EditText edtFuerza;
     private EditText edtDestreza;
@@ -43,23 +42,30 @@ public class Crea_personaje_2 extends Activity {
         return listaStats;
     }
 
-    public List<String> listaCadenas (List<Integer> l) {
-        List<String> a = new ArrayList<String>();
-        for (Integer i : l) {
-            String s =String.valueOf(i);
-            a.add(s);
-        }
-        return a;
-    }
-    public void onclick(View view) {
+    public void onclick (View view) {
         muestraNumeros(reroll);
+        //Aqui pondré algo para comprobar si el usuario ha hecho click de nuevo
+        reroll += 1;
     }
 
-    private void muestraNumeros(Boolean r) {
-        lm = generaNumeros();
-        if (r == Boolean.FALSE){
+    private void muestraNumeros(Integer r) {
+        TextView textoNumeros = findViewById(R.id.textoNumeros);
+        TextView ta = (TextView) findViewById(R.id.textView);
+        if (r == 0){
+            lm = generaNumeros();
             cadena = "Estos son tus stats. Pulsa otra vez Generar para generar nuevos stats";
-            TextView textoNumeros = findViewById(R.id.textoNumeros);
+            ta.setText(cadena);
+            StringBuilder sb = new StringBuilder();
+            for (Integer s : lm)
+            {
+                sb.append(s);
+                sb.append("\t");
+            }
+            textoNumeros.setText(sb);
+        }  else if (r == 1) {
+            lm = generaNumeros();
+            cadena = "Estos son tus stats definitivos, no pueden cambiarse";
+            ta.setText(cadena);
             StringBuilder sb = new StringBuilder();
             for (Integer s : lm)
             {
@@ -68,8 +74,8 @@ public class Crea_personaje_2 extends Activity {
             }
             textoNumeros.setText(sb);
         } else {
-            lm = generaNumeros();
             cadena = "Estos son tus stats definitivos, no pueden cambiarse";
+            ta.setText(cadena);
         }
 
     }
@@ -78,22 +84,19 @@ public class Crea_personaje_2 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crea_personaje_2);
 
-        reroll = Boolean.FALSE;
-        edtFuerza = (EditText) findViewById(R.id.numeroFuerza);
+        reroll = 0;
+        edtFuerza = (EditText) findViewById(R.id.numeroCarisma);
         edtFuerza.setText(fuerza.toString());
-        edtDestreza = (EditText) findViewById(R.id.numeroDestreza);
+        edtDestreza = (EditText) findViewById(R.id.numeroFuerza);
         edtDestreza.setText(destreza.toString());
-        edtConstitucion = (EditText) findViewById(R.id.numeroConstitucion);
+        edtConstitucion = (EditText) findViewById(R.id.numeroDestreza);
         edtConstitucion.setText(constitucion.toString());
-        edtSabiduria = (EditText) findViewById(R.id.numeroFuerza);
+        edtSabiduria = (EditText) findViewById(R.id.numeroCarisma);
         edtSabiduria.setText(sabiduria.toString());
-        edtCarisma = (EditText) findViewById(R.id.numeroCarisma);
+        edtCarisma = (EditText) findViewById(R.id.numeroSabiduria);
         edtCarisma.setText(carisma.toString());
-        edtInteligencia =  (EditText) findViewById(R.id.numeroInteligencia);
+        edtInteligencia =  (EditText) findViewById(R.id.numeroConstitucion);
         edtInteligencia.setText(inteligencia.toString());
 
     }
-
-
-
 }

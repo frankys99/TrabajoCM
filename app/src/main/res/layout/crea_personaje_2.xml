@@ -5,143 +5,165 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/numeroDestreza"
-        android:layout_width="47dp"
-        android:layout_height="59dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="177dp" />
-
-    <EditText
-        android:id="@+id/numeroConstitucion"
-        android:layout_width="47dp"
-        android:layout_height="59dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="177dp" />
-
-    <EditText
-        android:id="@+id/numeroSabiduria"
-        android:layout_width="47dp"
-        android:layout_height="59dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="278dp"
-        tools:layout_editor_absoluteY="177dp" />
-
-    <EditText
-        android:id="@+id/numeroFuerza"
-        android:layout_width="49dp"
-        android:layout_height="59dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="177dp" />
-
-    <TextView
-        android:id="@+id/sabiduria"
-        android:layout_width="48dp"
-        android:layout_height="44dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="SAB"
-        tools:layout_editor_absoluteX="278dp"
-        tools:layout_editor_absoluteY="303dp" />
-
-    <TextView
-        android:id="@+id/constitucion"
-        android:layout_width="50dp"
-        android:layout_height="44dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="CON"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="303dp" />
-
-    <TextView
-        android:id="@+id/inteligencia"
-        android:layout_width="49dp"
-        android:layout_height="44dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="INT"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="303dp" />
-
-    <TextView
-        android:id="@+id/fuerza"
-        android:layout_width="49dp"
-        android:layout_height="44dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="FUE"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="303dp" />
-
-    <TextView
-        android:id="@+id/carisma"
-        android:layout_width="47dp"
-        android:layout_height="44dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="CAR"
-        tools:layout_editor_absoluteX="342dp"
-        tools:layout_editor_absoluteY="304dp" />
-
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Generar"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="462dp" />
-
-    <TextView
-        android:id="@+id/destreza"
-        android:layout_width="50dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="DES"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="302dp" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="379dp"></Button>
 
     <TextView
         android:id="@+id/textoNumeros"
         android:layout_width="237dp"
         android:layout_height="47dp"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="462dp">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="380dp">
 
     </TextView>
-
-    <EditText
-        android:id="@+id/numeroInteligencia"
-        android:layout_width="47dp"
-        android:layout_height="59dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="211dp"
-        tools:layout_editor_absoluteY="177dp" />
-
-    <EditText
-        android:id="@+id/numeroCarisma"
-        android:layout_width="47dp"
-        android:layout_height="59dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="342dp"
-        tools:layout_editor_absoluteY="177dp" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="307dp"
         android:layout_height="43dp"
         android:text="Aquí puedes generar tus stats aleatoriamente y ajustarlos a tu gusto"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="69dp" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="125dp" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/numeroFuerza"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="98dp"
+                tools:layout_editor_absoluteY="190dp" />
+
+            <EditText
+                android:id="@+id/numeroDestreza"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="189dp" />
+
+            <EditText
+                android:id="@+id/numeroConstitucion"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="154dp"
+                tools:layout_editor_absoluteY="187dp" />
+
+            <EditText
+                android:id="@+id/numeroInteligencia"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="number"
+                tools:layout_editor_absoluteY="192dp" />
+
+            <EditText
+                android:id="@+id/numeroSabiduria"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="number"
+                tools:layout_editor_absoluteY="190dp" />
+
+            <EditText
+                android:id="@+id/numeroCarisma"
+                android:layout_width="42dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="number" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/fuerza"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="FUE"
+                tools:layout_editor_absoluteX="19dp"
+                tools:layout_editor_absoluteY="258dp" />
+
+            <TextView
+                android:id="@+id/destreza"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="DES"
+                tools:layout_editor_absoluteX="85dp"
+                tools:layout_editor_absoluteY="258dp" />
+
+            <TextView
+                android:id="@+id/constitucion"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="CON"
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="252dp" />
+
+            <TextView
+                android:id="@+id/inteligencia"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="INT"
+                tools:layout_editor_absoluteX="220dp"
+                tools:layout_editor_absoluteY="255dp" />
+
+            <TextView
+                android:id="@+id/sabiduria"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="SAB"
+                tools:layout_editor_absoluteX="281dp"
+                tools:layout_editor_absoluteY="256dp" />
+
+            <TextView
+                android:id="@+id/carisma"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="CAR"
+                tools:layout_editor_absoluteX="339dp"
+                tools:layout_editor_absoluteY="254dp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="238dp"
+        android:layout_height="51dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="447dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
