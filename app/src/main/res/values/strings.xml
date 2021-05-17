@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Trabajo CM</string>
-    <string name="crear_personaje">Crear Personaje</string>
+    <string name="boton_crear">Crea un personaje</string>
+    <string name="boton_personajes">Mis personajes</string>
+    <string name="img_inicio">Imagen de inicio</string>
+    <string name="preg_nom">¿Cómo se llama tu personaje?</string>
+    <string name="raza">Escoge tu raza</string>
+    <string name="velocidad">Velocidad: </string>
+    <string name="tamaño">Tamaño: </string>
+    <string name="competencias">Competencias de habilidades:</string>
+    <string name="aumentos">Aumentos de característica</string>
+    <string name="img_perfil">Ponle una foto de perfil</string>
+    <string name="alineamiento">Escoge tu alineamiento</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="btn_galeria">Ir a galería</string>
+    <string name="escribe_nombre">Escribe el nombre aquí</string>
 </resources>

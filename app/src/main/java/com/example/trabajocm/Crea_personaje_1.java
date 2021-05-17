@@ -7,15 +7,10 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
-
-import java.lang.reflect.Array;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import android.widget.Toast;
 
 public class  Crea_personaje_1 extends Activity {
 
@@ -28,6 +23,10 @@ public class  Crea_personaje_1 extends Activity {
     private String nombre;
     private Integer velocidad;
     private String tamaño;
+    private Button atras;
+    private Button siguiente;
+    private int contador = 0;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +34,7 @@ public class  Crea_personaje_1 extends Activity {
         imagen = (ImageView) findViewById(R.id.imageId);
         spinner1 = (Spinner) findViewById(R.id.spinner);
         spinner2 = (Spinner) findViewById(R.id.spinner2);
+
 
         String [] opciones1 ={"Dragonborn","Dwarf","Elf","Gnome","Half-Elf",
         "Half-Orc","Halfling","Human","Tiefling"};
@@ -45,7 +45,37 @@ public class  Crea_personaje_1 extends Activity {
         spinner1.setAdapter(adapter);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones2);
         spinner2.setAdapter(adapter2);
+
+
+        atras =findViewById(R.id.atras);
+        atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+        siguiente =findViewById(R.id.button2);
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+                if (contador ==0){
+                    Toast.makeText(Crea_personaje_1.this,"Primer click", Toast.LENGTH_LONG).show();
+                    contador++;
+                }else if(contador ==1){
+                    Toast.makeText(Crea_personaje_1.this,"Segundo click", Toast.LENGTH_LONG).show();
+                    contador++;
+                }else if(contador==2){
+                    Toast.makeText(Crea_personaje_1.this,"Tercer click y a la verga", Toast.LENGTH_LONG).show();
+                    contador++;
+                }else if(contador==3){}
+            }
+        });
     }
+
+
     // Funciones para los spinner
     public void raza(View view){
         String valor = spinner2.getSelectedItem().toString();
@@ -66,6 +96,8 @@ public class  Crea_personaje_1 extends Activity {
         intent.setType("image/");
         startActivityForResult(intent.createChooser(intent,"Seleccione la aplicación"),10);
     }
+
+
     protected  void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
         if(resultCode==RESULT_OK){
