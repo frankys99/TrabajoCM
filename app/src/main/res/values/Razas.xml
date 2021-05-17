@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ArrayRazas">
+        <item>Dracónido</item>
+        <item>Enano</item>
+        <item>Elfo</item>
+        <item>Gnomo</item>
+        <item>Medio elfo</item>
+        <item>Medio orco</item>
+        <item>Mediano</item>
+        <item>Humano</item>
+        <item>Tiefling</item>
+    </string-array>
+</resources>

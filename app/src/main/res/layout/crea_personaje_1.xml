@@ -6,12 +6,12 @@
     android:layout_height="match_parent">
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinnerRazas"
         android:layout_width="164dp"
         android:layout_height="31dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.285" />
@@ -30,7 +30,7 @@
         app:layout_constraintVertical_bias="0.047" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/nombrePersonaje"
         android:layout_width="192dp"
         android:layout_height="45dp"
         android:ems="10"
@@ -93,10 +93,10 @@
         app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintVertical_bias="0.48" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/velocidad"
         android:layout_width="125dp"
         android:layout_height="34dp"
         android:text="@string/velocidad"
@@ -109,7 +109,7 @@
         app:layout_constraintVertical_bias="0.606" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/tamaño"
         android:layout_width="132dp"
         android:layout_height="30dp"
         android:text="@string/tamaño"
@@ -122,7 +122,7 @@
         app:layout_constraintVertical_bias="0.701" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/competencias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/competencias"
@@ -135,9 +135,10 @@
         app:layout_constraintVertical_bias="0.801" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/siguiente"
         android:layout_width="123dp"
         android:layout_height="50dp"
+        android:onClick="ejecuta_suguiente"
         android:text="@string/siguiente"
         app:backgroundTint="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -148,7 +149,7 @@
         app:layout_constraintVertical_bias="0.958" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerAlineamientos"
         android:layout_width="173dp"
         android:layout_height="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -156,21 +157,7 @@
         app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="208dp"
-        android:layout_height="148dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.871"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686" />
+        app:layout_constraintVertical_bias="0.536" />
 
     <Button
         android:id="@+id/button3"
@@ -210,5 +197,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.958"
         tools:ignore="HardcodedText,MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textoRaza"
+        android:layout_width="190dp"
+        android:layout_height="153dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.688" />
+
+    <TextView
+        android:id="@+id/Aumentos"
+        android:layout_width="171dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.431" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
