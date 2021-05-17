@@ -20,7 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Crea_personaje_1"></activity>
-        <activity android:name=".Mis_personajes"></activity>
     </application>
 
 </manifest>
