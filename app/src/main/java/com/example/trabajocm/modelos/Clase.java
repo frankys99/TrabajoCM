@@ -19,6 +19,7 @@ public class Clase {
     private List<String> equipo_inicial;
     private int dinero_inicial;
     private List<String> info_clase;
+    private String url_avatar;
 
 
     //Getters and setters
@@ -80,7 +81,15 @@ public class Clase {
         this.info_clase = info_clase;
     }
 
-    public Clase(int id, String nombre, Proficiencias proficiencias, Habilidad_esp habilidad_esp, List<String> equipo_inicial, int dinero_inicial, List<String> info_clase) {
+    public String getUrl_avatar() {
+        return url_avatar;
+    }
+
+    public void setUrl_avatar(String url_avatar) {
+        this.url_avatar = url_avatar;
+    }
+
+    public Clase(int id, String nombre, Proficiencias proficiencias, Habilidad_esp habilidad_esp, List<String> equipo_inicial, int dinero_inicial, List<String> info_clase, String url_avatar) {
         this.id = id;
         this.nombre = nombre;
         this.proficiencias = proficiencias;
@@ -88,6 +97,7 @@ public class Clase {
         this.equipo_inicial = equipo_inicial;
         this.dinero_inicial = dinero_inicial;
         this.info_clase = info_clase;
+        this.url_avatar = url_avatar;
     }
 
     @Override

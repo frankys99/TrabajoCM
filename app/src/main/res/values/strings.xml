@@ -3,38 +3,6 @@
     <string name="crear_personaje">Crear Personaje</string>
     <string name="mis_personajes" />
 
-    <string name="info_clase_paladin">As a Paladin, you gain the following Class Features.
-        Hit Points:
-        Hit Dice: 1d10 per Paladin level
-        Hit Points at 1st level: 10 + your Constitution modifier
-        Hit Points at Higher Levels: 1d10 (or 6) + your Constitution modifier per Paladin level after 1st
 
-        Starting Proficiencies
-        You are proficient with the following items, in addition to any Proficiencies provided by your race or Background.
-
-        Armor: Light Armor, Medium Armor, Heavy Armor, Shields
-        Weapons: Simple Weapons, Martial Weapons
-        Tools: none
-        Saving Throws: Wisdom, Charisma
-        Skills: Choose two from Athletics, Insight, Intimidation, Medicine, Persuasion, and Religion
-        ...
-    </string>
-
-    <string name="info_clase_brujo">As a Warlock, you gain the following Class Features.
-        Hit Points
-        Hit Dice: 1d8 per Warlock level
-        Hit Points at 1st level: 8 + your Constitution modifier
-        Hit Points at Higher Levels: 1d8 (or 5) + your Constitution modifier per Warlock level after 1st
-
-        Starting Proficiencies
-        You are proficient with the following items, in addition to any Proficiencies provided by your race or Background.
-
-        Armor: Light Armor
-        Weapons: Simple Weapons
-        Tools: none
-        Saving Throws: Wisdom, Charisma
-        Skills: Choose two Skills from Arcana, Deception, History, Intimidation, Investigation, Nature, and Religion
-        ...
-    </string>
 
 </resources>

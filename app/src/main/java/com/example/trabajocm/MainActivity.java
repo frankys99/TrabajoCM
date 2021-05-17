@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     //PANTALLA PROVISIONAL
     //YA QUE RETROFIT ES UNA PETICIÓN ASYNC => CARGAR PREVIAMENTE
     // API REST =>  https://github.com/keffren/CM2021-API
-    // HACER PREVIAMENTE : https://cm2021.herokuapp.com/api/v1/clases/loadInitialData
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Se ejecuta haciendo click boton de activity_main.xml
-    //android:onClick="ejecuta_selecClase"
+    // .xml -> android:onClick="ejecuta_selecClase"
     public void ejecuta_selecClase(View view){
         Intent i = new Intent(this, SeleccClase.class);
         startActivity(i);
@@ -52,9 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        //Create service
-        //ClaseService claseService = retrofit.create(ClaseService.class);
-        //Call<List<Clase>> call = claseService.getClases();
+        //Create service using the interface
         ApiService apiService = retrofit.create(ApiService.class);
         Call<List<Clase>> call_clases = apiService.getClases();
         Call<List<Raza>> call_razas = apiService.getRazas();

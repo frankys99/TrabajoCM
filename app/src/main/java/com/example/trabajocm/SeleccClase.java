@@ -2,7 +2,9 @@ package com.example.trabajocm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,8 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.trabajocm.modelos.Clase;
+import com.squareup.picasso.Picasso;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SeleccClase extends AppCompatActivity {
@@ -32,6 +35,13 @@ public class SeleccClase extends AppCompatActivity {
 
     private ImageView icono_info_clase;
 
+    //Dialogo
+    //private TextView info_clase_dialog;
+    //private ImageView avatar_clase_dialog;
+    private Dialog dialog;
+
+
+
     public List<Clase> ls_clases;
     public Clase clase_Seleccionada;
 
@@ -47,6 +57,8 @@ public class SeleccClase extends AppCompatActivity {
 
         //TEST RAZASAPI
         Log.i("---CARGA\n", Datos.getLs_razas().toString());
+
+
 
         //Declarar TextView
         info_clase = (TextView)findViewById(R.id.text_info_clase);
@@ -65,8 +77,12 @@ public class SeleccClase extends AppCompatActivity {
         comp_hab_2 = (Spinner)findViewById(R.id.spinner_comp_hab_2);
         //selec_equipo = (Spinner)findViewById(R.id.spinner_selec_equipo);
 
+        //Declaraciones del dialogo
+        //info_clase_dialog = (TextView)findViewById(R.id.info_clase_dialog);
+        //avatar_clase_dialog = (ImageView)findViewById(R.id.avatar_clase_dialog);
 
-        //Spinner de selec clases
+
+        //SPINNER: seleccionar clase
         String[] opciones_spinner_clases = new String[ls_clases.size()];
         for(int i = 0; i < ls_clases.size(); i++){
             opciones_spinner_clases[i] = ls_clases.get(i).getNombre();
@@ -75,7 +91,7 @@ public class SeleccClase extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones_spinner_clases);
         clases_spiner.setAdapter(adapter);
 
-        //Set clase_spinner method
+        //SPINNER: setOnItemSelected
         clases_spiner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -85,6 +101,8 @@ public class SeleccClase extends AppCompatActivity {
                         //TODO añadir DB
                     }
                 }
+                //Precargar avatar y text para el dialogo
+                //preDialog();
 
                 info_clase.setText("Información sobre: " + clase_Seleccionada.getNombre());
 
@@ -105,26 +123,28 @@ public class SeleccClase extends AppCompatActivity {
                 //TODO añadir DB
 
                 //HABILIDADES A ESCOGER
-                //Spinner de habilidad_1
+                //SPINNER: habilidad_1
                 List<String>ls_habilidades = clase_Seleccionada.getProficiencias().getHabilidades();
                 String[] opciones_hab_spinner = new String[ls_habilidades.size()];
                 ls_habilidades.toArray(opciones_hab_spinner);
 
                 ArrayAdapter<String>adapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_hab_spinner);
-                //adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 comp_hab_1.setAdapter(adapter2);
                 //TODO añadir DB
 
-                    //TODO AÑADIR BLANK ITEM AL SPINNER -> ¿Con DropDownView?
+                    //Spinner hab_1 seleccionado -> Generar opciones del spinner hab_2
                     //Eliminar selección del spinner -> evitar duplicados
                     comp_hab_1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            ls_habilidades.remove(comp_hab_1.getSelectedItem());
 
-                            //Spinner habilidad_2
-                            String[] opciones_hab_2_spinner = new String[ls_habilidades.size()];
-                            ls_habilidades.toArray(opciones_hab_2_spinner);
+                            //SPINNER ANIDADO: habilidad_2
+                            List<String>ls_aux = new ArrayList<String>(ls_habilidades);  //copiar ls sin referencia
+                                //Eliminar hab_1 seleccionada -> evitar duplicados
+                                ls_aux.remove(comp_hab_1.getSelectedItem());
+
+                            String[] opciones_hab_2_spinner = new String[ls_aux.size()];
+                            ls_aux.toArray(opciones_hab_2_spinner);
                             ArrayAdapter<String>adapter3 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_hab_2_spinner);
                             comp_hab_2.setAdapter(adapter3);
                             //TODO añadir DB
@@ -159,14 +179,36 @@ public class SeleccClase extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(clase_Seleccionada.getNombre().equals("Paladin")){
-                    startActivity(new Intent(SeleccClase.this, PopUpPaladin.class));
+
+                    //DIALOGO
+                    abrirDialogo();
+                    /*
+                    AlertDialog.Builder d_builder = new AlertDialog.Builder(getBaseContext());
+
+                    // Crea una instancia de un archivo XML de diseño en sus objetos de vista correspondientes.
+                    //   Ejemplo : comparan un Layoutinflater con un hinchador de playa, entiendo la metáfora que dentro va el XML como gas
+                    //     y la pelota de playa sería la variable tipo vista/View dónde se carga ese XML
+
+                    LayoutInflater inflater = getLayoutInflater();
+                    d_builder.setView(inflater.inflate(R.layout.dialog_info_clase, null))
+                            .setNegativeButton("[X]", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog a_d = d_builder.create();
+                    a_d.show();
+                    */
+
                 }else if(clase_Seleccionada.getNombre().equals("Brujo")){
-                    startActivity(new Intent(SeleccClase.this,PopUpBrujo.class));
+                    abrirDialogo();
                 }
             }
         });
 
-        //Spinner selec_equipo metodo
+
         /* DESPRECIADO -> NO SE DA A ESCOGER
         selec_equipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -187,4 +229,38 @@ public class SeleccClase extends AppCompatActivity {
         });
         */
     }
+
+    private void abrirDialogo(){
+        //https://www.youtube.com/watch?v=5PaWtQAOdi8
+
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_info_clase);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        //Declarar
+        ImageView avatar_clase_dialog = dialog.findViewById(R.id.avatar_clase_dialog);
+        ImageView icono_cerrar_dialog = dialog.findViewById(R.id.imageViewClose);
+        TextView nombre_clase_dialog = dialog.findViewById(R.id.nombre_clase_dialog);
+        TextView info_clase_dialog = dialog.findViewById(R.id.info_clase_dialog);
+
+        //Set
+        nombre_clase_dialog.setText(clase_Seleccionada.getNombre());
+        info_clase_dialog.setText(Datos.formatListaTexto(clase_Seleccionada.getInfo_clase()));
+        Picasso.get()
+                .load(clase_Seleccionada.getUrl_avatar())
+                .resize(600,600)
+                .into(avatar_clase_dialog);
+
+        //Implementar funcion mipmap.close
+        icono_cerrar_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
+    }
+
 }
