@@ -41,7 +41,8 @@ public class Mis_personajes extends Activity {
         String competencias = Datos.getCompetencias();
 
 
-        imagen.setImageBitmap(Datos.getImagen());
+        //Imagen TODO
+        imagen.setImageURI(Datos.getUri());
         textoTamaño.setText(tamaño);
         textoAlineamiento.setText(alineamiento);
         textovelocidad.setText(velocidad);

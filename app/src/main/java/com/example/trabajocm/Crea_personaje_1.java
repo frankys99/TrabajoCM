@@ -28,11 +28,6 @@ import java.util.Map;
 
 public class Crea_personaje_1 extends Activity {
     // Estas variables se enviaran a otra activity
-    private String raza;
-    private String velocidad;
-    private String tamaño;
-    private String alineamiento;
-    private String competencias;
     private ImageView imagen;
     private EditText nombre;
     //////////////////////////////
@@ -56,14 +51,14 @@ public class Crea_personaje_1 extends Activity {
     List<String> tiefling = new ArrayList<String>(Arrays.asList("Small", "30"));
 
     public void setStatsRazas(Map<String, List<String>> statsRazas) {
-        this.statsRazas.put("Dragonborn",dragonborn);
-        this.statsRazas.put("Dwarf",dwarf);
-        this.statsRazas.put("Elf",elf);
-        this.statsRazas.put("Gnome",gnome);
-        this.statsRazas.put("Half-Elf",half_elf);
-        this.statsRazas.put("Half-Orc",half_orc);
-        this.statsRazas.put("Halfling",halfling);
-        this.statsRazas.put("Human",human);
+        this.statsRazas.put("Dracónido",dragonborn);
+        this.statsRazas.put("Enano",dwarf);
+        this.statsRazas.put("Elfo",elf);
+        this.statsRazas.put("Gnomo",gnome);
+        this.statsRazas.put("Medio elfo",half_elf);
+        this.statsRazas.put("Medio orco",half_orc);
+        this.statsRazas.put("Mediano",halfling);
+        this.statsRazas.put("Humano",human);
         this.statsRazas.put("Tiefling",tiefling);
     }
 
@@ -76,9 +71,7 @@ public class Crea_personaje_1 extends Activity {
         setStatsRazas(statsRazas);
 
         imagen = (ImageView) findViewById(R.id.imageId);
-        //Para pasar la imagen
-        imagen.buildDrawingCache();
-        Datos.setImagen(imagen.getDrawingCache());
+        Datos.setImagen(imagen);
 
         textoRazas= (TextView) findViewById(R.id.textoRaza);
         spinnerAlineamientos = (Spinner) findViewById(R.id.spinnerAlineamientos);
@@ -135,13 +128,13 @@ public class Crea_personaje_1 extends Activity {
                 if(statsRazas.get(razaSeleccionada).size()==6){
                     Datos.setRaza(razaSeleccionada);
                     Datos.setCompetencias(statsRazas.get(razaSeleccionada).get(2) + " " +statsRazas.get(razaSeleccionada).get(3) + " " + statsRazas.get(razaSeleccionada).get(4) + " " +statsRazas.get(razaSeleccionada).get(5));
-                    comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(2) + " +"+ statsRazas.get(razaSeleccionada).get(3) +
-                            ", " + statsRazas.get(razaSeleccionada).get(4) + " +" + statsRazas.get(razaSeleccionada).get(5));
+                    comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(2) + " + "+ statsRazas.get(razaSeleccionada).get(3) +
+                            ", " + statsRazas.get(razaSeleccionada).get(4) + " + " + statsRazas.get(razaSeleccionada).get(5));
 
                 }else if(statsRazas.get(razaSeleccionada).size()==4){
                     Datos.setRaza(razaSeleccionada);
                     Datos.setCompetencias(statsRazas.get(razaSeleccionada).get(2) + statsRazas.get(razaSeleccionada).get(3));
-                    comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(2) + " +"+ statsRazas.get(razaSeleccionada).get(3));
+                    comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(2) + " + "+ statsRazas.get(razaSeleccionada).get(3));
                 }else{
                     Datos.setRaza(razaSeleccionada);
                     Datos.setCompetencias("");
@@ -194,6 +187,7 @@ public class Crea_personaje_1 extends Activity {
         if(resultCode==RESULT_OK){
             Uri path=data.getData();
             imagen.setImageURI(path);
+            Datos.setUri(path);
         }
     }
 }

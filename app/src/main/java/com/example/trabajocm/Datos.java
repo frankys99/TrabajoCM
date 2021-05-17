@@ -1,23 +1,28 @@
 package com.example.trabajocm;
 
-import android.graphics.Bitmap;
+import android.net.Uri;
+import android.widget.ImageView;
 
 public class Datos {
-    private static Bitmap imagen;
+    private static ImageView imagen;
     private static String tamaño;
     private static String raza;
     private static String alineamiento;
     private static String velocidad;
     private static String nombre;
     private static String competencias;
-
+    private static Uri imagenUri;
     //Getters
-    public static Bitmap getImagen() {
+    public static ImageView getImagen() {
         return imagen;
     }
 
     public static String getTamaño() {
         return tamaño;
+    }
+
+    public static Uri getUri() {
+        return imagenUri;
     }
 
     public static String getRaza() {
@@ -43,8 +48,12 @@ public class Datos {
 
     //Setters
 
-    public static void setImagen(Bitmap imagen) {
+    public static void setImagen(ImageView imagen) {
         Datos.imagen = imagen;
+    }
+
+    public static void setUri(Uri imagenUri) {
+        Datos.imagenUri = imagenUri;
     }
 
     public static void setTamaño(String tamaño) {
