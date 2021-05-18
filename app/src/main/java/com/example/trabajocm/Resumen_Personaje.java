@@ -49,8 +49,8 @@ public class Resumen_Personaje extends AppCompatActivity {
 
         foto = findViewById(R.id.foto);
         PV = findViewById(R.id.PV_N);
-        clase = findViewById(R.id.clase_put);
-        raza = findViewById(R.id.raza_put);
+        clase = findViewById(R.id.Clase_put);
+        raza = findViewById(R.id.Raza_put);
         CA = findViewById(R.id.CA_N);
         Turno = findViewById(R.id.Turno_N);
         Nivel = findViewById(R.id.Nivel_N);
@@ -63,7 +63,7 @@ public class Resumen_Personaje extends AppCompatActivity {
         Carisma = findViewById(R.id.Carisma_N);
         H1 = findViewById(R.id.Hechi1);H2 = findViewById(R.id.Hechi2);H3 = findViewById(R.id.Hechi3);H4 = findViewById(R.id.Hechi4);H5 = findViewById(R.id.Hechi5);H6 = findViewById(R.id.Hechi6);
         Nombre = findViewById(R.id.Nombre_put);
-        salvaciones = findViewById(R.id.salvaciones_put);
+        salvaciones = findViewById(R.id.Salvaciones_put);
         secundarias = findViewById(R.id.Secundaria_put);
         dotes = findViewById(R.id.Dotes_put);
         lenguaje1 = findViewById(R.id.Lengua1);

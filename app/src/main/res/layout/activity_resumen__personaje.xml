@@ -153,19 +153,21 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:gravity="center"
-                        android:text="PV" />
+                        android:text="PV"
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/CA_L"
+                        android:textColor="@color/black"
                         android:layout_width="31dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:gravity="center"
                         android:text="CA"
                         app:layout_constraintStart_toEndOf="@+id/CA_N" />
@@ -173,31 +175,34 @@
                     <TextView
                         android:id="@+id/Turno_L"
                         android:layout_width="31dp"
+                        android:textColor="@color/black"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:gravity="center"
                         android:text="Turno"
                         app:layout_constraintStart_toEndOf="@+id/Turno_N" />
 
                     <TextView
                         android:id="@+id/Nivel_L"
+                        android:textColor="@color/black"
                         android:layout_width="31dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:gravity="center"
                         android:text="Nivel"
                         app:layout_constraintStart_toEndOf="@+id/Nivel_N" />
 
                     <TextView
                         android:id="@+id/XP_L"
+                        android:textColor="@color/black"
                         android:layout_width="31dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -206,7 +211,7 @@
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:gravity="center"
                         android:text="XP"
                         app:layout_constraintStart_toEndOf="@+id/XP_N" />
@@ -351,7 +356,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:textColor="@color/black"
+                        android:background="#F0A4FF"
                         android:text="Fuerza"
                         app:layout_constraintStart_toEndOf="@+id/fuerza_N"
                         app:layout_constraintTop_toBottomOf="@+id/Text_Stats" />
@@ -364,8 +370,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:text="Destreza"
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@+id/fuerza_N"
                         app:layout_constraintTop_toBottomOf="@+id/fuerza_L" />
 
@@ -377,8 +384,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:text="const."
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@+id/fuerza_N"
                         app:layout_constraintTop_toBottomOf="@+id/Destreza_L" />
 
@@ -390,8 +398,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:text="Intel."
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@+id/fuerza_N"
                         app:layout_constraintTop_toBottomOf="@+id/Constitucion_L" />
 
@@ -403,8 +412,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:text="Sabid."
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@+id/fuerza_N"
                         app:layout_constraintTop_toBottomOf="@+id/Inteligencia_L" />
 
@@ -418,7 +428,8 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:textColor="@color/black"
+                        android:background="#F0A4FF"
                         android:text="Carisma"
                         app:layout_constraintStart_toEndOf="@+id/fuerza_N"
                         app:layout_constraintTop_toBottomOf="@+id/Sabiduria_L" />
@@ -471,7 +482,8 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
+                        android:textColor="@color/black"
                         android:text="Nombre:" />
 
                     <EditText
@@ -498,21 +510,23 @@
                         android:id="@+id/clase_L"
                         android:layout_width="0dp"
                         android:layout_height="20dp"
+                        android:textColor="@color/black"
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="6dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:text="Clase:" />
 
                     <EditText
-                        android:id="@+id/clase_put"
+                        android:id="@+id/Clase_put"
                         android:layout_width="250dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="textPersonName" />
@@ -531,12 +545,13 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="6dp"
+                        android:textColor="@color/black"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:text="Raza:" />
 
                     <EditText
-                        android:id="@+id/raza_put"
+                        android:id="@+id/Raza_put"
                         android:layout_width="250dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="10dp"
@@ -561,12 +576,13 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="6dp"
+                        android:textColor="@color/black"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:text="Salvac.:" />
 
                     <EditText
-                        android:id="@+id/salvaciones_put"
+                        android:id="@+id/Salvaciones_put"
                         android:layout_width="250dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="10dp"
@@ -592,7 +608,8 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="6dp"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:textColor="@color/black"
+                        android:background="#F0A4FF"
                         android:text="Secund.:" />
 
                     <EditText
@@ -621,8 +638,9 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="6dp"
+                        android:textColor="@color/black"
                         android:layout_weight="1"
-                        android:background="#009688"
+                        android:background="#F0A4FF"
                         android:text="Dotes:" />
 
                     <EditText
