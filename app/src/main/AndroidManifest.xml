@@ -3,10 +3,13 @@
     package="com.example.trabajocm">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="true"></uses-feature>
+        android:required="true">
+    </uses-feature>
 
     <application
         android:allowBackup="true"
@@ -15,8 +18,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TrabajoCM">
-        <activity android:name=".Resumen_Personaje"></activity>
-        <activity android:name=".Clase" />
+
+        <activity android:name=".Crea_personaje_1" />
+        <activity android:name=".Crea_personaje_2" />
+        <activity android:name=".Mis_personajes" />
+        <activity android:name=".Resumen_Personaje"/>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Crea_personaje_1" />
-        <activity android:name=".Mis_personajes" />
-        <activity android:name=".Crea_personaje_2" />
+
     </application>
 
 </manifest>
