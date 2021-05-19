@@ -21,6 +21,7 @@
 
         <activity android:name=".Crea_personaje_1" />
         <activity android:name=".Crea_personaje_2" />
+        <activity android:name=".Crea_personaje_clase"/>
         <activity android:name=".Mis_personajes" />
         <activity android:name=".Resumen_Personaje"/>
 
