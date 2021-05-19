@@ -1,6 +1,6 @@
 package com.example.trabajocm.entidades;
 
-public class Personaje {
+public class personaje {
     private Integer id;
     private String imagen;
     private String nombre;

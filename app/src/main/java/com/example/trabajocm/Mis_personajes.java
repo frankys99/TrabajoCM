@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.trabajocm.adaptadores.ListaPersonajesAdapter;
 import com.example.trabajocm.db.dbPersonajes;
-import com.example.trabajocm.entidades.Personaje;
+import com.example.trabajocm.entidades.personaje;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,7 @@ public class Mis_personajes extends Activity {
 
     private Button atras;
     RecyclerView listaPersonajes;
-    ArrayList<Personaje> listaArrayPersonaje;
+    ArrayList<personaje> listaArrayPersonaje;
 
 
 

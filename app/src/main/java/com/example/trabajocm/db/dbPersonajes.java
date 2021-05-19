@@ -9,7 +9,7 @@ import android.net.Uri;
 import androidx.annotation.Nullable;
 
 import com.example.trabajocm.R;
-import com.example.trabajocm.entidades.Personaje;
+import com.example.trabajocm.entidades.personaje;
 import com.example.trabajocm.utilidades.Utilidades;
 
 import java.util.ArrayList;
@@ -73,20 +73,20 @@ public class dbPersonajes extends DbHelper {
         return id;
     }
 
-    public ArrayList<Personaje> mostrarPersonaje(){
+    public ArrayList<personaje> mostrarPersonaje(){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        ArrayList<Personaje> listaPersonajes = new ArrayList<Personaje>();
+        ArrayList<personaje> listaPersonajes = new ArrayList<personaje>();
 
-        Personaje personaje;
+        personaje personaje;
         Cursor cursorPersonaje;
 
         cursorPersonaje = db.rawQuery("SELECT * FROM " + Utilidades.TABLA_PERSONAJE, null);
 
         if (cursorPersonaje.moveToFirst()) {
             do {
-                personaje = new Personaje();
+                personaje = new personaje();
                 personaje.setId(cursorPersonaje.getInt(0));
                 personaje.setImagen(cursorPersonaje.getString(1));
 
@@ -129,17 +129,17 @@ public class dbPersonajes extends DbHelper {
     }
 
 
-    public Personaje mostrar_Resumen_Personaje(int id){
+    public personaje mostrar_Resumen_Personaje(int id){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        Personaje personaje = null;
+        personaje personaje = null;
         Cursor cursorPersonaje;
 
         cursorPersonaje = db.rawQuery("SELECT * FROM " + Utilidades.TABLA_PERSONAJE+ " WHERE id = " + id+ " LIMIT 1", null);
 
         if (cursorPersonaje.moveToFirst()) {
-                personaje = new Personaje();
+                personaje = new personaje();
                 personaje.setId(cursorPersonaje.getInt(0));
                 personaje.setImagen(cursorPersonaje.getString(1));
 

@@ -16,15 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.trabajocm.R;
 import com.example.trabajocm.Resumen_Personaje;
-import com.example.trabajocm.entidades.Personaje;
+import com.example.trabajocm.entidades.personaje;
 
 import java.util.ArrayList;
 
 public class ListaPersonajesAdapter extends RecyclerView.Adapter<ListaPersonajesAdapter.PersonajeViewHolder> {
 
-    ArrayList<Personaje> listaPersonajes;
+    ArrayList<personaje> listaPersonajes;
 
-    public ListaPersonajesAdapter(ArrayList<Personaje> listaPersonajes){
+    public ListaPersonajesAdapter(ArrayList<personaje> listaPersonajes){
         this.listaPersonajes = listaPersonajes;
     }
 

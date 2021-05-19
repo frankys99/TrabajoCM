@@ -14,14 +14,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.trabajocm.db.dbPersonajes;
-import com.example.trabajocm.entidades.Personaje;
+import com.example.trabajocm.entidades.personaje;
 
 public class Resumen_Personaje extends AppCompatActivity {
 
     private Button volver;
     private Button borrar;
     private Button editar;
-    Personaje personaje;
+    personaje personaje;
     int id =0;
     ImageView foto;
     EditText PV, CA, Turno, Nivel, XP;
