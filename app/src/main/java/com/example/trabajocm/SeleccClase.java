@@ -35,15 +35,11 @@ public class SeleccClase extends AppCompatActivity {
 
     private ImageView icono_info_clase;
 
-    //Dialogo
-    //private TextView info_clase_dialog;
-    //private ImageView avatar_clase_dialog;
-    private Dialog dialog;
-
-
-
     public List<Clase> ls_clases;
     public Clase clase_Seleccionada;
+
+    //Dialogo
+    private Dialog dialog;
 
 
     @Override
@@ -57,8 +53,6 @@ public class SeleccClase extends AppCompatActivity {
 
         //TEST RAZASAPI
         Log.i("---CARGA\n", Datos.getLs_razas().toString());
-
-
 
         //Declarar TextView
         info_clase = (TextView)findViewById(R.id.text_info_clase);
@@ -76,11 +70,6 @@ public class SeleccClase extends AppCompatActivity {
         comp_hab_1 = (Spinner)findViewById(R.id.spinner_comp_hab_1);
         comp_hab_2 = (Spinner)findViewById(R.id.spinner_comp_hab_2);
         //selec_equipo = (Spinner)findViewById(R.id.spinner_selec_equipo);
-
-        //Declaraciones del dialogo
-        //info_clase_dialog = (TextView)findViewById(R.id.info_clase_dialog);
-        //avatar_clase_dialog = (ImageView)findViewById(R.id.avatar_clase_dialog);
-
 
         //SPINNER: seleccionar clase
         String[] opciones_spinner_clases = new String[ls_clases.size()];
@@ -101,8 +90,6 @@ public class SeleccClase extends AppCompatActivity {
                         //TODO añadir DB
                     }
                 }
-                //Precargar avatar y text para el dialogo
-                //preDialog();
 
                 info_clase.setText("Información sobre: " + clase_Seleccionada.getNombre());
 
@@ -246,6 +233,12 @@ public class SeleccClase extends AppCompatActivity {
         //Set
         nombre_clase_dialog.setText(clase_Seleccionada.getNombre());
         info_clase_dialog.setText(Datos.formatListaTexto(clase_Seleccionada.getInfo_clase()));
+
+        /* Cargar imagen mediante URL:
+
+            https://square.github.io/picasso/
+            https://www.youtube.com/watch?v=L8exo2c1AIc
+         */
         Picasso.get()
                 .load(clase_Seleccionada.getUrl_avatar())
                 .resize(600,600)

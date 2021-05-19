@@ -47,9 +47,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //Picasso -> cargar imagen mediante URL
-    //https://square.github.io/picasso/
-    //https://www.youtube.com/watch?v=L8exo2c1AIc
-
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     testImplementation 'junit:junit:4.+'
