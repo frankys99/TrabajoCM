@@ -6,10 +6,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Random;
 
 public class Crea_personaje_2 extends Activity {
     Random rand = new Random();
@@ -85,17 +83,17 @@ public class Crea_personaje_2 extends Activity {
         setContentView(R.layout.crea_personaje_2);
 
         reroll = 0;
-        edtFuerza = (EditText) findViewById(R.id.numeroCarisma);
+        edtFuerza = (EditText) findViewById(R.id.numeroFuerza);
         edtFuerza.setText(fuerza.toString());
-        edtDestreza = (EditText) findViewById(R.id.numeroFuerza);
+        edtDestreza = (EditText) findViewById(R.id.numeroDestreza);
         edtDestreza.setText(destreza.toString());
-        edtConstitucion = (EditText) findViewById(R.id.numeroDestreza);
+        edtConstitucion = (EditText) findViewById(R.id.numeroConstitucion);
         edtConstitucion.setText(constitucion.toString());
-        edtSabiduria = (EditText) findViewById(R.id.numeroCarisma);
+        edtSabiduria = (EditText) findViewById(R.id.numeroSabiduria);
         edtSabiduria.setText(sabiduria.toString());
-        edtCarisma = (EditText) findViewById(R.id.numeroSabiduria);
+        edtCarisma = (EditText) findViewById(R.id.numeroCarisma);
         edtCarisma.setText(carisma.toString());
-        edtInteligencia =  (EditText) findViewById(R.id.numeroConstitucion);
+        edtInteligencia =  (EditText) findViewById(R.id.numeroInteligencia);
         edtInteligencia.setText(inteligencia.toString());
 
     }

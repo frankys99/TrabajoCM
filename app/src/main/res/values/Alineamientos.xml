@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ArrayAlineamientos">
+        <item>Legal Bueno</item>
+        <item>Legal Neutral</item>
+        <item>Legal Malo</item>
+        <item>Neutral Bueno</item>
+        <item>Neutral</item>
+        <item>Neutral Malo</item>
+        <item>Caotico Bueno</item>
+        <item>Caotico Malo</item>
+        <item>Caotico Neutral</item>
+    </string-array>
+</resources>
