@@ -1,9 +1,8 @@
 package com.example.trabajocm.entidades;
 
-import java.util.List;
-
-public class personaje {
+public class Personaje {
     private Integer id;
+    private String imagen;
     private String nombre;
     private String clase;
     private String raza;
@@ -11,23 +10,27 @@ public class personaje {
     private String secundarias;
     private String dotes;
     private String equipo;
-    private String stats;
-    private String stats_generales;
-    private String hechizos;
+    private int fuerza;
+    private int destreza;
+    private int constitucion;
+    private int inteligencia;
+    private int sabiduria;
+    private int carisma;
 
-    public personaje(Integer id, String nombre, String clase, String raza, String salvaciones, String secundarias, String dotes, String equipo, String stats, String stats_generales, String hechizos) {
-        this.id = id;
-        this.nombre = nombre;
-        this.clase = clase;
-        this.raza = raza;
-        this.salvaciones = salvaciones;
-        this.secundarias = secundarias;
-        this.dotes = dotes;
-        this.equipo = equipo;
-        this.stats = stats;
-        this.stats_generales = stats_generales;
-        this.hechizos = hechizos;
-    }
+
+    private int nivel;
+
+    private int xp;
+    private String lengua1;
+    private String lengua2;
+    private String hechizo1;
+    private String hechizo2;
+    private String hechizo3;
+    private String hechizo4;
+    private String hechizo5;
+    private String hechizo6;
+
+
 
     public Integer getId() {
         return id;
@@ -35,6 +38,14 @@ public class personaje {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getNombre() {
@@ -93,27 +104,128 @@ public class personaje {
         this.equipo = equipo;
     }
 
-    public String getStats() {
-        return stats;
+    public int getFuerza() {
+        return fuerza;
     }
 
-    public void setStats(String stats) {
-        this.stats = stats;
+    public void setFuerza(int fuerza) {
+        this.fuerza = fuerza;
     }
 
-    public String getStats_generales() {
-        return stats_generales;
+    public int getDestreza() {
+        return destreza;
     }
 
-    public void setStats_generales(String stats_generales) {
-        this.stats_generales = stats_generales;
+    public void setDestreza(int destreza) {
+        this.destreza = destreza;
     }
 
-    public String getHechizos() {
-        return hechizos;
+    public int getConstitucion() {
+        return constitucion;
     }
 
-    public void setHechizos(String hechizos) {
-        this.hechizos = hechizos;
+    public void setConstitucion(int constitucion) {
+        this.constitucion = constitucion;
     }
+
+    public int getInteligencia() {
+        return inteligencia;
+    }
+
+    public void setInteligencia(int inteligencia) {
+        this.inteligencia = inteligencia;
+    }
+
+    public int getSabiduria() {
+        return sabiduria;
+    }
+
+    public void setSabiduria(int sabiduria) {
+        this.sabiduria = sabiduria;
+    }
+
+    public int getCarisma() {
+        return carisma;
+    }
+
+    public void setCarisma(int carisma) {
+        this.carisma = carisma;
+    }
+
+
+
+
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+
+
+    public int getXp() {
+        return xp;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+
+    public String getLengua1() {
+        return lengua1;
+    }
+
+    public void setLengua1(String lengua1) {
+        this.lengua1 = lengua1;
+    }
+
+    public String getLengua2() {
+        return lengua2;
+    }
+
+    public void setLengua2(String lengua2) {
+        this.lengua2 = lengua2;
+    }
+
+    public String getHechizo1() {
+        return hechizo1;
+    }
+
+    public void setHechizo1(String hechizo1) { this.hechizo1 = hechizo1; }
+
+
+    public String getHechizo2() {
+        return hechizo2;
+    }
+
+    public void setHechizo2(String hechizo2) { this.hechizo2 = hechizo2; }
+
+    public String getHechizo3() {
+        return hechizo3;
+    }
+
+    public void setHechizo3(String hechizo3) { this.hechizo3 = hechizo3; }
+
+    public String getHechizo4() {
+        return hechizo4;
+    }
+
+    public void setHechizo4(String hechizo4) { this.hechizo4 = hechizo4; }
+
+    public String getHechizo5() {
+        return hechizo5;
+    }
+
+    public void setHechizo5(String hechizo5) { this.hechizo5 = hechizo5; }
+
+    public String getHechizo6() {
+        return hechizo6;
+    }
+
+    public void setHechizo6(String hechizo6) { this.hechizo6 = hechizo6; }
+
+
 }
