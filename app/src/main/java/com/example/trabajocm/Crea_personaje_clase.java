@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class Crea_personaje_clase extends AppCompatActivity {
 //public class Crea_personaje_clase extends Activity {
+
     private Spinner clases_spiner;
     private Spinner comp_hab_1;
     private Spinner comp_hab_2;
@@ -43,6 +44,9 @@ public class Crea_personaje_clase extends AppCompatActivity {
     //Dialogo
     private Dialog dialog;
 
+    //Habilidades secundarias escogidas
+    private String hab_1_selec;
+    private String hab_2_selec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,24 +122,39 @@ public class Crea_personaje_clase extends AppCompatActivity {
                 ArrayAdapter<String>adapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_hab_spinner);
                 comp_hab_1.setAdapter(adapter2);
 
+                hab_1_selec = ls_habilidades.get(0);                    //El spinner por defecto tiene la habilidad de la pos 0
 
 
-                //Spinner hab_1 seleccionado -> Generar opciones del spinner hab_2
+
+                //SPINNER OnItemSelected : hab_1 -> Generar opciones del spinner hab_2
                 comp_hab_1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                         //SPINNER ANIDADO: habilidad_2
                         List<String>ls_aux = new ArrayList<String>(ls_habilidades);  //copiar ls sin referencia
-
                         ls_aux.remove(comp_hab_1.getSelectedItem());            //Eliminar hab_1 seleccionada -> evitar duplicados
+
+                        hab_1_selec = comp_hab_1.getSelectedItem().toString();  //Se asigna la habilidad 1 seleccionada
+                        hab_2_selec = ls_aux.get(0);                            //Se agina por defecto la hab 2
 
                         String[] opciones_hab_2_spinner = new String[ls_aux.size()];
                         ls_aux.toArray(opciones_hab_2_spinner);
                         ArrayAdapter<String>adapter3 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_hab_2_spinner);
                         comp_hab_2.setAdapter(adapter3);
 
-                        //TODO: hab2.select -> Añadir habs a Datos
+                        //SPINNER OnItemSelected: hab_2
+                        comp_hab_2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                hab_2_selec = comp_hab_2.getSelectedItem().toString();  ////Se asigna la habilidad 2 seleccionada
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                     }
 
                     @Override
@@ -266,6 +285,12 @@ public class Crea_personaje_clase extends AppCompatActivity {
     //TODO
 
     public void ejecuta_siguiente(View view){
+
+        //Añadir habilidades seleccionadas a Datos
+        List<String> hab_seleccionadas = new ArrayList<>();
+        hab_seleccionadas.add(hab_1_selec);
+        hab_seleccionadas.add(hab_2_selec);
+        Datos.initHabsClase(hab_seleccionadas);
 
         //Intent i = new Intent(this, Crea_personaje_2.class);
         //startActivity(i);
