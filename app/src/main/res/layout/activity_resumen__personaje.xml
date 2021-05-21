@@ -7,6 +7,7 @@
     tools:context=".Resumen_Personaje">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -16,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/Volver"
+                android:id="@+id/atras"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
 
@@ -83,6 +84,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         android:background="@android:color/white"
                         android:ems="10"
@@ -96,6 +99,8 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="number" />
@@ -108,6 +113,8 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="number" />
@@ -120,6 +127,8 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="number" />
@@ -133,6 +142,8 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         android:background="@android:color/white"
                         android:ems="10"
@@ -160,7 +171,6 @@
 
                     <TextView
                         android:id="@+id/CA_L"
-                        android:textColor="@color/black"
                         android:layout_width="31dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -170,12 +180,12 @@
                         android:background="#F0A4FF"
                         android:gravity="center"
                         android:text="CA"
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@+id/CA_N" />
 
                     <TextView
                         android:id="@+id/Turno_L"
                         android:layout_width="31dp"
-                        android:textColor="@color/black"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
@@ -184,11 +194,11 @@
                         android:background="#F0A4FF"
                         android:gravity="center"
                         android:text="Turno"
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@+id/Turno_N" />
 
                     <TextView
                         android:id="@+id/Nivel_L"
-                        android:textColor="@color/black"
                         android:layout_width="31dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -198,11 +208,11 @@
                         android:background="#F0A4FF"
                         android:gravity="center"
                         android:text="Nivel"
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@+id/Nivel_N" />
 
                     <TextView
                         android:id="@+id/XP_L"
-                        android:textColor="@color/black"
                         android:layout_width="31dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -214,6 +224,7 @@
                         android:background="#F0A4FF"
                         android:gravity="center"
                         android:text="XP"
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@+id/XP_N" />
                 </LinearLayout>
             </LinearLayout>
@@ -266,6 +277,8 @@
                         android:layout_weight="1"
                         android:background="@android:color/white"
                         android:ems="10"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
                         android:inputType="number"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/Text_Stats" />
@@ -278,6 +291,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="number"
@@ -292,6 +307,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="number"
@@ -306,6 +323,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="number"
@@ -320,6 +339,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="number"
@@ -336,6 +357,8 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="number"
@@ -356,9 +379,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:textColor="@color/black"
                         android:background="#F0A4FF"
                         android:text="Fuerza"
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@+id/fuerza_N"
                         app:layout_constraintTop_toBottomOf="@+id/Text_Stats" />
 
@@ -428,9 +451,9 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
-                        android:textColor="@color/black"
                         android:background="#F0A4FF"
                         android:text="Carisma"
+                        android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@+id/fuerza_N"
                         app:layout_constraintTop_toBottomOf="@+id/Sabiduria_L" />
                 </LinearLayout>
@@ -483,8 +506,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
                         android:background="#F0A4FF"
-                        android:textColor="@color/black"
-                        android:text="Nombre:" />
+                        android:text="Nombre:"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/Nombre_put"
@@ -510,13 +533,13 @@
                         android:id="@+id/clase_L"
                         android:layout_width="0dp"
                         android:layout_height="20dp"
-                        android:textColor="@color/black"
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="6dp"
                         android:layout_weight="1"
                         android:background="#F0A4FF"
-                        android:text="Clase:" />
+                        android:text="Clase:"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/Clase_put"
@@ -526,10 +549,10 @@
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
-                        android:textColor="@color/black"
                         android:background="@android:color/white"
                         android:ems="10"
-                        android:inputType="textPersonName" />
+                        android:inputType="textPersonName"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -545,10 +568,10 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="6dp"
-                        android:textColor="@color/black"
                         android:layout_weight="1"
                         android:background="#F0A4FF"
-                        android:text="Raza:" />
+                        android:text="Raza:"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/Raza_put"
@@ -558,6 +581,7 @@
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="textPersonName" />
@@ -576,10 +600,10 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="6dp"
-                        android:textColor="@color/black"
                         android:layout_weight="1"
                         android:background="#F0A4FF"
-                        android:text="Salvac.:" />
+                        android:text="Salvaciones"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/Salvaciones_put"
@@ -589,6 +613,7 @@
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="textPersonName" />
@@ -608,9 +633,9 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="6dp"
                         android:layout_weight="1"
-                        android:textColor="@color/black"
                         android:background="#F0A4FF"
-                        android:text="Secund.:" />
+                        android:text="Segundarias:"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/Secundaria_put"
@@ -620,6 +645,7 @@
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
                         android:background="@android:color/white"
                         android:ems="10"
                         android:inputType="textPersonName" />
@@ -632,23 +658,24 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/dotes_L"
+                        android:id="@+id/transfondo_L"
                         android:layout_width="0dp"
                         android:layout_height="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="6dp"
-                        android:textColor="@color/black"
                         android:layout_weight="1"
                         android:background="#F0A4FF"
-                        android:text="Dotes:" />
+                        android:text="Transfondo:"
+                        android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/Dotes_put"
+                        android:id="@+id/Transfondo_put"
                         android:layout_width="250dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
+                        android:textColor="@color/black"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@android:color/white"
@@ -696,7 +723,9 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
+                android:gravity="center"
                 android:inputType="textPersonName"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@+id/Dotes_L"
                 app:layout_constraintTop_toBottomOf="@+id/Lenguaje_L" />
 
@@ -712,7 +741,9 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
+                android:gravity="center"
                 android:inputType="textPersonName"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/Secundaria_put"
                 app:layout_constraintTop_toBottomOf="@+id/Lenguaje_L" />
         </LinearLayout>
@@ -739,6 +770,20 @@
             android:background="#CACACA"
             android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/NoHechizo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Tu clase no dispone de ningun hechizo"
+                android:textColor="@color/black" />
+
             <EditText
                 android:id="@+id/Hechi1"
                 android:layout_width="wrap_content"
@@ -751,7 +796,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/Hechi2"
@@ -763,7 +809,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/Hechi3"
@@ -776,6 +823,7 @@
                 android:background="@android:color/white"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Hechi2" />
 
@@ -789,7 +837,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/Hechi5"
@@ -801,7 +850,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/Hechi6"
@@ -813,7 +863,9 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:visibility="gone" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -841,16 +893,20 @@
             <EditText
                 android:id="@+id/Equipo_put"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="55dp"
+
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
+
                 android:background="@android:color/white"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textMultiLine"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout

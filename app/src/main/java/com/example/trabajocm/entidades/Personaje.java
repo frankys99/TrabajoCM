@@ -1,14 +1,16 @@
 package com.example.trabajocm.entidades;
 
-public class Personaje {
+import java.io.Serializable;
+
+public class Personaje implements Serializable {
     private Integer id;
     private String imagen;
     private String nombre;
     private String clase;
     private String raza;
-    private String salvaciones;
+    private String alineamiento;
     private String secundarias;
-    private String dotes;
+    private String transfondo;
     private String equipo;
     private int fuerza;
     private int destreza;
@@ -29,6 +31,34 @@ public class Personaje {
     private String hechizo4;
     private String hechizo5;
     private String hechizo6;
+
+    public Personaje (){ //Constructor sin param.
+
+        this.imagen=null;
+        this.nombre="vacio";
+        this.clase="vacio";
+        this.raza="vacio";
+        this.alineamiento="vacio";
+        this.secundarias="vacio";
+        this.transfondo="vacio";
+        this.equipo="vacio";
+        this.fuerza=0;
+        this.destreza=0;
+        this.constitucion=0;
+        this.inteligencia=0;
+        this.sabiduria=0;
+        this.carisma=0;
+        this.nivel=0;
+        this.xp=0;
+        this.lengua1="vacio";
+        this.lengua2="vacio";
+        this.hechizo1="vacio";
+        this.hechizo2="vacio";
+        this.hechizo3="vacio";
+        this.hechizo4="vacio";
+        this.hechizo5="vacio";
+        this.hechizo6="vacio";
+    }
 
 
 
@@ -72,12 +102,12 @@ public class Personaje {
         this.raza = raza;
     }
 
-    public String getSalvaciones() {
-        return salvaciones;
+    public String getAlineamiento() {
+        return alineamiento;
     }
 
-    public void setSalvaciones(String salvaciones) {
-        this.salvaciones = salvaciones;
+    public void setAlineamiento(String alineamiento) {
+        this.alineamiento = alineamiento;
     }
 
     public String getSecundarias() {
@@ -88,12 +118,12 @@ public class Personaje {
         this.secundarias = secundarias;
     }
 
-    public String getDotes() {
-        return dotes;
+    public String getTransfondo() {
+        return transfondo;
     }
 
-    public void setDotes(String dotes) {
-        this.dotes = dotes;
+    public void setTransfondo(String transfondo) {
+        this.transfondo = transfondo;
     }
 
     public String getEquipo() {

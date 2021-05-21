@@ -1,8 +1,5 @@
 package com.example.trabajocm;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,10 +9,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.trabajocm.db.dbPersonajes;
+import com.example.trabajocm.entidades.Personaje;
 import com.example.trabajocm.modelos.Clase;
 import com.squareup.picasso.Picasso;
 
@@ -34,7 +37,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
     private TextView cabecera_hab_esp;
     private TextView text_hab_esp;
     private TextView res_spinner_sel_equipo;
-
+    private Button Guardar;
     private ImageView icono_info_clase;
 
     public List<Clase> ls_clases;
@@ -49,6 +52,9 @@ public class Crea_personaje_clase extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.crea_personaje_clase);
+
+        Personaje p1 = (Personaje) getIntent().getSerializableExtra("p1");
+        Toast.makeText(Crea_personaje_clase.this,p1.getRaza(), Toast.LENGTH_LONG).show();
 
         //Cargar las clases de la APIRest
         ls_clases = Datos.getLs_clases();
@@ -216,6 +222,42 @@ public class Crea_personaje_clase extends AppCompatActivity {
             }
         });
         */
+
+        Guardar =findViewById(R.id.Guardar);
+        Guardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Spinner mySpinner = (Spinner) findViewById(R.id.clases_spinner);
+                String clase = mySpinner.getSelectedItem().toString();
+                p1.setClase(clase);
+                String equipo= "";
+                for (String equipo_i : clase_Seleccionada.getEquipo_inicial()) {
+
+                    equipo+= equipo_i+"\n";
+                }
+                equipo = equipo.replaceAll("\n", System.getProperty("line.separator"));
+                p1.setEquipo(equipo);
+                Toast.makeText(Crea_personaje_clase.this,p1.getEquipo(), Toast.LENGTH_LONG).show();
+                Spinner SpinnerHab1 = (Spinner) findViewById(R.id.spinner_comp_hab_1);
+                String Hab1 = SpinnerHab1.getSelectedItem().toString();
+                Spinner SpinnerHab2 = (Spinner) findViewById(R.id.spinner_comp_hab_2);
+                String Hab2 = SpinnerHab2.getSelectedItem().toString();
+                if((p1.getClase().equals("Hechicero")||p1.getClase().equals("Mago")||p1.getClase().equals("Bardo")
+                        ||p1.getClase().equals("Clérigo")||p1.getClase().equals("Druida"))){
+
+                }
+                p1.setHechizo1(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
+
+                p1.setSecundarias(Hab1+", "+Hab2);
+                dbPersonajes DBPersonajes = new dbPersonajes(Crea_personaje_clase.this);
+                long id = DBPersonajes.insertarPersonajeNull(p1);
+                Intent j = new Intent(Crea_personaje_clase.this, Mis_personajes.class);
+
+                startActivity(j);
+            }
+        });
+
+
     }
 
     private void abrirDialogo(){
@@ -267,8 +309,6 @@ public class Crea_personaje_clase extends AppCompatActivity {
 
     public void ejecuta_siguiente(View view){
 
-        //Intent i = new Intent(this, Crea_personaje_2.class);
-        //startActivity(i);
     }
 
 

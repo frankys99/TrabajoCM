@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.trabajocm.entidades.Personaje;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -24,11 +26,13 @@ import java.util.Map;
 
 public class Crea_personaje_1 extends Activity {
     private ImageView imagen;
+    Personaje p1= new Personaje();
     private EditText nombre;
     private TextView textoRazas;
     private Spinner spinnerAlineamientos;
     private Spinner spinnerRazas;
     private Button atras;
+    private Button siguiente;
     private Map<String,List<String>> statsRazas = new HashMap<>();
 
     //Listas auxiliares para statsRazas
@@ -152,13 +156,39 @@ public class Crea_personaje_1 extends Activity {
             }
         });
 
+        siguiente =findViewById(R.id.siguiente);
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ejecuta_suguiente(v);
+            }
+        });
+
     }
+    //la primera si puede tenerlo fuera ya que esta es la que comienza el objeto, el resto debe esatr dentro del oncreate pues es-
+    //el que puede acceder al objeto que le pasamos y por tanto si trabjamos con el objeto fuera del onCreate, este no existira o -
+    //estara vacio.
+
     // Funcion para pasar datos a otra activity
     public void ejecuta_suguiente(View view){      // Cambiar por clase a la que va dirigida
         Intent j = new Intent(this, Crea_personaje_2.class);
+
+        p1.setNombre(nombre.getText().toString());
+        Spinner mySpinner = (Spinner) findViewById(R.id.spinnerRazas);
+        String raza = mySpinner.getSelectedItem().toString();
+        p1.setRaza(raza);
+        Spinner mySpinner2 = (Spinner) findViewById(R.id.spinnerAlineamientos);
+        String alineamiento = mySpinner.getSelectedItem().toString();
+        p1.setAlineamiento(alineamiento);
+
+        j.putExtra("p1",  p1);
+
         Datos.setNombre(nombre.getText().toString());
+
         startActivity(j);
     }
+
+
 
 
 
@@ -178,6 +208,7 @@ public class Crea_personaje_1 extends Activity {
         super.onActivityResult(requestCode,resultCode,data);
         if(resultCode==RESULT_OK){
             Uri path=data.getData();
+            p1.setImagen(path.toString());
             imagen.setImageURI(path);
             Datos.setUri(path);
         }

@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.trabajocm.entidades.Personaje;
 
 import java.util.List;
 import java.util.Random;
@@ -21,7 +24,7 @@ public class Crea_personaje_2 extends Activity {
     String cadena = "";
     String delim = ", ";
     private Integer reroll;
-
+    private Button siguiente;
     private EditText edtFuerza;
     private EditText edtDestreza;
     private EditText edtConstitucion;
@@ -83,6 +86,10 @@ public class Crea_personaje_2 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crea_personaje_2);
 
+        //recibo el objeto p1
+        Personaje p1 = (Personaje) getIntent().getSerializableExtra("p1");
+        //Toast.makeText(Crea_personaje_2.this,p1.getImagen(), Toast.LENGTH_LONG).show();
+
         reroll = 0;
         edtFuerza = (EditText) findViewById(R.id.numeroFuerza);
         edtFuerza.setText(fuerza.toString());
@@ -97,13 +104,29 @@ public class Crea_personaje_2 extends Activity {
         edtInteligencia =  (EditText) findViewById(R.id.numeroInteligencia);
         edtInteligencia.setText(inteligencia.toString());
 
+        siguiente =findViewById(R.id.siguiente);
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                p1.setFuerza(Integer.parseInt(String.valueOf(edtFuerza.getText())));
+                p1.setDestreza(Integer.parseInt(String.valueOf(edtDestreza.getText())));
+                p1.setConstitucion(Integer.parseInt(String.valueOf(edtConstitucion.getText())));
+                p1.setInteligencia(Integer.parseInt(String.valueOf(edtInteligencia.getText())));
+                p1.setSabiduria(Integer.parseInt(String.valueOf(edtSabiduria.getText())));
+                p1.setCarisma(Integer.parseInt(String.valueOf(edtCarisma.getText())));
+                Intent j = new Intent(Crea_personaje_2.this, Crea_personaje_clase.class);
+                j.putExtra("p1", p1);
+                startActivity(j);
+            }
+        });
     }
 
 
 
-    public void ejecuta_siguiente(View view){
-        Intent i = new Intent(this, Crea_personaje_clase.class);
-        startActivity(i);
-    }
+   // public void ejecuta_suguiente(View view){      // Cambiar por clase a la que va dirigida
+
+
+
+    //}
 
 }

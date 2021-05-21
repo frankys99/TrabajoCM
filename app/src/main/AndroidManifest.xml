@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.trabajocm">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -24,6 +25,7 @@
         <activity android:name=".Crea_personaje_clase"/>
         <activity android:name=".Mis_personajes" />
         <activity android:name=".Resumen_Personaje"/>
+
 
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -8,9 +8,10 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="91dp"
-        android:layout_height="69dp"
-        app:srcCompat="@drawable/descarga" />
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        app:srcCompat="@drawable/descarga"
+        tools:layout_marginLeft="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,39 +20,66 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nombre:"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/Nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:text="nombre"
                 android:textColor="#050505" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Raza:"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/raza"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="raza"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                tools:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Clase:"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/clase"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:text="clase"
                 android:textColor="#000000" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="105dp"
+            android:layout_marginTop="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -108,6 +136,67 @@
                 android:ems="10"
                 android:inputType="number"
                 android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Fue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="FUE"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/Des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="DES"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/CONS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="CON"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/INT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="INT"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/SAB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="SAB"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/CAR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="CAR"
+                android:textColor="@color/black" />
         </LinearLayout>
 
     </LinearLayout>

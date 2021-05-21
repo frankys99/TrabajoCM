@@ -188,16 +188,30 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/siguiente_p2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginBottom="40dp"
-        android:text="Siguiente"
-        android:onClick="ejecuta_siguiente"
+        android:id="@+id/atras"
+        android:layout_width="123dp"
+        android:layout_height="50dp"
+        android:text="atrás"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958"
+        tools:ignore="HardcodedText,MissingConstraints" />
+
+    <Button
+        android:id="@+id/siguiente"
+        android:layout_width="123dp"
+        android:layout_height="50dp"
+        android:onClick="ejecuta_suguiente"
+        android:text="@string/siguiente"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
