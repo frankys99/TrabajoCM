@@ -6,10 +6,13 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Space
             android:layout_width="match_parent"
@@ -58,7 +61,7 @@
                 android:id="@+id/text_info_clase"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical" />
         </LinearLayout>
 
         <Space
@@ -69,14 +72,13 @@
             android:id="@+id/comp_armas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Competencias con Armas:"
-            />
+            android:text="Competencias con Armas:" />
 
         <TextView
             android:id="@+id/text_comp_armas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -92,7 +94,7 @@
             android:id="@+id/text_comp_armaduras"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -107,7 +109,7 @@
             android:id="@+id/text_hab_esp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -143,12 +145,46 @@
             android:id="@+id/res_spinner_equipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="17dp" />
+            android:layout_height="15dp" />
+
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <Button
+            android:id="@+id/atras_p_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="ejecuta_atras"
+            android:text="Atras" />
+
+        <Space
+            android:layout_width="103dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
+
+        <Button
+            android:id="@+id/siguiente_p_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Siguiente" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

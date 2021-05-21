@@ -1,6 +1,7 @@
 package com.example.trabajocm;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -97,4 +98,12 @@ public class Crea_personaje_2 extends Activity {
         edtInteligencia.setText(inteligencia.toString());
 
     }
+
+
+
+    public void ejecuta_siguiente(View view){
+        Intent i = new Intent(this, Crea_personaje_clase.class);
+        startActivity(i);
+    }
+
 }

@@ -187,4 +187,17 @@
         app:layout_constraintVertical_bias="0.675"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/siguiente_p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginBottom="40dp"
+        android:text="Siguiente"
+        android:onClick="ejecuta_siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -130,14 +130,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //TODO
-        //Datos.iniDatosClases(ls_clases);
-        //Datos.initDatosRazas(ls_razas);
-
-        //AUX Temporal
-        DatosAux.iniDatosClases(ls_clases);
-        DatosAux.initDatosRazas(ls_razas);
-
-
+        //Cargar los datos
+        Datos.iniDatosClases(ls_clases);
+        Datos.initDatosRazas(ls_razas);
     }
 }
