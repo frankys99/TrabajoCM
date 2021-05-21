@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.trabajocm.db.dbPersonajes;
 import com.example.trabajocm.entidades.Personaje;
 import com.example.trabajocm.modelos.Clase;
 import com.squareup.picasso.Picasso;
@@ -249,10 +248,12 @@ public class Crea_personaje_clase extends AppCompatActivity {
                 p1.setHechizo1(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
 
                 p1.setSecundarias(Hab1+", "+Hab2);
-                dbPersonajes DBPersonajes = new dbPersonajes(Crea_personaje_clase.this);
-                long id = DBPersonajes.insertarPersonajeNull(p1);
+                //comenta las dos de abajo
+               // dbPersonajes DBPersonajes = new dbPersonajes(Crea_personaje_clase.this);
+                //long id = DBPersonajes.insertarPersonajeNull(p1);
+                //Mis_personajes esta por ahora, cuando este transforndo personajes Mis_personajes pasara ha ser Transfondo
                 Intent j = new Intent(Crea_personaje_clase.this, Mis_personajes.class);
-
+                j.putExtra("p1",  p1);
                 startActivity(j);
             }
         });
