@@ -35,7 +35,8 @@
             android:id="@+id/text_spinner_clase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Seleccion su clase:" />
+            android:text="Seleccion su clase:"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/clases_spinner"
@@ -66,13 +67,14 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="13dp" />
+            android:layout_height="8dp" />
 
         <TextView
             android:id="@+id/comp_armas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Competencias con Armas:" />
+            android:text="Competencias con Armas:"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/text_comp_armas"
@@ -82,13 +84,14 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="13dp" />
+            android:layout_height="8dp" />
 
         <TextView
             android:id="@+id/comp_armaduras"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Competencias con Armaduras:" />
+            android:text="Competencias con Armaduras:"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/text_comp_armaduras"
@@ -98,12 +101,19 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="13dp" />
+            android:layout_height="8dp" />
 
         <TextView
             android:id="@+id/cabecera_hab_esp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/subtitulo_hab_esp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/text_hab_esp"
@@ -113,13 +123,14 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="13dp" />
+            android:layout_height="8dp" />
 
         <TextView
             android:id="@+id/text_comp_hab_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Competencias con Habilidades" />
+            android:text="Competencias con Habilidades"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spinner_comp_hab_1"
@@ -133,23 +144,20 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="13dp" />
+            android:layout_height="8dp" />
 
         <TextView
             android:id="@+id/titulo_selec_equipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Equipo inicial:" />
+            android:text="Equipo inicial:"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/res_spinner_equipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
 
 
     </LinearLayout>
