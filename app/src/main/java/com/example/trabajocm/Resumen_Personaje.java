@@ -232,7 +232,8 @@ public class Resumen_Personaje extends AppCompatActivity {
                 if(personaje.getEquipo().equals("Escudo.")||personaje.getEquipo().equals("Escudo")){
                     CA.setText(String.valueOf(Ca+2));
                 }
-                if (personaje.getEquipo().contains("Acolchada")||personaje.getEquipo().contains("Cuero")){
+                //armadura de cuero
+                if (personaje.getEquipo().contains("Acolchada")||personaje.getEquipo().contains("Armadura de cuero")){
                     if (personaje.getEquipo().contains("Escudo")){Ca=11+bono_destreza+2;}else{Ca=11+bono_destreza;}
                     CA.setText(String.valueOf(Ca));
                 }else if (personaje.getEquipo().contains("Cuero tachonado")){
