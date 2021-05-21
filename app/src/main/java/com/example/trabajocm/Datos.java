@@ -6,10 +6,10 @@ import android.widget.ImageView;
 import com.example.trabajocm.modelos.Clase;
 import com.example.trabajocm.modelos.Raza;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
-public class Datos {
+public class Datos implements Serializable {
 
     //- DATOS DEL PERSONAJE
     //-- Pantalla_1

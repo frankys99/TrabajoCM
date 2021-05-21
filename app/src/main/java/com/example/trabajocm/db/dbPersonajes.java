@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class dbPersonajes extends DbHelper {
 
+
     Context context;
 
 
@@ -28,11 +29,18 @@ public class dbPersonajes extends DbHelper {
 
 
 
-    public long insertarPersonajeNull() {
+    public long insertarPersonajeNull(Personaje p1) {
 
         long id = 0;
         Uri uriImage = Uri.parse("android.resource://" + context.getPackageName() +"/"+ R.drawable.descarga);
         String UriString = uriImage.toString();
+        if (!(p1.getImagen()==null)){
+            Uri uri= Uri.parse(p1.getImagen());
+            UriString = uri.toString();
+        }
+
+
+
 
         try {
             DbHelper dbHelper = new DbHelper(context);
@@ -40,19 +48,19 @@ public class dbPersonajes extends DbHelper {
 
             ContentValues values = new ContentValues();
             values.put(Utilidades.CAMPO_IMAGEN, UriString);
-            values.put(Utilidades.CAMPO_NOMBRE,"vacio");
-            values.put(Utilidades.CAMPO_CLASE,"Bárbaro");
-            values.put(Utilidades.CAMPO_RAZA,"Humano");
-            values.put(Utilidades.CAMPO_SALVACIONES, "vacio");
-            values.put(Utilidades.CAMPO_SECUNDARIAS, "vacio");
-            values.put(Utilidades.CAMPO_DOTES, "vacio");
-            values.put(Utilidades.CAMPO_EQUIPO, "vacio");
-            values.put(Utilidades.CAMPO_FUERZA, 15);
-            values.put(Utilidades.CAMPO_DESTREZA, 15);
-            values.put(Utilidades.CAMPO_CONSTITUCION, 15);
-            values.put(Utilidades.CAMPO_INTELIGENCIA, 15);
-            values.put(Utilidades.CAMPO_SABIDURIA, 15);
-            values.put(Utilidades.CAMPO_CARISMA, 15);
+            values.put(Utilidades.CAMPO_NOMBRE,p1.getNombre());
+            values.put(Utilidades.CAMPO_CLASE,p1.getClase());
+            values.put(Utilidades.CAMPO_RAZA,p1.getRaza());
+            values.put(Utilidades.CAMPO_ALINEAMIENTO, p1.getAlineamiento());
+            values.put(Utilidades.CAMPO_SECUNDARIAS, p1.getSecundarias());
+            values.put(Utilidades.CAMPO_TRASFONDO, "vacio");
+            values.put(Utilidades.CAMPO_EQUIPO, p1.getEquipo());
+            values.put(Utilidades.CAMPO_FUERZA, p1.getFuerza());
+            values.put(Utilidades.CAMPO_DESTREZA, p1.getDestreza());
+            values.put(Utilidades.CAMPO_CONSTITUCION, p1.getConstitucion());
+            values.put(Utilidades.CAMPO_INTELIGENCIA, p1.getInteligencia());
+            values.put(Utilidades.CAMPO_SABIDURIA, p1.getSabiduria());
+            values.put(Utilidades.CAMPO_CARISMA, p1.getCarisma());
 
             values.put(Utilidades.CAMPO_NIVEL, 0);
 
@@ -94,9 +102,9 @@ public class dbPersonajes extends DbHelper {
                 personaje.setClase(cursorPersonaje.getString(3));
                 personaje.setRaza(cursorPersonaje.getString(4));
 
-                personaje.setSalvaciones(cursorPersonaje.getString(5));
+                personaje.setAlineamiento(cursorPersonaje.getString(5));
                 personaje.setSecundarias(cursorPersonaje.getString(6));
-                personaje.setDotes(cursorPersonaje.getString(7));
+                personaje.setTransfondo(cursorPersonaje.getString(7));
                 personaje.setEquipo(cursorPersonaje.getString(8));
                 personaje.setFuerza(cursorPersonaje.getInt(9));
                 personaje.setDestreza(cursorPersonaje.getInt(10));
@@ -147,9 +155,9 @@ public class dbPersonajes extends DbHelper {
                 personaje.setClase(cursorPersonaje.getString(3));
                 personaje.setRaza(cursorPersonaje.getString(4));
 
-                personaje.setSalvaciones(cursorPersonaje.getString(5));
+                personaje.setAlineamiento(cursorPersonaje.getString(5));
                 personaje.setSecundarias(cursorPersonaje.getString(6));
-                personaje.setDotes(cursorPersonaje.getString(7));
+                personaje.setTransfondo(cursorPersonaje.getString(7));
                 personaje.setEquipo(cursorPersonaje.getString(8));
                 personaje.setFuerza(cursorPersonaje.getInt(9));
                 personaje.setDestreza(cursorPersonaje.getInt(10));
