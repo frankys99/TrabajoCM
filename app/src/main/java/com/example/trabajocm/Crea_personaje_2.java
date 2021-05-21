@@ -23,7 +23,7 @@ public class Crea_personaje_2 extends Activity {
     Integer carisma = 10;
     Integer inteligencia = 10;
     String cadena = "";
-    String delim = ", ";
+    String delim = "";
     private Integer reroll;
     private Button siguiente;
     private EditText edtFuerza;
@@ -47,7 +47,10 @@ public class Crea_personaje_2 extends Activity {
 
     public void onclick (View view) {
         muestraNumeros(reroll);
+        TextView textoNumeros2 = findViewById(R.id.textoNumeros);
+        delim = (String) textoNumeros2.getText();
         Toast.makeText(Crea_personaje_2.this,  reroll.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(Crea_personaje_2.this, delim , Toast.LENGTH_LONG).show();
         //Aqui pondré algo para comprobar si el usuario ha hecho click de nuevo
         reroll += 1;
     }
