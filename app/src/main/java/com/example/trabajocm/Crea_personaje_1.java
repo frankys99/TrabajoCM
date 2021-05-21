@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -157,6 +158,7 @@ public class Crea_personaje_1 extends Activity {
     public void ejecuta_suguiente(View view){      // Cambiar por clase a la que va dirigida
         Intent j = new Intent(this, Crea_personaje_2.class);
         Datos.setNombre(nombre.getText().toString());
+        Log.i("---->",DatosAux.getLs_razas().toString());
         startActivity(j);
     }
 
