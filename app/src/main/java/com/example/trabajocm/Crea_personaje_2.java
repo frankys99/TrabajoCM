@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.trabajocm.entidades.Personaje;
 
@@ -46,6 +47,7 @@ public class Crea_personaje_2 extends Activity {
 
     public void onclick (View view) {
         muestraNumeros(reroll);
+        Toast.makeText(Crea_personaje_2.this,  reroll.toString(), Toast.LENGTH_LONG).show();
         //Aqui pondré algo para comprobar si el usuario ha hecho click de nuevo
         reroll += 1;
     }
@@ -64,6 +66,7 @@ public class Crea_personaje_2 extends Activity {
                 sb.append("\t");
             }
             textoNumeros.setText(sb);
+
         }  else if (r == 1) {
             lm = generaNumeros();
             cadena = "Estos son tus stats definitivos, no pueden cambiarse";

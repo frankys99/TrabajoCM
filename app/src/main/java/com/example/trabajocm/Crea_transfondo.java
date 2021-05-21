@@ -15,4 +15,5 @@ public class Crea_transfondo extends Activity {
 
     Spinner spinner = (Spinner) findViewById(R.id.spinnerTransfondo);
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.transfondos, android.R.layout.simple_spinner_item);
+
 }
