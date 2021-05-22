@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.trabajocm.entidades.Personaje;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -32,18 +32,30 @@ public class Crea_personaje_2 extends Activity {
     private EditText edtSabiduria;
     private EditText edtCarisma;
     private EditText edtInteligencia;
+    private Button generar;
+    private int n = 0;
 
-    private List<Integer> listaStats;
-    private List<Integer> lm;
 
-    private List<Integer> generaNumeros() {
+
+
+    public List<Integer> listaStats = new ArrayList();
+
+    public List<Integer> lm;
+
+    public List<Integer> generaNumeros() {
+        listaStats.clear();
+
         for (int i = 0; i < 6; i++) {
-            int n = rand.nextInt(15);
+            n = rand.nextInt(15);
             n += 3;
+
+
             listaStats.add(n);
         }
         return listaStats;
     }
+
+    /*
 
     public void onclick (View view) {
         muestraNumeros(reroll);
@@ -53,9 +65,9 @@ public class Crea_personaje_2 extends Activity {
         Toast.makeText(Crea_personaje_2.this, delim , Toast.LENGTH_LONG).show();
         //Aqui pondré algo para comprobar si el usuario ha hecho click de nuevo
         reroll += 1;
-    }
+    } */
 
-    private void muestraNumeros(Integer r) {
+    public void muestraNumeros(Integer r) {
         TextView textoNumeros = findViewById(R.id.textoNumeros);
         TextView ta = (TextView) findViewById(R.id.textView);
         if (r == 0){
@@ -71,7 +83,9 @@ public class Crea_personaje_2 extends Activity {
             textoNumeros.setText(sb);
 
         }  else if (r == 1) {
+
             lm = generaNumeros();
+
             cadena = "Estos son tus stats definitivos, no pueden cambiarse";
             ta.setText(cadena);
             StringBuilder sb = new StringBuilder();
@@ -90,6 +104,7 @@ public class Crea_personaje_2 extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.crea_personaje_2);
 
         //recibo el objeto p1
@@ -109,6 +124,19 @@ public class Crea_personaje_2 extends Activity {
         edtCarisma.setText(carisma.toString());
         edtInteligencia =  (EditText) findViewById(R.id.numeroInteligencia);
         edtInteligencia.setText(inteligencia.toString());
+
+        generar=findViewById(R.id.button5);
+        generar.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick (View view) {
+                muestraNumeros(reroll);
+                TextView textoNumeros2 = findViewById(R.id.textoNumeros);
+                delim = (String) textoNumeros2.getText();
+
+                //Aqui pondré algo para comprobar si el usuario ha hecho click de nuevo
+                reroll += 1;
+            }
+        });
 
         siguiente =findViewById(R.id.siguiente);
         siguiente.setOnClickListener(new View.OnClickListener() {

@@ -23,6 +23,7 @@ public class Personaje implements Serializable {
     private int nivel;
 
     private int xp;
+    private String habilidad_especial;
     private String lengua1;
     private String lengua2;
     private String hechizo1;
@@ -50,6 +51,7 @@ public class Personaje implements Serializable {
         this.carisma=0;
         this.nivel=0;
         this.xp=0;
+        this.habilidad_especial="Vacio";
         this.lengua1="vacio";
         this.lengua2="vacio";
         this.hechizo1="vacio";
@@ -202,6 +204,14 @@ public class Personaje implements Serializable {
 
     public void setXp(int xp) {
         this.xp = xp;
+    }
+
+    public String getHabilidad_especial() {
+        return habilidad_especial;
+    }
+
+    public void setHabilidad_especial(String habilidad_especial) {
+        this.habilidad_especial = habilidad_especial;
     }
 
     public String getLengua1() {

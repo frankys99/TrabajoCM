@@ -770,18 +770,18 @@
             android:background="#CACACA"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/NoHechizo"
+            <EditText
+                android:id="@+id/Habilidad_Especial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40dp"
                 android:layout_weight="1"
+                android:background="@color/white"
                 android:gravity="center"
-                android:text="Tu clase no dispone de ningun hechizo"
                 android:textColor="@color/black" />
 
             <EditText
@@ -791,8 +791,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
@@ -803,9 +803,11 @@
                 android:id="@+id/Hechi2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
@@ -816,9 +818,11 @@
                 android:id="@+id/Hechi3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
@@ -831,9 +835,11 @@
                 android:id="@+id/Hechi4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
@@ -844,9 +850,11 @@
                 android:id="@+id/Hechi5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
@@ -857,6 +865,8 @@
                 android:id="@+id/Hechi6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
@@ -890,7 +900,7 @@
             android:background="#CACACA"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/Equipo_put"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
@@ -902,11 +912,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
 
-                android:background="@android:color/white"
-                android:ems="10"
-                android:inputType="textMultiLine"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:background="@android:color/white" />
         </LinearLayout>
 
         <LinearLayout

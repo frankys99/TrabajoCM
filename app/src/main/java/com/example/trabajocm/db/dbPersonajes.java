@@ -65,6 +65,7 @@ public class dbPersonajes extends DbHelper {
             values.put(Utilidades.CAMPO_NIVEL, 0);
 
             values.put(Utilidades.CAMPO_XP, 0);
+            values.put(Utilidades.CAMPO_HAB_ESPE, p1.getHabilidad_especial());
             values.put(Utilidades.CAMPO_LENGUA1, "vacio");
             values.put(Utilidades.CAMPO_LENGUA2, "vacio");
             values.put(Utilidades.CAMPO_HECHIZO1, "vacio");
@@ -116,14 +117,15 @@ public class dbPersonajes extends DbHelper {
                 personaje.setNivel(cursorPersonaje.getInt(15));
 
                 personaje.setXp(cursorPersonaje.getInt(16));
-                personaje.setLengua1(cursorPersonaje.getString(17));
-                personaje.setLengua2(cursorPersonaje.getString(18));
-                personaje.setHechizo1(cursorPersonaje.getString(19));
-                personaje.setHechizo2(cursorPersonaje.getString(20));
-                personaje.setHechizo3(cursorPersonaje.getString(21));
-                personaje.setHechizo4(cursorPersonaje.getString(22));
-                personaje.setHechizo5(cursorPersonaje.getString(23));
-                personaje.setHechizo6(cursorPersonaje.getString(24));
+                personaje.setHabilidad_especial(cursorPersonaje.getString(17));
+                personaje.setLengua1(cursorPersonaje.getString(18));
+                personaje.setLengua2(cursorPersonaje.getString(19));
+                personaje.setHechizo1(cursorPersonaje.getString(20));
+                personaje.setHechizo2(cursorPersonaje.getString(21));
+                personaje.setHechizo3(cursorPersonaje.getString(22));
+                personaje.setHechizo4(cursorPersonaje.getString(23));
+                personaje.setHechizo5(cursorPersonaje.getString(24));
+                personaje.setHechizo6(cursorPersonaje.getString(25));
                 listaPersonajes.add(personaje);
 
 
@@ -169,14 +171,15 @@ public class dbPersonajes extends DbHelper {
                 personaje.setNivel(cursorPersonaje.getInt(15));
 
                 personaje.setXp(cursorPersonaje.getInt(16));
-                personaje.setLengua1(cursorPersonaje.getString(17));
-                personaje.setLengua2(cursorPersonaje.getString(18));
-                personaje.setHechizo1(cursorPersonaje.getString(19));
-                personaje.setHechizo2(cursorPersonaje.getString(20));
-                personaje.setHechizo3(cursorPersonaje.getString(21));
-                personaje.setHechizo4(cursorPersonaje.getString(22));
-                personaje.setHechizo5(cursorPersonaje.getString(23));
-                personaje.setHechizo6(cursorPersonaje.getString(24));
+                personaje.setHabilidad_especial(cursorPersonaje.getString(17));
+                personaje.setLengua1(cursorPersonaje.getString(18));
+                personaje.setLengua2(cursorPersonaje.getString(19));
+                personaje.setHechizo1(cursorPersonaje.getString(20));
+                personaje.setHechizo2(cursorPersonaje.getString(21));
+                personaje.setHechizo3(cursorPersonaje.getString(22));
+                personaje.setHechizo4(cursorPersonaje.getString(23));
+                personaje.setHechizo5(cursorPersonaje.getString(24));
+                personaje.setHechizo6(cursorPersonaje.getString(25));
 
         }
 

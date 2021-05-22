@@ -249,16 +249,34 @@ public class Crea_personaje_clase extends AppCompatActivity {
                 String Hab2 = SpinnerHab2.getSelectedItem().toString();
                 if((p1.getClase().equals("Hechicero")||p1.getClase().equals("Mago")||p1.getClase().equals("Bardo")
                         ||p1.getClase().equals("Clérigo")||p1.getClase().equals("Druida"))){
+                    if (clase_Seleccionada.getHechizos().size()==5){
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(0));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(1));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(2));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(3));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(4));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(5));
+                    }else if(clase_Seleccionada.getHechizos().size()==6){
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(0));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(1));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(2));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(3));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(4));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(5));
+                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(6));
+                    }
+
 
                 }
-                p1.setHechizo1(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
+                p1.setHabilidad_especial(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
+                Log.d("myTag", "This is my message");
 
                 p1.setSecundarias(Hab1+", "+Hab2);
                 //comenta las dos de abajo
                // dbPersonajes DBPersonajes = new dbPersonajes(Crea_personaje_clase.this);
                 //long id = DBPersonajes.insertarPersonajeNull(p1);
                 //Mis_personajes esta por ahora, cuando este transforndo personajes Mis_personajes pasara ha ser Transfondo
-                Intent j = new Intent(Crea_personaje_clase.this, Mis_personajes.class);
+                Intent j = new Intent(Crea_personaje_clase.this, Crea_transfondo.class);
                 j.putExtra("p1",  p1);
                 startActivity(j);
             }

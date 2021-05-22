@@ -32,6 +32,7 @@ public class Resumen_Personaje extends AppCompatActivity {
     TextView NoHechizo;
 
     EditText Nombre, clase, raza, salvaciones, secundarias, transfondo, lenguaje1, lenguaje2, equipo;
+    TextView equipo2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class Resumen_Personaje extends AppCompatActivity {
 
         borrar = findViewById(R.id.BORRAR);
         editar = findViewById(R.id.Editar);
-        NoHechizo = findViewById(R.id.NoHechizo);
+        NoHechizo = findViewById(R.id.Habilidad_Especial);
 
 
         foto = findViewById(R.id.foto);
@@ -74,7 +75,8 @@ public class Resumen_Personaje extends AppCompatActivity {
         transfondo = findViewById(R.id.Transfondo_put);
         lenguaje1 = findViewById(R.id.Lengua1);
         lenguaje2 = findViewById(R.id.lengua2);
-        equipo = findViewById(R.id.Equipo_put);
+        //equipo = findViewById(R.id.Equipo_put);
+        equipo2 = findViewById(R.id.Equipo_put);
 
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
@@ -287,6 +289,7 @@ public class Resumen_Personaje extends AppCompatActivity {
             H4.setText(personaje.getHechizo4());
             H5.setText(personaje.getHechizo5());
             H6.setText(personaje.getHechizo6());
+            NoHechizo.setText(personaje.getHabilidad_especial());
 
 
             clase.setInputType(InputType.TYPE_NULL);
@@ -308,24 +311,37 @@ public class Resumen_Personaje extends AppCompatActivity {
             transfondo.setInputType(InputType.TYPE_NULL);
             lenguaje1.setInputType(InputType.TYPE_NULL);
             lenguaje2.setInputType(InputType.TYPE_NULL);
-            equipo.setInputType(InputType.TYPE_NULL);
+            //equipo.setInputType(InputType.TYPE_NULL);
             H1.setInputType(InputType.TYPE_NULL);
             H2.setInputType(InputType.TYPE_NULL);
             H3.setInputType(InputType.TYPE_NULL);
             H4.setInputType(InputType.TYPE_NULL);
             H5.setInputType(InputType.TYPE_NULL);
             H6.setInputType(InputType.TYPE_NULL);
+            NoHechizo.setInputType(InputType.TYPE_NULL);
         }
 
         if((personaje.getClase().equals("Hechicero")||personaje.getClase().equals("Mago")||personaje.getClase().equals("Bardo")
                 ||personaje.getClase().equals("Clérigo")||personaje.getClase().equals("Druida"))){
-            H1.setVisibility(View.VISIBLE);
-            H2.setVisibility(View.VISIBLE);
-            H3.setVisibility(View.VISIBLE);
-            H4.setVisibility(View.VISIBLE);
-            H5.setVisibility(View.VISIBLE);
-            H6.setVisibility(View.VISIBLE);
-            NoHechizo.setVisibility(View.GONE);
+            if (H6.equals("vacio")){
+                H1.setVisibility(View.VISIBLE);
+                H2.setVisibility(View.VISIBLE);
+                H3.setVisibility(View.VISIBLE);
+                H4.setVisibility(View.VISIBLE);
+                H6.setText(H5.getText());
+                H6.setVisibility(View.VISIBLE);
+
+                NoHechizo.setVisibility(View.GONE);
+            }else{
+                H1.setVisibility(View.VISIBLE);
+                H2.setVisibility(View.VISIBLE);
+                H3.setVisibility(View.VISIBLE);
+                H4.setVisibility(View.VISIBLE);
+                H5.setVisibility(View.VISIBLE);
+                H6.setVisibility(View.VISIBLE);
+                NoHechizo.setVisibility(View.GONE);
+            }
+
 
 
 
