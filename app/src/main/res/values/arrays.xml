@@ -17,18 +17,19 @@
     </string-array>
 
     <string-array name="lenguajes">
-        <item>Acólito</item>
-        <item>Charlatán</item>
-        <item>Criminal</item>
-        <item>Animador</item>
-        <item>Héroe del pueblo</item>
-        <item>Artesano gremial</item>
-        <item>Ermitaño</item>
-        <item>Noble</item>
-        <item>Salvaje</item>
-        <item>Erudito</item>
-        <item>Marinero</item>
-        <item>Soldado</item>
-        <item>Marginado</item>
+        <item>Común</item>
+        <item>Enano</item>
+        <item>Celestial</item>
+        <item>Élfico</item>
+        <item>Orco</item>
+        <item>Gigante</item>
+        <item>Gnomo</item>
+        <item>Goblin</item>
+        <item>Mediano</item>
+        <item>Abisal</item>
+        <item>Infernal</item>
+        <item>Dracónido</item>
+        <item>Silvano</item>
+        <item>Primordial</item>
     </string-array>
 </resources>
