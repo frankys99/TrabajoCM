@@ -66,9 +66,6 @@ public class Crea_personaje_clase extends AppCompatActivity {
         //Cargar las clases de la APIRest
         ls_clases = Datos.getLs_clases();
 
-        //TEST RAZASAPI
-        Log.i("---CARGA\n", Datos.getLs_razas().toString());
-
         //Declarar TextView
         info_clase = (TextView)findViewById(R.id.text_info_clase);
         comp_armas = (TextView)findViewById(R.id.text_comp_armas);
@@ -122,13 +119,13 @@ public class Crea_personaje_clase extends AppCompatActivity {
                     cabecera_hab_esp.setText(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
 
                     subtitulo_habOspell.setText(clase_Seleccionada.getHabilidad_esp().getNombre_hab() +
-                            " es una habilidad especial y única del " + clase_Seleccionada.getNombre() + "\n");
+                            " es una habilidad especial y única de la clase " + clase_Seleccionada.getNombre() + ".\n");
 
                     String descripcion_hab_s = Datos.formatListaTexto(clase_Seleccionada.getHabilidad_esp().getDescripcion_hab());
                     text_hab_esp.setText(descripcion_hab_s);
                 }else{
                     cabecera_hab_esp.setText("Hechizos");
-                    subtitulo_habOspell.setText("La clase " + clase_Seleccionada.getHabilidad_esp().getNombre_hab() +
+                    subtitulo_habOspell.setText("La clase " + clase_Seleccionada.getNombre() +
                             " dispone de los siguientes hechizos de nivel 1 :\n");
                     String hechizos = Datos.formatListaElem(clase_Seleccionada.getHechizos());
                     text_hab_esp.setText(hechizos);
@@ -326,7 +323,5 @@ public class Crea_personaje_clase extends AppCompatActivity {
         //startActivity(i);
          */
     }
-
-
 
 }
