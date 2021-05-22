@@ -9,7 +9,7 @@ import android.net.Uri;
 import androidx.annotation.Nullable;
 
 import com.example.trabajocm.R;
-import com.example.trabajocm.entidades.personaje;
+import com.example.trabajocm.entidades.Personaje;
 import com.example.trabajocm.utilidades.Utilidades;
 
 import java.util.ArrayList;
@@ -81,20 +81,20 @@ public class dbPersonajes extends DbHelper {
         return id;
     }
 
-    public ArrayList<personaje> mostrarPersonaje(){
+    public ArrayList<Personaje> mostrarPersonaje(){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        ArrayList<personaje> listaPersonajes = new ArrayList<personaje>();
+        ArrayList<Personaje> listaPersonajes = new ArrayList<Personaje>();
 
-        personaje personaje;
+        Personaje personaje;
         Cursor cursorPersonaje;
 
         cursorPersonaje = db.rawQuery("SELECT * FROM " + Utilidades.TABLA_PERSONAJE, null);
 
         if (cursorPersonaje.moveToFirst()) {
             do {
-                personaje = new personaje();
+                personaje = new Personaje();
                 personaje.setId(cursorPersonaje.getInt(0));
                 personaje.setImagen(cursorPersonaje.getString(1));
 
@@ -137,46 +137,46 @@ public class dbPersonajes extends DbHelper {
     }
 
 
-    public personaje mostrar_Resumen_Personaje(int id){
+    public Personaje mostrar_Resumen_Personaje(int id){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        personaje personaje = null;
+        Personaje personaje = null;
         Cursor cursorPersonaje;
 
         cursorPersonaje = db.rawQuery("SELECT * FROM " + Utilidades.TABLA_PERSONAJE+ " WHERE id = " + id+ " LIMIT 1", null);
 
         if (cursorPersonaje.moveToFirst()) {
-                personaje = new personaje();
-                personaje.setId(cursorPersonaje.getInt(0));
-                personaje.setImagen(cursorPersonaje.getString(1));
+            personaje = new Personaje();
+            personaje.setId(cursorPersonaje.getInt(0));
+            personaje.setImagen(cursorPersonaje.getString(1));
 
-                personaje.setNombre(cursorPersonaje.getString(2));
-                personaje.setClase(cursorPersonaje.getString(3));
-                personaje.setRaza(cursorPersonaje.getString(4));
+            personaje.setNombre(cursorPersonaje.getString(2));
+            personaje.setClase(cursorPersonaje.getString(3));
+            personaje.setRaza(cursorPersonaje.getString(4));
 
-                personaje.setAlineamiento(cursorPersonaje.getString(5));
-                personaje.setSecundarias(cursorPersonaje.getString(6));
-                personaje.setTransfondo(cursorPersonaje.getString(7));
-                personaje.setEquipo(cursorPersonaje.getString(8));
-                personaje.setFuerza(cursorPersonaje.getInt(9));
-                personaje.setDestreza(cursorPersonaje.getInt(10));
-                personaje.setConstitucion(cursorPersonaje.getInt(11));
-                personaje.setInteligencia(cursorPersonaje.getInt(12));
-                personaje.setSabiduria(cursorPersonaje.getInt(13));
-                personaje.setCarisma(cursorPersonaje.getInt(14));
+            personaje.setAlineamiento(cursorPersonaje.getString(5));
+            personaje.setSecundarias(cursorPersonaje.getString(6));
+            personaje.setTransfondo(cursorPersonaje.getString(7));
+            personaje.setEquipo(cursorPersonaje.getString(8));
+            personaje.setFuerza(cursorPersonaje.getInt(9));
+            personaje.setDestreza(cursorPersonaje.getInt(10));
+            personaje.setConstitucion(cursorPersonaje.getInt(11));
+            personaje.setInteligencia(cursorPersonaje.getInt(12));
+            personaje.setSabiduria(cursorPersonaje.getInt(13));
+            personaje.setCarisma(cursorPersonaje.getInt(14));
 
-                personaje.setNivel(cursorPersonaje.getInt(15));
+            personaje.setNivel(cursorPersonaje.getInt(15));
 
-                personaje.setXp(cursorPersonaje.getInt(16));
-                personaje.setLengua1(cursorPersonaje.getString(17));
-                personaje.setLengua2(cursorPersonaje.getString(18));
-                personaje.setHechizo1(cursorPersonaje.getString(19));
-                personaje.setHechizo2(cursorPersonaje.getString(20));
-                personaje.setHechizo3(cursorPersonaje.getString(21));
-                personaje.setHechizo4(cursorPersonaje.getString(22));
-                personaje.setHechizo5(cursorPersonaje.getString(23));
-                personaje.setHechizo6(cursorPersonaje.getString(24));
+            personaje.setXp(cursorPersonaje.getInt(16));
+            personaje.setLengua1(cursorPersonaje.getString(17));
+            personaje.setLengua2(cursorPersonaje.getString(18));
+            personaje.setHechizo1(cursorPersonaje.getString(19));
+            personaje.setHechizo2(cursorPersonaje.getString(20));
+            personaje.setHechizo3(cursorPersonaje.getString(21));
+            personaje.setHechizo4(cursorPersonaje.getString(22));
+            personaje.setHechizo5(cursorPersonaje.getString(23));
+            personaje.setHechizo6(cursorPersonaje.getString(24));
 
         }
 

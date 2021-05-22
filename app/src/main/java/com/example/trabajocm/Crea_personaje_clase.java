@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.trabajocm.entidades.Personaje;
 import com.example.trabajocm.modelos.Clase;
-
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -220,10 +220,8 @@ public class Crea_personaje_clase extends AppCompatActivity {
                     //TODO añadir DB
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
         */
@@ -255,7 +253,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
 
                 p1.setSecundarias(Hab1+", "+Hab2);
                 //comenta las dos de abajo
-               // dbPersonajes DBPersonajes = new dbPersonajes(Crea_personaje_clase.this);
+                // dbPersonajes DBPersonajes = new dbPersonajes(Crea_personaje_clase.this);
                 //long id = DBPersonajes.insertarPersonajeNull(p1);
                 //Mis_personajes esta por ahora, cuando este transforndo personajes Mis_personajes pasara ha ser Transfondo
                 Intent j = new Intent(Crea_personaje_clase.this, Mis_personajes.class);
@@ -285,7 +283,6 @@ public class Crea_personaje_clase extends AppCompatActivity {
         info_clase_dialog.setText(Datos.formatListaTexto(clase_Seleccionada.getInfo_clase()));
 
         /* Cargar imagen mediante URL:
-
             https://square.github.io/picasso/
             https://www.youtube.com/watch?v=L8exo2c1AIc
          */
@@ -315,13 +312,11 @@ public class Crea_personaje_clase extends AppCompatActivity {
     public void ejecuta_siguiente(View view){
         //TODO
         /* CUANDO ESTÉ READY LA PANTALLA TRASFONDO
-
         //Añadir habilidades seleccionadas a Datos
         List<String> hab_seleccionadas = new ArrayList<>();
         hab_seleccionadas.add(hab_1_selec);
         hab_seleccionadas.add(hab_2_selec);
         Datos.initHabsClase(hab_seleccionadas);
-
         //Intent i = new Intent(this, Crea_personaje_2.class);
         //startActivity(i);
          */

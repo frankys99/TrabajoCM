@@ -36,15 +36,15 @@ public class Crea_personaje_1 extends Activity {
     private Map<String,List<String>> statsRazas = new HashMap<>();
 
     //Listas auxiliares para statsRazas
-    List<String> dragonborn = new ArrayList<String>(Arrays.asList("Medium", "30", "Charisma", "1", "Strength", "2"));
-    List<String> dwarf = new ArrayList<String>(Arrays.asList("Medium", "25", "Constitution", "2"));
-    List<String> elf = new ArrayList<String>(Arrays.asList("Medium", "30", "Dexterity", "2"));
-    List<String> gnome = new ArrayList<String>(Arrays.asList("Small", "25", "Intelligence", "2"));
-    List<String> half_elf = new ArrayList<String>(Arrays.asList("Medium", "30", "Charisma", "2"));
-    List<String> half_orc = new ArrayList<String>(Arrays.asList("Medium", "30", "Constitution", "1", "Strength", "2"));
-    List<String> halfling = new ArrayList<String>(Arrays.asList("Small", "30", "Dexterity", "2"));
-    List<String> human = new ArrayList<String>(Arrays.asList("Small", "30"));
-    List<String> tiefling = new ArrayList<String>(Arrays.asList("Small", "30"));
+    List<String> dragonborn = new ArrayList<String>(Arrays.asList("Tu puntuación de Fuerza aumenta en 2, y tu puntuación de Carisma aumenta en 1.","Mediano", "30", "Carisma", "1", "Fuerza", "2"));
+    List<String> dwarf = new ArrayList<String>(Arrays.asList("Tu puntuación de Constitución aumenta en 2.","Mediano", "25", "Constitución", "2"));
+    List<String> elf = new ArrayList<String>(Arrays.asList("Tu puntuación de destreza aumenta en 2.","Mediano", "30", "Destreza", "2"));
+    List<String> gnome = new ArrayList<String>(Arrays.asList("Tu puntuación de inteligencia aumenta en 2.","Pequeño", "25", "Inteligencia", "2"));
+    List<String> half_elf = new ArrayList<String>(Arrays.asList("Tu puntuación de carisma aumenta en 2, y otras dos puntuaciones de habilidad a tu elección aumentan en 1.","Mediano", "30", "Carisma", "2"));
+    List<String> half_orc = new ArrayList<String>(Arrays.asList("Tu puntuación de Fuerza aumenta en 2, y tu puntuación de Constitución aumenta en 1.","Mediano", "30", "Constitución", "1", "Fuerza", "2"));
+    List<String> halfling = new ArrayList<String>(Arrays.asList("Tu puntuación de destreza aumenta en 2.","Pequeño", "30", "Destreza", "2"));
+    List<String> human = new ArrayList<String>(Arrays.asList("Tus puntuaciones de habilidad aumentan cada una en 1.","Pequeño", "30"));
+    List<String> tiefling = new ArrayList<String>(Arrays.asList("Tu puntuación de Inteligencia aumenta en 1, y tu puntuación de Carisma aumenta en 2.","Pequeño", "30"));
 
     public void setStatsRazas(Map<String, List<String>> statsRazas) {
         this.statsRazas.put("Dracónido",dragonborn);
@@ -107,7 +107,7 @@ public class Crea_personaje_1 extends Activity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // Poner en setText el texto diseñado para cada raza
                 String razaSeleccionada = parent.getItemAtPosition(position).toString();
-                textoRazas.setText("Seleccionado "+ razaSeleccionada);
+                textoRazas.setText(statsRazas.get(razaSeleccionada).get(0));
 
                 // Reiniciamos los text view para que al seleccionar otro elemento no haya duplicidades en el texto
                 vel.setText("Velocidad:");
@@ -117,20 +117,20 @@ public class Crea_personaje_1 extends Activity {
                 // Actualizamos los valores de los atributos con la raza seleccionada
                 // statsRazas = <Raza, [tamaño, velocidad, stat1, valorstat1, stat2, valorstat2]>
 
-                vel.setText(vel.getText() + " " + statsRazas.get(razaSeleccionada).get(1));
-                Datos.setVelocidad(statsRazas.get(razaSeleccionada).get(1));
-                tam.setText(tam.getText() + " " + statsRazas.get(razaSeleccionada).get(0));
-                Datos.setTamaño(statsRazas.get(razaSeleccionada).get(0));
-                if(statsRazas.get(razaSeleccionada).size()==6){
+                vel.setText(vel.getText() + " " + statsRazas.get(razaSeleccionada).get(2));
+                Datos.setVelocidad(statsRazas.get(razaSeleccionada).get(2));
+                tam.setText(tam.getText() + " " + statsRazas.get(razaSeleccionada).get(1));
+                Datos.setTamaño(statsRazas.get(razaSeleccionada).get(1));
+                if(statsRazas.get(razaSeleccionada).size()==7){
                     Datos.setRaza(razaSeleccionada);
-                    Datos.setCompetencias(statsRazas.get(razaSeleccionada).get(2) + " " +statsRazas.get(razaSeleccionada).get(3) + " " + statsRazas.get(razaSeleccionada).get(4) + " " +statsRazas.get(razaSeleccionada).get(5));
-                    comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(2) + " + "+ statsRazas.get(razaSeleccionada).get(3) +
-                            ", " + statsRazas.get(razaSeleccionada).get(4) + " + " + statsRazas.get(razaSeleccionada).get(5));
+                    Datos.setCompetencias(statsRazas.get(razaSeleccionada).get(3) + " " +statsRazas.get(razaSeleccionada).get(4) + " " + statsRazas.get(razaSeleccionada).get(5) + " " +statsRazas.get(razaSeleccionada).get(6));
+                    comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(3) + " + "+ statsRazas.get(razaSeleccionada).get(4) +
+                            ", " + statsRazas.get(razaSeleccionada).get(5) + " + " + statsRazas.get(razaSeleccionada).get(6));
 
-                }else if(statsRazas.get(razaSeleccionada).size()==4){
+                }else if(statsRazas.get(razaSeleccionada).size()==5){
                     Datos.setRaza(razaSeleccionada);
-                    Datos.setCompetencias(statsRazas.get(razaSeleccionada).get(2) + statsRazas.get(razaSeleccionada).get(3));
-                    comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(2) + " + "+ statsRazas.get(razaSeleccionada).get(3));
+                    Datos.setCompetencias(statsRazas.get(razaSeleccionada).get(3) + statsRazas.get(razaSeleccionada).get(4));
+                    comp.setText(comp.getText() + " " + statsRazas.get(razaSeleccionada).get(3) + " + "+ statsRazas.get(razaSeleccionada).get(4));
                 }else{
                     Datos.setRaza(razaSeleccionada);
                     Datos.setCompetencias("");
