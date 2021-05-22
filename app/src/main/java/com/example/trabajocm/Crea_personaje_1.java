@@ -44,7 +44,7 @@ public class Crea_personaje_1 extends Activity {
     List<String> half_orc = new ArrayList<String>(Arrays.asList("Tu puntuación de Fuerza aumenta en 2, y tu puntuación de Constitución aumenta en 1.","Mediano", "30", "Constitución", "1", "Fuerza", "2"));
     List<String> halfling = new ArrayList<String>(Arrays.asList("Tu puntuación de destreza aumenta en 2.","Pequeño", "30", "Destreza", "2"));
     List<String> human = new ArrayList<String>(Arrays.asList("Tus puntuaciones de habilidad aumentan cada una en 1.","Pequeño", "30"));
-    List<String> tiefling = new ArrayList<String>(Arrays.asList("Tu puntuación de Inteligencia aumenta en 1, y tu puntuación de Carisma aumenta en 2.","Pequeño", "30"));
+    List<String> tiefling = new ArrayList<String>(Arrays.asList("Tu puntuación de Inteligencia aumenta en 1, y tu puntuación de Carisma aumenta en 2.","Pequeño", "30","Carisma","2","Inteligencia","1"));
 
     public void setStatsRazas(Map<String, List<String>> statsRazas) {
         this.statsRazas.put("Dracónido",dragonborn);
