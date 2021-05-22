@@ -66,9 +66,6 @@ public class Crea_personaje_clase extends AppCompatActivity {
         //Cargar las clases de la APIRest
         ls_clases = Datos.getLs_clases();
 
-        //TEST RAZASAPI
-        Log.i("---CARGA\n", Datos.getLs_razas().toString());
-
         //Declarar TextView
         info_clase = (TextView)findViewById(R.id.text_info_clase);
         comp_armas = (TextView)findViewById(R.id.text_comp_armas);
@@ -122,13 +119,13 @@ public class Crea_personaje_clase extends AppCompatActivity {
                     cabecera_hab_esp.setText(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
 
                     subtitulo_habOspell.setText(clase_Seleccionada.getHabilidad_esp().getNombre_hab() +
-                            " es una habilidad especial y única del " + clase_Seleccionada.getNombre() + "\n");
+                            " es una habilidad especial y única de la clase " + clase_Seleccionada.getNombre() + ".\n");
 
                     String descripcion_hab_s = Datos.formatListaTexto(clase_Seleccionada.getHabilidad_esp().getDescripcion_hab());
                     text_hab_esp.setText(descripcion_hab_s);
                 }else{
                     cabecera_hab_esp.setText("Hechizos");
-                    subtitulo_habOspell.setText("La clase " + clase_Seleccionada.getHabilidad_esp().getNombre_hab() +
+                    subtitulo_habOspell.setText("La clase " + clase_Seleccionada.getNombre() +
                             " dispone de los siguientes hechizos de nivel 1 :\n");
                     String hechizos = Datos.formatListaElem(clase_Seleccionada.getHechizos());
                     text_hab_esp.setText(hechizos);
@@ -220,8 +217,10 @@ public class Crea_personaje_clase extends AppCompatActivity {
                     //TODO añadir DB
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         */
@@ -253,7 +252,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
 
                 p1.setSecundarias(Hab1+", "+Hab2);
                 //comenta las dos de abajo
-                // dbPersonajes DBPersonajes = new dbPersonajes(Crea_personaje_clase.this);
+               // dbPersonajes DBPersonajes = new dbPersonajes(Crea_personaje_clase.this);
                 //long id = DBPersonajes.insertarPersonajeNull(p1);
                 //Mis_personajes esta por ahora, cuando este transforndo personajes Mis_personajes pasara ha ser Transfondo
                 Intent j = new Intent(Crea_personaje_clase.this, Mis_personajes.class);
@@ -283,6 +282,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
         info_clase_dialog.setText(Datos.formatListaTexto(clase_Seleccionada.getInfo_clase()));
 
         /* Cargar imagen mediante URL:
+
             https://square.github.io/picasso/
             https://www.youtube.com/watch?v=L8exo2c1AIc
          */
@@ -312,16 +312,16 @@ public class Crea_personaje_clase extends AppCompatActivity {
     public void ejecuta_siguiente(View view){
         //TODO
         /* CUANDO ESTÉ READY LA PANTALLA TRASFONDO
+
         //Añadir habilidades seleccionadas a Datos
         List<String> hab_seleccionadas = new ArrayList<>();
         hab_seleccionadas.add(hab_1_selec);
         hab_seleccionadas.add(hab_2_selec);
         Datos.initHabsClase(hab_seleccionadas);
+
         //Intent i = new Intent(this, Crea_personaje_2.class);
         //startActivity(i);
          */
     }
-
-
 
 }
