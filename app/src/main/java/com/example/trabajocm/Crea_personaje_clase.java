@@ -23,8 +23,11 @@ import com.example.trabajocm.modelos.Clase;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 public class Crea_personaje_clase extends AppCompatActivity {
 //public class Crea_personaje_clase extends Activity {
+
     private Spinner clases_spiner;
     private Spinner comp_hab_1;
     private Spinner comp_hab_2;
@@ -36,6 +39,8 @@ public class Crea_personaje_clase extends AppCompatActivity {
     private TextView cabecera_hab_esp;
     private TextView text_hab_esp;
     private TextView res_spinner_sel_equipo;
+    private TextView subtitulo_habOspell;
+
     private Button Guardar;
     private ImageView icono_info_clase;
 
@@ -45,6 +50,9 @@ public class Crea_personaje_clase extends AppCompatActivity {
     //Dialogo
     private Dialog dialog;
 
+    //Habilidades secundarias escogidas
+    private String hab_1_selec;
+    private String hab_2_selec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +76,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
         res_spinner_sel_equipo = (TextView)findViewById(R.id.res_spinner_equipo);
         cabecera_hab_esp = (TextView)findViewById(R.id.cabecera_hab_esp);
         text_hab_esp = (TextView)findViewById(R.id.text_hab_esp);
+        subtitulo_habOspell = (TextView)findViewById(R.id.subtitulo_hab_esp);
 
         //Declarar imageView
         icono_info_clase =(ImageView)findViewById(R.id.icono_info_clase);
@@ -108,11 +117,22 @@ public class Crea_personaje_clase extends AppCompatActivity {
                 String armaduras_s = Datos.formatListaElem(clase_Seleccionada.getProficiencias().getArmaduras());
                 comp_armaduras.setText(armaduras_s);
 
-                //HABILIDAD ESPECIAL DE LA CLASE
-                cabecera_hab_esp.setText(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
+                //HABILIDAD ESPECIAL O HECHIZOS
+                if(clase_Seleccionada.getHechizos().size() == 0){
+                    cabecera_hab_esp.setText(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
 
-                String descripcion_hab_s = Datos.formatListaTexto(clase_Seleccionada.getHabilidad_esp().getDescripcion_hab());
-                text_hab_esp.setText(descripcion_hab_s);
+                    subtitulo_habOspell.setText(clase_Seleccionada.getHabilidad_esp().getNombre_hab() +
+                            " es una habilidad especial y única del " + clase_Seleccionada.getNombre() + "\n");
+
+                    String descripcion_hab_s = Datos.formatListaTexto(clase_Seleccionada.getHabilidad_esp().getDescripcion_hab());
+                    text_hab_esp.setText(descripcion_hab_s);
+                }else{
+                    cabecera_hab_esp.setText("Hechizos");
+                    subtitulo_habOspell.setText("La clase " + clase_Seleccionada.getHabilidad_esp().getNombre_hab() +
+                            " dispone de los siguientes hechizos de nivel 1 :\n");
+                    String hechizos = Datos.formatListaElem(clase_Seleccionada.getHechizos());
+                    text_hab_esp.setText(hechizos);
+                }
 
                 //HABILIDADES A ESCOGER
                 //SPINNER: habilidad_1
@@ -123,24 +143,37 @@ public class Crea_personaje_clase extends AppCompatActivity {
                 ArrayAdapter<String>adapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_hab_spinner);
                 comp_hab_1.setAdapter(adapter2);
 
+                hab_1_selec = ls_habilidades.get(0);                    //El spinner por defecto tiene la habilidad de la pos 0
 
-
-                //Spinner hab_1 seleccionado -> Generar opciones del spinner hab_2
+                //SPINNER OnItemSelected : hab_1 -> Generar opciones del spinner hab_2
                 comp_hab_1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                         //SPINNER ANIDADO: habilidad_2
                         List<String>ls_aux = new ArrayList<String>(ls_habilidades);  //copiar ls sin referencia
-
                         ls_aux.remove(comp_hab_1.getSelectedItem());            //Eliminar hab_1 seleccionada -> evitar duplicados
+
+                        hab_1_selec = comp_hab_1.getSelectedItem().toString();  //Se asigna la habilidad 1 seleccionada
+                        hab_2_selec = ls_aux.get(0);                            //Se agina por defecto la hab 2
 
                         String[] opciones_hab_2_spinner = new String[ls_aux.size()];
                         ls_aux.toArray(opciones_hab_2_spinner);
                         ArrayAdapter<String>adapter3 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,opciones_hab_2_spinner);
                         comp_hab_2.setAdapter(adapter3);
 
-                        //TODO: hab2.select -> Añadir habs a Datos
+                        //SPINNER OnItemSelected: hab_2
+                        comp_hab_2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                hab_2_selec = comp_hab_2.getSelectedItem().toString();  ////Se asigna la habilidad 2 seleccionada
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                     }
 
                     @Override
@@ -171,36 +204,9 @@ public class Crea_personaje_clase extends AppCompatActivity {
         icono_info_clase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(clase_Seleccionada.getNombre().equals("Paladin")){
-
-                    //DIALOGO
-                    abrirDialogo();
-                    /*
-                    AlertDialog.Builder d_builder = new AlertDialog.Builder(getBaseContext());
-
-                    // Crea una instancia de un archivo XML de diseño en sus objetos de vista correspondientes.
-                    //   Ejemplo : comparan un Layoutinflater con un hinchador de playa, entiendo la metáfora que dentro va el XML como gas
-                    //     y la pelota de playa sería la variable tipo vista/View dónde se carga ese XML
-
-                    LayoutInflater inflater = getLayoutInflater();
-                    d_builder.setView(inflater.inflate(R.layout.dialog_info_clase, null))
-                            .setNegativeButton("[X]", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
-                                }
-                            });
-
-                    AlertDialog a_d = d_builder.create();
-                    a_d.show();
-                    */
-
-                }else if(clase_Seleccionada.getNombre().equals("Brujo")){
-                    abrirDialogo();
-                }
+                abrirDialogo();
             }
         });
-
 
         /* DESPRECIADO -> NO SE DA A ESCOGER
         selec_equipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -306,10 +312,19 @@ public class Crea_personaje_clase extends AppCompatActivity {
         startActivity(i);
     }
 
-    //TODO
-
     public void ejecuta_siguiente(View view){
+        //TODO
+        /* CUANDO ESTÉ READY LA PANTALLA TRASFONDO
 
+        //Añadir habilidades seleccionadas a Datos
+        List<String> hab_seleccionadas = new ArrayList<>();
+        hab_seleccionadas.add(hab_1_selec);
+        hab_seleccionadas.add(hab_2_selec);
+        Datos.initHabsClase(hab_seleccionadas);
+
+        //Intent i = new Intent(this, Crea_personaje_2.class);
+        //startActivity(i);
+         */
     }
 
 

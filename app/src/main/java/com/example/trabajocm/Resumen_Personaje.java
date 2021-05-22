@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,12 +23,15 @@ public class Resumen_Personaje extends AppCompatActivity {
     private Button borrar;
     private Button editar;
     Personaje personaje;
+    int Ca;
     int id =0;
     ImageView foto;
     EditText PV, CA, Turno, Nivel, XP;
     EditText Fuerza, Destreza, Constitucion, Inteligencia, Sabiduria, Carisma;
     EditText H1,H2,H3,H4,H5,H6;
-    EditText Nombre, clase, raza, salvaciones, secundarias, dotes, lenguaje1, lenguaje2, equipo;
+    TextView NoHechizo;
+
+    EditText Nombre, clase, raza, salvaciones, secundarias, transfondo, lenguaje1, lenguaje2, equipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,7 @@ public class Resumen_Personaje extends AppCompatActivity {
         setContentView(R.layout.activity_resumen__personaje);
 
 
-        volver =findViewById(R.id.Volver);
+        volver =findViewById(R.id.atras);
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,11 +50,13 @@ public class Resumen_Personaje extends AppCompatActivity {
 
         borrar = findViewById(R.id.BORRAR);
         editar = findViewById(R.id.Editar);
+        NoHechizo = findViewById(R.id.NoHechizo);
+
 
         foto = findViewById(R.id.foto);
         PV = findViewById(R.id.PV_N);
-        clase = findViewById(R.id.clase_put);
-        raza = findViewById(R.id.raza_put);
+        clase = findViewById(R.id.Clase_put);
+        raza = findViewById(R.id.Raza_put);
         CA = findViewById(R.id.CA_N);
         Turno = findViewById(R.id.Turno_N);
         Nivel = findViewById(R.id.Nivel_N);
@@ -63,9 +69,9 @@ public class Resumen_Personaje extends AppCompatActivity {
         Carisma = findViewById(R.id.Carisma_N);
         H1 = findViewById(R.id.Hechi1);H2 = findViewById(R.id.Hechi2);H3 = findViewById(R.id.Hechi3);H4 = findViewById(R.id.Hechi4);H5 = findViewById(R.id.Hechi5);H6 = findViewById(R.id.Hechi6);
         Nombre = findViewById(R.id.Nombre_put);
-        salvaciones = findViewById(R.id.salvaciones_put);
+        salvaciones = findViewById(R.id.Salvaciones_put);
         secundarias = findViewById(R.id.Secundaria_put);
-        dotes = findViewById(R.id.Dotes_put);
+        transfondo = findViewById(R.id.Transfondo_put);
         lenguaje1 = findViewById(R.id.Lengua1);
         lenguaje2 = findViewById(R.id.lengua2);
         equipo = findViewById(R.id.Equipo_put);
@@ -89,9 +95,36 @@ public class Resumen_Personaje extends AppCompatActivity {
             Nombre.setText(personaje.getNombre());
             clase.setText(personaje.getClase());
             raza.setText(personaje.getRaza());
-            salvaciones.setText(personaje.getSalvaciones());
+           //mostrar salvaciones según la clase(mirar si esta bien)
+            if(personaje.getClase().equals("Bárbaro")){
+                salvaciones.setText("Fuerza"+", "+ "Constitución");
+            }else if (personaje.getRaza().equals("Bardo")){
+                salvaciones.setText("Destreza"+", "+ "Carisma");
+            }else if (personaje.getClase().equals("Clérigo")){
+                salvaciones.setText("Sabiduría"+", "+ "Carisma");
+            }else if (personaje.getClase().equals("Druida")){
+                salvaciones.setText("Inteligencia"+", "+ "Sabiduría");
+            }else if (personaje.getClase().equals("Guerrero")){
+                salvaciones.setText("Fuerza"+", "+ "Constitución");
+            }else if (personaje.getClase().equals("Monje")){
+                salvaciones.setText("Destreza"+", "+ "Fuerza");
+            }else if (personaje.getClase().equals("Paladín")){
+                salvaciones.setText("Sabiduría"+", "+ "Carisma");
+            }else if (personaje.getClase().equals("Explorador")){
+                salvaciones.setText("Fuerza"+", "+ "Destreza");
+            }else if (personaje.getClase().equals("Pícaro")){
+                salvaciones.setText("Destreza"+", "+ "Inteligencia");
+            }else if (personaje.getClase().equals("Hechicero")){
+                salvaciones.setText("Constitución"+", "+ "Carisma");
+            }else if (personaje.getClase().equals("Brujo")){
+                salvaciones.setText("Sabiduría"+", "+ "Carisma");
+            }else if (personaje.getClase().equals("Mago")){
+                salvaciones.setText("Inteligencia"+", "+ "Sabiduría");
+            }
+
+
             secundarias.setText(personaje.getSecundarias());
-            dotes.setText(personaje.getDotes());
+            transfondo.setText(personaje.getTransfondo());
             if(personaje.getRaza().equals("Humano")){
                 Fuerza.setText(String.valueOf(personaje.getFuerza()+1));
                 Destreza.setText(String.valueOf(personaje.getDestreza()+1));
@@ -179,7 +212,7 @@ public class Resumen_Personaje extends AppCompatActivity {
                 PV.setText(String.valueOf(bono_consti+8));
             }else if(personaje.getClase().equals("Guerrero")||personaje.getClase().equals("Paladín")||personaje.getClase().equals("Explorador")){
                 PV.setText(String.valueOf(bono_consti+10));
-            }else if(personaje.getClase().equals("Hechizero")||personaje.getClase().equals("Mago")){
+            }else if(personaje.getClase().equals("Hechicero")||personaje.getClase().equals("Mago")){
                 PV.setText(String.valueOf(bono_consti+6));
             }
 
@@ -192,37 +225,55 @@ public class Resumen_Personaje extends AppCompatActivity {
 
 
             if (personaje.getEquipo().equals("vacio")){
-                CA.setText(String.valueOf(10+bono_destreza));
+                Ca = 10+bono_destreza;
+                CA.setText(String.valueOf(Ca));
 
             }else{
-                if (personaje.getEquipo().contains("Acolchada")||personaje.getEquipo().contains("Cuero")){
-                    CA.setText(String.valueOf(11+bono_destreza));
+                if(personaje.getEquipo().equals("Escudo.")||personaje.getEquipo().equals("Escudo")){
+                    CA.setText(String.valueOf(Ca+2));
+                }
+                //armadura de cuero
+                if (personaje.getEquipo().contains("Acolchada")||personaje.getEquipo().contains("Armadura de cuero")){
+                    if (personaje.getEquipo().contains("Escudo")){Ca=11+bono_destreza+2;}else{Ca=11+bono_destreza;}
+                    CA.setText(String.valueOf(Ca));
                 }else if (personaje.getEquipo().contains("Cuero tachonado")){
-                    CA.setText(String.valueOf(12+bono_destreza));
+                    if (personaje.getEquipo().contains("Escudo")){Ca=12+bono_destreza+2;}else{Ca=12+bono_destreza;}
+
+                    CA.setText(String.valueOf(Ca));
                 }else if (personaje.getEquipo().contains("Pieles")){
                     if (bono_destreza>2){bono_destreza=2;}
-                    CA.setText(String.valueOf(12+bono_destreza));
+                    if (personaje.getEquipo().contains("Escudo")){Ca=12+bono_destreza+2;}else{Ca=12+bono_destreza;}
+
+                    CA.setText(String.valueOf(Ca));
                 }else if (personaje.getEquipo().contains("camiseta de mallas")){
                     if (bono_destreza>2){bono_destreza=2;}
-                    CA.setText(String.valueOf(13+bono_destreza));
+                    if (personaje.getEquipo().contains("Escudo")){Ca=13+bono_destreza+2;}else{Ca=13+bono_destreza;}
+
+                    CA.setText(String.valueOf(Ca));
                 }else if (personaje.getEquipo().contains("Cota de escamas")||personaje.getEquipo().contains("Coraza")){
                     if (bono_destreza>2){bono_destreza=2;}
-                    CA.setText(String.valueOf(14+bono_destreza));
+                    if (personaje.getEquipo().contains("Escudo")){Ca=14+bono_destreza+2;}else{Ca=14+bono_destreza;}
+                    CA.setText(String.valueOf(Ca));
                 }else if (personaje.getEquipo().contains("Semiplacas")){
                     if (bono_destreza>2){bono_destreza=2;}
-                    CA.setText(String.valueOf(15+bono_destreza));
+                    if (personaje.getEquipo().contains("Escudo")){Ca=15+bono_destreza+2;}else{Ca=15+bono_destreza;}
+
+                    CA.setText(String.valueOf(Ca));
                 }else if(personaje.getEquipo().contains("Cota de anillas")){
-                    CA.setText(String.valueOf(14));
+                    if (personaje.getEquipo().contains("Escudo")){Ca=14+2;}else{Ca=14;}
+
+                    CA.setText(String.valueOf(Ca));
                 }else if(personaje.getEquipo().contains("Cota de mallas")){
-                    CA.setText(String.valueOf(16));
+                    if (personaje.getEquipo().contains("Escudo")){Ca=16+2;}else{Ca=16;}
+                    CA.setText(String.valueOf(Ca));
                 }else if(personaje.getEquipo().contains("Bandas")){
-                    CA.setText(String.valueOf(17));
+                    if (personaje.getEquipo().contains("Escudo")){Ca=17+2;}else{Ca=17;}
+                    CA.setText(String.valueOf(Ca));
                 }else if(personaje.getEquipo().contains("Placas")){
-                    CA.setText(String.valueOf(18));
+                    if (personaje.getEquipo().contains("Escudo")){Ca=18+2;}else{Ca=18;}
+                    CA.setText(String.valueOf(Ca));
                 }
-                if (personaje.getEquipo().contains("Escudo")){
-                    CA.setText(String.valueOf(2+Integer.parseInt(String.valueOf(CA.getText()))));
-                }
+
             }
             Nivel.setText(String.valueOf(personaje.getNivel()));
             Turno.setText(String.valueOf(bono_destreza));
@@ -254,7 +305,7 @@ public class Resumen_Personaje extends AppCompatActivity {
             Nombre.setInputType(InputType.TYPE_NULL);
             salvaciones.setInputType(InputType.TYPE_NULL);
             secundarias.setInputType(InputType.TYPE_NULL);
-            dotes.setInputType(InputType.TYPE_NULL);
+            transfondo.setInputType(InputType.TYPE_NULL);
             lenguaje1.setInputType(InputType.TYPE_NULL);
             lenguaje2.setInputType(InputType.TYPE_NULL);
             equipo.setInputType(InputType.TYPE_NULL);
@@ -264,6 +315,21 @@ public class Resumen_Personaje extends AppCompatActivity {
             H4.setInputType(InputType.TYPE_NULL);
             H5.setInputType(InputType.TYPE_NULL);
             H6.setInputType(InputType.TYPE_NULL);
+        }
+
+        if((personaje.getClase().equals("Hechicero")||personaje.getClase().equals("Mago")||personaje.getClase().equals("Bardo")
+                ||personaje.getClase().equals("Clérigo")||personaje.getClase().equals("Druida"))){
+            H1.setVisibility(View.VISIBLE);
+            H2.setVisibility(View.VISIBLE);
+            H3.setVisibility(View.VISIBLE);
+            H4.setVisibility(View.VISIBLE);
+            H5.setVisibility(View.VISIBLE);
+            H6.setVisibility(View.VISIBLE);
+            NoHechizo.setVisibility(View.GONE);
+
+
+
+
         }
 
 
@@ -279,7 +345,7 @@ public class Resumen_Personaje extends AppCompatActivity {
 
                                 if(dbpersonaje.eliminarPersonaje(id)){
 
-                                    lista();
+                                    startActivity(new Intent(getBaseContext(),Mis_personajes.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                 }
                             }
                         })
@@ -298,9 +364,5 @@ public class Resumen_Personaje extends AppCompatActivity {
 
 
     }
-    private void lista(){
-        startActivity(new Intent(getBaseContext(),Mis_personajes.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 
-
-    }
 }
