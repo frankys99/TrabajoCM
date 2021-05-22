@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -265,7 +266,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
 
                 }
                 p1.setHabilidad_especial(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
-                Log.d("myTag", "This is my message");
+                Log.d("myTag", "AQUIIIII: "+ clase_Seleccionada.getHabilidad_esp().getNombre_hab());
 
                 p1.setSecundarias(Hab1+", "+Hab2);
                 //comenta las dos de abajo
