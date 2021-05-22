@@ -23,6 +23,8 @@ public class Crea_transfondo extends Activity {
 
     String equipo = "";
     String competencias = "";
+    String vlenguaje1 = "";
+    String vlenguaje2 = "";
 
     private Map<String, List<String>> transfondosMapa = new HashMap<>();
     List<String> acólito = new ArrayList<String>(Arrays.asList("Perspicacia", "Religión", "Símbolo sagrado", "Devocionario", "x5 Varas de inciensos"));
@@ -79,7 +81,11 @@ public class Crea_transfondo extends Activity {
                 List<String> aux = transfondosMapa.get(transfondoElegido);
                 competencias = aux.get(0) + aux.get(1) ;
                 vcomp.setText(competencias);
-
+                int x = aux.size();
+                for (int i = 2; i< x; i++) {
+                    equipo = equipo + aux.get(i);
+                }
+                vequipo.setText(equipo);
             }
 
             @Override
@@ -90,7 +96,8 @@ public class Crea_transfondo extends Activity {
         lenguaje1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener () {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                String lenguajeElegido1 = parent.getItemAtPosition(position).toString();
+                vlenguaje1 = lenguajeElegido1;
             }
 
             @Override
@@ -101,7 +108,8 @@ public class Crea_transfondo extends Activity {
         lenguaje2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener () {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                String lenguajeElegido2 = parent.getItemAtPosition(position).toString();
+                vlenguaje1 = lenguajeElegido2;
             }
 
             @Override
