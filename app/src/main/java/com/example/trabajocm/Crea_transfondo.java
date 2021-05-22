@@ -1,10 +1,12 @@
 package com.example.trabajocm;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,6 +22,8 @@ public class Crea_transfondo extends Activity {
     private Spinner spinnerTransfondos = (Spinner) findViewById(R.id.spinnerTransfondo);
     private Spinner lenguaje1 = (Spinner) findViewById(R.id.spinner2);
     private Spinner lenguaje2 = (Spinner) findViewById(R.id.spinner3);
+
+    private Button finalizar;
 
     String equipo = "";
     String competencias = "";
@@ -109,7 +113,7 @@ public class Crea_transfondo extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String lenguajeElegido2 = parent.getItemAtPosition(position).toString();
-                vlenguaje1 = lenguajeElegido2;
+                vlenguaje2 = lenguajeElegido2;
             }
 
             @Override
@@ -117,6 +121,14 @@ public class Crea_transfondo extends Activity {
             }
         });
 
+        finalizar = findViewById(R.id.button2);
+        finalizar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent j = new Intent(Crea_transfondo.this, Mis_personajes.class);
+                startActivity(j);
+            }
+        });
     }
 }
 
