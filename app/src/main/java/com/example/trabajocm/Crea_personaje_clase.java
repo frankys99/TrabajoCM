@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,7 +59,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
         setContentView(R.layout.crea_personaje_clase);
 
         Personaje p1 = (Personaje) getIntent().getSerializableExtra("p1");
-        Toast.makeText(Crea_personaje_clase.this,p1.getRaza(), Toast.LENGTH_LONG).show();
+
 
         //Cargar las clases de la APIRest
         ls_clases = Datos.getLs_clases();
@@ -239,7 +237,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
                 }
                 equipo = equipo.replaceAll("\n", System.getProperty("line.separator"));
                 p1.setEquipo(equipo);
-                Toast.makeText(Crea_personaje_clase.this,p1.getEquipo(), Toast.LENGTH_LONG).show();
+
                 Spinner SpinnerHab1 = (Spinner) findViewById(R.id.spinner_comp_hab_1);
                 String Hab1 = SpinnerHab1.getSelectedItem().toString();
                 Spinner SpinnerHab2 = (Spinner) findViewById(R.id.spinner_comp_hab_2);
@@ -248,25 +246,26 @@ public class Crea_personaje_clase extends AppCompatActivity {
                         ||p1.getClase().equals("Clérigo")||p1.getClase().equals("Druida"))){
                     if (clase_Seleccionada.getHechizos().size()==5){
                         p1.setHechizo1(clase_Seleccionada.getHechizos().get(0));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(1));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(2));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(3));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(4));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(5));
+                        p1.setHechizo2(clase_Seleccionada.getHechizos().get(1));
+                        p1.setHechizo3(clase_Seleccionada.getHechizos().get(2));
+                        p1.setHechizo4(clase_Seleccionada.getHechizos().get(3));
+                        p1.setHechizo5(clase_Seleccionada.getHechizos().get(4));
+
                     }else if(clase_Seleccionada.getHechizos().size()==6){
                         p1.setHechizo1(clase_Seleccionada.getHechizos().get(0));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(1));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(2));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(3));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(4));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(5));
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(6));
+                        p1.setHechizo2(clase_Seleccionada.getHechizos().get(1));
+                        p1.setHechizo3(clase_Seleccionada.getHechizos().get(2));
+                        p1.setHechizo4(clase_Seleccionada.getHechizos().get(3));
+                        p1.setHechizo5(clase_Seleccionada.getHechizos().get(4));
+                        p1.setHechizo6(clase_Seleccionada.getHechizos().get(5));
+
                     }
 
 
-                }
-                p1.setHabilidad_especial(clase_Seleccionada.getHabilidad_esp().getNombre_hab());
-                Log.d("myTag", "AQUIIIII: "+ clase_Seleccionada.getHabilidad_esp().getNombre_hab());
+                }else{
+                p1.setHabilidad_especial(clase_Seleccionada.getHabilidad_esp().getNombre_hab());}
+
+
 
                 p1.setSecundarias(Hab1+", "+Hab2);
                 //comenta las dos de abajo

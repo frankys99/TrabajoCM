@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.example.trabajocm.db.dbPersonajes;
+import com.example.trabajocm.entidades.Personaje;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,9 +21,9 @@ import java.util.Map;
 
 public class Crea_transfondo extends Activity {
 
-    private Spinner spinnerTransfondos = (Spinner) findViewById(R.id.spinnerTransfondo);
-    private Spinner lenguaje1 = (Spinner) findViewById(R.id.spinner2);
-    private Spinner lenguaje2 = (Spinner) findViewById(R.id.spinner3);
+    private Spinner spinnerTransfondos;// = (Spinner) findViewById(R.id.spinnerTransfondo);
+    private Spinner lenguaje1;// = (Spinner) findViewById(R.id.spinner2);
+    private Spinner lenguaje2;// = (Spinner) findViewById(R.id.spinner3);
 
     private Button finalizar;
 
@@ -64,6 +66,10 @@ public class Crea_transfondo extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Personaje p1 = (Personaje) getIntent().getSerializableExtra("p1");
+        spinnerTransfondos = (Spinner) findViewById(R.id.spinnerTransfondo);
+        lenguaje1 = (Spinner) findViewById(R.id.spinner2);
+        lenguaje2 = (Spinner) findViewById(R.id.spinner3);
         setContentView(R.layout.crea_transfondo);
 
         setTransfondos(transfondosMapa);
@@ -125,6 +131,23 @@ public class Crea_transfondo extends Activity {
         finalizar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Spinner SpinnerTransfondo = (Spinner) findViewById(R.id.spinnerTransfondo);
+                String Transfondo = SpinnerTransfondo.getSelectedItem().toString();
+                p1.setTransfondo(Transfondo);
+                Spinner SpinnerLengua1 = (Spinner) findViewById(R.id.spinner2);
+                String lengua1 = SpinnerLengua1.getSelectedItem().toString();
+                p1.setLengua1(lengua1);
+                Spinner SpinnerLengua2 = (Spinner) findViewById(R.id.spinner3);
+                String lengua2 = SpinnerLengua2.getSelectedItem().toString();
+                p1.setLengua1(lengua2);
+
+                String secundarias=p1.getSecundarias();
+                p1.setSecundarias(secundarias+(String) vcomp.getText());
+                String equipo=p1.getSecundarias();
+                p1.setEquipo(equipo+(String) vequipo.getText());
+
+                dbPersonajes DBPersonajes = new dbPersonajes(Crea_transfondo.this);
+                long id = DBPersonajes.insertarPersonajeNull(p1);
                 Intent j = new Intent(Crea_transfondo.this, Mis_personajes.class);
                 startActivity(j);
             }

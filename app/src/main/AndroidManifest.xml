@@ -25,6 +25,7 @@
         <activity android:name=".Crea_personaje_clase"/>
         <activity android:name=".Mis_personajes" />
         <activity android:name=".Resumen_Personaje"/>
+        <activity android:name=".Crea_transfondo"/>
 
 
         <activity android:name=".MainActivity">

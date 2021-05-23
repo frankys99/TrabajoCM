@@ -53,7 +53,7 @@ public class dbPersonajes extends DbHelper {
             values.put(Utilidades.CAMPO_RAZA,p1.getRaza());
             values.put(Utilidades.CAMPO_ALINEAMIENTO, p1.getAlineamiento());
             values.put(Utilidades.CAMPO_SECUNDARIAS, p1.getSecundarias());
-            values.put(Utilidades.CAMPO_TRASFONDO, "vacio");
+            values.put(Utilidades.CAMPO_TRASFONDO, p1.getTransfondo());
             values.put(Utilidades.CAMPO_EQUIPO, p1.getEquipo());
             values.put(Utilidades.CAMPO_FUERZA, p1.getFuerza());
             values.put(Utilidades.CAMPO_DESTREZA, p1.getDestreza());
@@ -66,14 +66,14 @@ public class dbPersonajes extends DbHelper {
 
             values.put(Utilidades.CAMPO_XP, 0);
             values.put(Utilidades.CAMPO_HAB_ESPE, p1.getHabilidad_especial());
-            values.put(Utilidades.CAMPO_LENGUA1, "vacio");
-            values.put(Utilidades.CAMPO_LENGUA2, "vacio");
-            values.put(Utilidades.CAMPO_HECHIZO1, "vacio");
-            values.put(Utilidades.CAMPO_HECHIZO2, "vacio");
-            values.put(Utilidades.CAMPO_HECHIZO3, "vacio");
-            values.put(Utilidades.CAMPO_HECHIZO4, "vacio");
-            values.put(Utilidades.CAMPO_HECHIZO5, "vacio");
-            values.put(Utilidades.CAMPO_HECHIZO6, "vacio");
+            values.put(Utilidades.CAMPO_LENGUA1, p1.getLengua1());
+            values.put(Utilidades.CAMPO_LENGUA2, p1.getLengua2());
+            values.put(Utilidades.CAMPO_HECHIZO1, p1.getHechizo1());
+            values.put(Utilidades.CAMPO_HECHIZO2, p1.getHechizo2());
+            values.put(Utilidades.CAMPO_HECHIZO3, p1.getHechizo3());
+            values.put(Utilidades.CAMPO_HECHIZO4, p1.getHechizo4());
+            values.put(Utilidades.CAMPO_HECHIZO5, p1.getHechizo5());
+            values.put(Utilidades.CAMPO_HECHIZO6, p1.getHechizo6());
 
             id = db.insert(Utilidades.TABLA_PERSONAJE, null, values);
         }catch (Exception exception){
