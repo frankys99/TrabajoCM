@@ -242,7 +242,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
                 String Hab1 = SpinnerHab1.getSelectedItem().toString();
                 Spinner SpinnerHab2 = (Spinner) findViewById(R.id.spinner_comp_hab_2);
                 String Hab2 = SpinnerHab2.getSelectedItem().toString();
-                if((p1.getClase().equals("Hechicero")||p1.getClase().equals("Mago")||p1.getClase().equals("Bardo")
+                if((p1.getClase().equals("Hechicero")||p1.getClase().equals("Brujo") ||p1.getClase().equals("Mago")||p1.getClase().equals("Bardo")
                         ||p1.getClase().equals("Clérigo")||p1.getClase().equals("Druida"))){
                     if (clase_Seleccionada.getHechizos().size()==5){
                         p1.setHechizo1(clase_Seleccionada.getHechizos().get(0));

@@ -3,6 +3,7 @@ package com.example.trabajocm;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,7 +36,7 @@ public class Crea_transfondo extends Activity {
     private Map<String, List<String>> transfondosMapa = new HashMap<>();
     List<String> acólito = new ArrayList<String>(Arrays.asList("Perspicacia", "Religión", "Símbolo sagrado", "Devocionario", "x5 Varas de inciensos"));
     List<String> animador =  new ArrayList<String>(Arrays.asList("Acrobacias", "Interpretación", "Instrumento musical", "Favor de un fan", "Disfraz"));
-    List<String> artesanoGremial =  new ArrayList<String>(Arrays.asList("Perspicacia", "Persuasión", "Herramientas de artesano", "Carta de presentación", "Mudas de ropa"));
+    List<String> artesano =  new ArrayList<String>(Arrays.asList("Perspicacia", "Persuasión", "Herramientas de artesano", "Carta de presentación", "Mudas de ropa"));
     List<String> charlatán =  new ArrayList<String>(Arrays.asList("Engaño", "Juego de manos", "Ropas de calidad", "Herramientas de timador"));
     List<String> criminal =  new ArrayList<String>(Arrays.asList("Engaño", "Sigilo", "Palanca", "Mudas de ropa"));
     List<String> ermitaño =  new ArrayList<String>(Arrays.asList("Medicina", "Religión", "Estuche con pergaminos", "Manta", "Mudas de ropa", "Útiles de herborista"));
@@ -50,7 +51,7 @@ public class Crea_transfondo extends Activity {
     public void setTransfondos(Map<String, List<String>> transfondosMapa) {
         this.transfondosMapa.put("Acólito",acólito);
         this.transfondosMapa.put("Animador", animador);
-        this.transfondosMapa.put("Artesano gremial",artesanoGremial);
+        this.transfondosMapa.put("Artesano ",artesano);
         this.transfondosMapa.put("Charlatán", charlatán);
         this.transfondosMapa.put("Criminal",criminal);
         this.transfondosMapa.put("Ermitaño",ermitaño);
@@ -82,6 +83,7 @@ public class Crea_transfondo extends Activity {
         lenguaje2.setAdapter(adapterL2);
 
         TextView vequipo= (TextView) findViewById(R.id.textView13);
+        vequipo.setMovementMethod(new ScrollingMovementMethod());
         TextView vcomp = (TextView) findViewById(R.id.textView8);
 
         spinnerTransfondos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener () {
@@ -89,11 +91,11 @@ public class Crea_transfondo extends Activity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String transfondoElegido= parent.getItemAtPosition(position).toString();
                 List<String> aux = transfondosMapa.get(transfondoElegido);
-                competencias = aux.get(0) + aux.get(1) ;
+                competencias = aux.get(0)+", "+ aux.get(1) ;
                 vcomp.setText(competencias);
                 int x = aux.size();
                 for (int i = 2; i< x; i++) {
-                    equipo = equipo + aux.get(i);
+                    equipo = equipo+ ", " + aux.get(i);
                 }
                 vequipo.setText(equipo);
             }
@@ -136,12 +138,14 @@ public class Crea_transfondo extends Activity {
                 String lengua1 = lenguaje1.getSelectedItem().toString();
                 p1.setLengua1(lengua1);
                 String lengua2 = lenguaje2.getSelectedItem().toString();
-                p1.setLengua1(lengua2);
+                p1.setLengua2(lengua2);
 
                 String secundarias=p1.getSecundarias();
-                p1.setSecundarias(secundarias+(String) vcomp.getText());
-                String equipo=p1.getSecundarias();
-                p1.setEquipo(equipo+(String) vequipo.getText());
+                p1.setSecundarias(secundarias+ ", "+(String) vcomp.getText());
+                String equipo=p1.getEquipo();
+                String equipo2=(String) vequipo.getText();
+                equipo2 = equipo2.replaceAll(",", System.getProperty("line.separator"));
+                p1.setEquipo(equipo+ "line.separator"+equipo2);
 
                 dbPersonajes DBPersonajes = new dbPersonajes(Crea_transfondo.this);
                 long id = DBPersonajes.insertarPersonajeNull(p1);

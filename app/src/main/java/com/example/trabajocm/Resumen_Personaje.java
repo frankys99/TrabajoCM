@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -77,6 +78,7 @@ public class Resumen_Personaje extends AppCompatActivity {
         lenguaje2 = findViewById(R.id.lengua2);
         //equipo = findViewById(R.id.Equipo_put);
         equipo2 = findViewById(R.id.Equipo_put);
+        equipo2.setMovementMethod(new ScrollingMovementMethod());
 
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
@@ -282,7 +284,7 @@ public class Resumen_Personaje extends AppCompatActivity {
             XP.setText(String.valueOf(personaje.getXp()));
             lenguaje1.setText(personaje.getLengua1());
             lenguaje2.setText(personaje.getLengua2());
-            equipo.setText(personaje.getEquipo());
+            equipo2.setText(personaje.getEquipo());
             H1.setText(personaje.getHechizo1());
             H2.setText(personaje.getHechizo2());
             H3.setText(personaje.getHechizo3());
@@ -321,13 +323,16 @@ public class Resumen_Personaje extends AppCompatActivity {
             NoHechizo.setInputType(InputType.TYPE_NULL);
         }
 
-        if((personaje.getClase().equals("Hechicero")||personaje.getClase().equals("Mago")||personaje.getClase().equals("Bardo")
+        if((personaje.getClase().equals("Hechicero")||personaje.getClase().equals("Brujo") ||personaje.getClase().equals("Mago")||personaje.getClase().equals("Bardo")
                 ||personaje.getClase().equals("Clérigo")||personaje.getClase().equals("Druida"))){
-            if (H6.equals("vacio")){
+
+
+            if (H6.getText().toString().equals("vacio")){
                 H1.setVisibility(View.VISIBLE);
                 H2.setVisibility(View.VISIBLE);
                 H3.setVisibility(View.VISIBLE);
                 H4.setVisibility(View.VISIBLE);
+                H5.setVisibility(View.GONE);
                 H6.setText(H5.getText());
                 H6.setVisibility(View.VISIBLE);
 
