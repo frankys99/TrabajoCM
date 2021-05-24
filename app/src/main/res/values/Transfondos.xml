@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="transfondos">
+        <item>Acólito</item>
+        <item>Animador</item>
+        <item>Artesano</item>
+        <item>Charlatán</item>
+        <item>Criminal</item>
+        <item>Ermitaño</item>
+        <item>Erudito</item>
+        <item>Héroe del pueblo</item>
+        <item>Marginado</item>
+        <item>Marinero</item>
+        <item>Noble</item>
+        <item>Salvaje</item>
+        <item>Soldado</item>
+    </string-array>
+</resources>

@@ -170,7 +170,7 @@ public class Crea_personaje_1 extends Activity {
     //estara vacio.
 
     // Funcion para pasar datos a otra activity
-    public void ejecuta_suguiente(View view){      // Cambiar por clase a la que va dirigida
+    public void ejecuta_suguiente(View view){
         Intent j = new Intent(this, Crea_personaje_2.class);
 
         p1.setNombre(nombre.getText().toString());

@@ -57,7 +57,7 @@ public class Crea_transfondo extends Activity {
         this.transfondosMapa.put("Erudito",erudito);
         this.transfondosMapa.put("Héroe del pueblo",heroePueblo);
         this.transfondosMapa.put("Marginado",marginado);
-        this.transfondosMapa.put("marinero",marinero);
+        this.transfondosMapa.put("Marinero",marinero);
         this.transfondosMapa.put("Noble",noble);
         this.transfondosMapa.put("Salvaje",salvaje);
         this.transfondosMapa.put("Soldado",soldado);
@@ -66,13 +66,13 @@ public class Crea_transfondo extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.crea_transfondo);
+
+        setTransfondos(transfondosMapa);
         Personaje p1 = (Personaje) getIntent().getSerializableExtra("p1");
         spinnerTransfondos = (Spinner) findViewById(R.id.spinnerTransfondo);
         lenguaje1 = (Spinner) findViewById(R.id.spinner2);
         lenguaje2 = (Spinner) findViewById(R.id.spinner3);
-        setContentView(R.layout.crea_transfondo);
-
-        setTransfondos(transfondosMapa);
 
         ArrayAdapter<CharSequence> adapterTransfondo = ArrayAdapter.createFromResource(this,R.array.transfondos, android.R.layout.simple_spinner_item);
         spinnerTransfondos.setAdapter(adapterTransfondo);
@@ -131,14 +131,11 @@ public class Crea_transfondo extends Activity {
         finalizar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Spinner SpinnerTransfondo = (Spinner) findViewById(R.id.spinnerTransfondo);
-                String Transfondo = SpinnerTransfondo.getSelectedItem().toString();
+                String Transfondo = spinnerTransfondos.getSelectedItem().toString();
                 p1.setTransfondo(Transfondo);
-                Spinner SpinnerLengua1 = (Spinner) findViewById(R.id.spinner2);
-                String lengua1 = SpinnerLengua1.getSelectedItem().toString();
+                String lengua1 = lenguaje1.getSelectedItem().toString();
                 p1.setLengua1(lengua1);
-                Spinner SpinnerLengua2 = (Spinner) findViewById(R.id.spinner3);
-                String lengua2 = SpinnerLengua2.getSelectedItem().toString();
+                String lengua2 = lenguaje2.getSelectedItem().toString();
                 p1.setLengua1(lengua2);
 
                 String secundarias=p1.getSecundarias();

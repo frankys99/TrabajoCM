@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="transfondos">
-        <item>Acólito</item>
-        <item>Charlatán</item>
-        <item>Criminal</item>
-        <item>Animador</item>
-        <item>Héroe del pueblo</item>
-        <item>Artesano gremial</item>
-        <item>Ermitaño</item>
-        <item>Noble</item>
-        <item>Salvaje</item>
-        <item>Erudito</item>
-        <item>Marinero</item>
-        <item>Soldado</item>
-        <item>Marginado</item>
-    </string-array>
-
     <string-array name="lenguajes">
         <item>Común</item>
         <item>Enano</item>
