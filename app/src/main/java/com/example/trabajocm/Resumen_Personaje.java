@@ -331,9 +331,9 @@ public class Resumen_Personaje extends AppCompatActivity {
                 H1.setVisibility(View.VISIBLE);
                 H2.setVisibility(View.VISIBLE);
                 H3.setVisibility(View.VISIBLE);
-                H4.setVisibility(View.VISIBLE);
+                H4.setVisibility(View.GONE);
                 H5.setVisibility(View.GONE);
-                H6.setText(H5.getText());
+                H6.setText(H4.getText());
                 H6.setVisibility(View.VISIBLE);
 
                 NoHechizo.setVisibility(View.GONE);

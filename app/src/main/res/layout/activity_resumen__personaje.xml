@@ -799,7 +799,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textColor="@color/black"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:visibility="gone" />
 
             <EditText
@@ -814,7 +814,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:textColor="@color/black"
                 android:inputType="textPersonName"
                 android:visibility="gone" />
@@ -829,7 +829,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:background="@android:color/white"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -850,7 +850,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:textColor="@color/black"
                 android:inputType="textPersonName"
                 android:visibility="gone" />
@@ -867,7 +867,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:textColor="@color/black"
                 android:inputType="textPersonName"
                 android:visibility="gone" />
@@ -885,7 +885,7 @@
                 android:textColor="@color/black"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:inputType="textPersonName"
                 android:visibility="gone" />
 
@@ -917,6 +917,7 @@
                 android:id="@+id/Equipo_put"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
+                android:gravity="center"
                 android:scrollbars = "vertical"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"

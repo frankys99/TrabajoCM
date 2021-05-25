@@ -173,9 +173,11 @@ public class Datos implements Serializable {
     public static String formatListaElem(List<String>ls){
         String res = "";
         for(int i = 0; i<ls.size();i++){
+
             String aux = ls.get(i);
             res += aux + "\n";
         }
+
         return  res;
     }
 

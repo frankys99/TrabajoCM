@@ -145,10 +145,11 @@ public class Crea_transfondo extends Activity {
 
                 String secundarias=p1.getSecundarias();
                 p1.setSecundarias(secundarias+ ", "+(String) vcomp.getText());
-                String equipo= Datos.getClase_seleccionada().getEquipo_inicial().toString();
+                String equipo= p1.getEquipo();
                 String equipo2= vequipo.getText().toString();
-                equipo2 = equipo2.replaceAll(",", System.getProperty("line.separator"));
-                p1.setEquipo(equipo+ "line.separator"+equipo2);
+                String equipo_final = equipo+equipo2;
+                equipo_final = equipo_final.replaceAll(",", System.getProperty("line.separator"));
+                p1.setEquipo(equipo_final);
 
                 dbPersonajes DBPersonajes = new dbPersonajes(Crea_transfondo.this);
                 long id = DBPersonajes.insertarPersonajeNull(p1);

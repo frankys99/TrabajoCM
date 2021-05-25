@@ -230,14 +230,22 @@ public class Crea_personaje_clase extends AppCompatActivity {
 
                 Clase clase = Datos.getClase_seleccionada();
                 p1.setClase(clase.getNombre());
-                p1.setEquipo(Datos.formatListaElem(clase.getEquipo_inicial()));
+                String equipo="";
+                for (int i=0;i<clase.getEquipo_inicial().size();i++) {
+                    equipo= equipo+ ",   "+clase.getEquipo_inicial().get(i);
+                }
+                p1.setEquipo(equipo);
 
-                if(clase.getHechizos().size() == 5){
+                //p1.setEquipo(Datos.formatListaElem(clase.getEquipo_inicial()));
+
+
+                if(clase.getHechizos().size() == 4){
                     p1.setHechizo1(clase.getHechizos().get(0));
                     p1.setHechizo2(clase.getHechizos().get(1));
                     p1.setHechizo3(clase.getHechizos().get(2));
                     p1.setHechizo4(clase.getHechizos().get(3));
-                    p1.setHechizo5(clase.getHechizos().get(4));
+
+
                 }else if(clase.getHechizos().size() == 6){
                     p1.setHechizo1(clase.getHechizos().get(0));
                     p1.setHechizo2(clase.getHechizos().get(1));
@@ -245,6 +253,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
                     p1.setHechizo4(clase.getHechizos().get(3));
                     p1.setHechizo5(clase.getHechizos().get(4));
                     p1.setHechizo5(clase.getHechizos().get(5));
+
                 }else{
                     p1.setHabilidad_especial(clase.getHabilidad_esp().getNombre_hab());
                 }
