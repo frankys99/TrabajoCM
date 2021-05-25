@@ -11,6 +11,10 @@ import java.util.List;
 
 public class Datos implements Serializable {
 
+    //- DATOS DE LA APP
+    //-- MainAcitivy
+    private static boolean api_cargada = false;
+
     //- DATOS DEL PERSONAJE
     //-- Pantalla_1
     private static String nombre;
@@ -39,6 +43,15 @@ public class Datos implements Serializable {
         habilidades = ls;
     }
 
+    ////========================================      DATOS GLOBALES APP        ========================================//
+
+    public static boolean isApi_cargada() {
+        return api_cargada;
+    }
+
+    public static void setApi_cargada(boolean api_cargada) {
+        Datos.api_cargada = api_cargada;
+    }
 
     ////========================================    DATOS OBTENIDOS POR LA API    ========================================//
 

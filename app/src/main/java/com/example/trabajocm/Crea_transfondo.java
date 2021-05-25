@@ -93,10 +93,13 @@ public class Crea_transfondo extends Activity {
                 List<String> aux = transfondosMapa.get(transfondoElegido);
                 competencias = aux.get(0)+", "+ aux.get(1) ;
                 vcomp.setText(competencias);
+
                 int x = aux.size();
                 for (int i = 2; i< x; i++) {
                     equipo = equipo+ ", " + aux.get(i);
                 }
+
+
                 vequipo.setText(equipo);
             }
 
@@ -142,8 +145,8 @@ public class Crea_transfondo extends Activity {
 
                 String secundarias=p1.getSecundarias();
                 p1.setSecundarias(secundarias+ ", "+(String) vcomp.getText());
-                String equipo=p1.getEquipo();
-                String equipo2=(String) vequipo.getText();
+                String equipo= Datos.getClase_seleccionada().getEquipo_inicial().toString();
+                String equipo2= vequipo.getText().toString();
                 equipo2 = equipo2.replaceAll(",", System.getProperty("line.separator"));
                 p1.setEquipo(equipo+ "line.separator"+equipo2);
 

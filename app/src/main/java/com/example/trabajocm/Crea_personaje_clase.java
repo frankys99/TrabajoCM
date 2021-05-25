@@ -227,47 +227,30 @@ public class Crea_personaje_clase extends AppCompatActivity {
         Guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Spinner mySpinner = (Spinner) findViewById(R.id.clases_spinner);
-                String clase = mySpinner.getSelectedItem().toString();
-                p1.setClase(clase);
-                String equipo= "";
-                for (String equipo_i : clase_Seleccionada.getEquipo_inicial()) {
 
-                    equipo+= equipo_i+"\n";
-                }
-                equipo = equipo.replaceAll("\n", System.getProperty("line.separator"));
-                p1.setEquipo(equipo);
+                Clase clase = Datos.getClase_seleccionada();
+                p1.setClase(clase.getNombre());
+                p1.setEquipo(Datos.formatListaElem(clase.getEquipo_inicial()));
 
-                Spinner SpinnerHab1 = (Spinner) findViewById(R.id.spinner_comp_hab_1);
-                String Hab1 = SpinnerHab1.getSelectedItem().toString();
-                Spinner SpinnerHab2 = (Spinner) findViewById(R.id.spinner_comp_hab_2);
-                String Hab2 = SpinnerHab2.getSelectedItem().toString();
-                if((p1.getClase().equals("Hechicero")||p1.getClase().equals("Brujo") ||p1.getClase().equals("Mago")||p1.getClase().equals("Bardo")
-                        ||p1.getClase().equals("Clérigo")||p1.getClase().equals("Druida"))){
-                    if (clase_Seleccionada.getHechizos().size()==5){
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(0));
-                        p1.setHechizo2(clase_Seleccionada.getHechizos().get(1));
-                        p1.setHechizo3(clase_Seleccionada.getHechizos().get(2));
-                        p1.setHechizo4(clase_Seleccionada.getHechizos().get(3));
-                        p1.setHechizo5(clase_Seleccionada.getHechizos().get(4));
-
-                    }else if(clase_Seleccionada.getHechizos().size()==6){
-                        p1.setHechizo1(clase_Seleccionada.getHechizos().get(0));
-                        p1.setHechizo2(clase_Seleccionada.getHechizos().get(1));
-                        p1.setHechizo3(clase_Seleccionada.getHechizos().get(2));
-                        p1.setHechizo4(clase_Seleccionada.getHechizos().get(3));
-                        p1.setHechizo5(clase_Seleccionada.getHechizos().get(4));
-                        p1.setHechizo6(clase_Seleccionada.getHechizos().get(5));
-
-                    }
-
-
+                if(clase.getHechizos().size() == 5){
+                    p1.setHechizo1(clase.getHechizos().get(0));
+                    p1.setHechizo2(clase.getHechizos().get(1));
+                    p1.setHechizo3(clase.getHechizos().get(2));
+                    p1.setHechizo4(clase.getHechizos().get(3));
+                    p1.setHechizo5(clase.getHechizos().get(4));
+                }else if(clase.getHechizos().size() == 6){
+                    p1.setHechizo1(clase.getHechizos().get(0));
+                    p1.setHechizo2(clase.getHechizos().get(1));
+                    p1.setHechizo3(clase.getHechizos().get(2));
+                    p1.setHechizo4(clase.getHechizos().get(3));
+                    p1.setHechizo5(clase.getHechizos().get(4));
+                    p1.setHechizo5(clase.getHechizos().get(5));
                 }else{
-                p1.setHabilidad_especial(clase_Seleccionada.getHabilidad_esp().getNombre_hab());}
+                    p1.setHabilidad_especial(clase.getHabilidad_esp().getNombre_hab());
+                }
 
+                p1.setSecundarias(hab_1_selec+", "+hab_2_selec);
 
-
-                p1.setSecundarias(Hab1+", "+Hab2);
                 //comenta las dos de abajo
                // dbPersonajes DBPersonajes = new dbPersonajes(Crea_personaje_clase.this);
                 //long id = DBPersonajes.insertarPersonajeNull(p1);

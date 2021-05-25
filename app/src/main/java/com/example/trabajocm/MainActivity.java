@@ -25,11 +25,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private boolean esta_cargando = true;
-
     private Button b_crear_personaje;
     private Button b_mis_personajes;
     private ProgressBar progress_bar;
+
+    boolean api_cargada = Datos.isApi_cargada();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         progress_bar = findViewById(R.id.progressBar);
 
-        //Acceder API Rest -> Cargar Clases y Razas
-        obtenerDatos();
-
-        //Temporizador
         TareaAsincrona t = new TareaAsincrona();
         t.execute(10);
 
@@ -71,6 +67,17 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+
+            if(!api_cargada){
+                obtenerDatos();
+
+                progress_bar.setVisibility(View.VISIBLE);
+            }else{
+                progress_bar.setVisibility(View.INVISIBLE);
+                b_crear_personaje.setVisibility(View.VISIBLE);
+                b_mis_personajes.setVisibility(View.VISIBLE);
+            }
+
         }
 
         @Override
@@ -109,9 +116,11 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(s);
 
             progress_bar.setProgress(0);
-            progress_bar.setVisibility(View.GONE);
+            progress_bar.setVisibility(View.INVISIBLE);
             b_crear_personaje.setVisibility(View.VISIBLE);
             b_mis_personajes.setVisibility(View.VISIBLE);
+
+            Datos.setApi_cargada(true);
 
         }
     }
@@ -184,6 +193,5 @@ public class MainActivity extends AppCompatActivity {
         //Cargar los datos
         Datos.iniDatosClases(ls_clases);
         Datos.initDatosRazas(ls_razas);
-        esta_cargando = false;
     }
 }
