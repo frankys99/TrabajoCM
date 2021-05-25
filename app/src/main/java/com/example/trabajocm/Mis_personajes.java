@@ -37,7 +37,7 @@ public class Mis_personajes extends Activity {
 
         ListaPersonajesAdapter adapter = new ListaPersonajesAdapter(dbContactos.mostrarPersonaje());
         listaPersonajes.setAdapter(adapter);
-        atras =findViewById(R.id.atras);
+        atras =findViewById(R.id.Volvemos);
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

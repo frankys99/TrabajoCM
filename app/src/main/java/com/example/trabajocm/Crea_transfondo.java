@@ -25,6 +25,7 @@ public class Crea_transfondo extends Activity {
     private Spinner spinnerTransfondos;// = (Spinner) findViewById(R.id.spinnerTransfondo);
     private Spinner lenguaje1;// = (Spinner) findViewById(R.id.spinner2);
     private Spinner lenguaje2;// = (Spinner) findViewById(R.id.spinner3);
+    private Button atras;
 
     private Button finalizar;
 
@@ -51,7 +52,7 @@ public class Crea_transfondo extends Activity {
     public void setTransfondos(Map<String, List<String>> transfondosMapa) {
         this.transfondosMapa.put("Acólito",acólito);
         this.transfondosMapa.put("Animador", animador);
-        this.transfondosMapa.put("Artesano ",artesano);
+        this.transfondosMapa.put("Artesano",artesano);
         this.transfondosMapa.put("Charlatán", charlatán);
         this.transfondosMapa.put("Criminal",criminal);
         this.transfondosMapa.put("Ermitaño",ermitaño);
@@ -68,6 +69,9 @@ public class Crea_transfondo extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crea_transfondo);
+
+
+
 
         setTransfondos(transfondosMapa);
         Personaje p1 = (Personaje) getIntent().getSerializableExtra("p1");
@@ -157,6 +161,10 @@ public class Crea_transfondo extends Activity {
                 startActivity(j);
             }
         });
+    }
+
+    public void ejecuta_volver(View view){
+        finish();
     }
 }
 
