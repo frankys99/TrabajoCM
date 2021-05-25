@@ -1,9 +1,12 @@
 package com.example.trabajocm;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,45 +25,95 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean esta_cargando = true;
+
+    private Button b_crear_personaje;
+    private Button b_mis_personajes;
+    private ProgressBar progress_bar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Declarar elementos de la UI
+        b_crear_personaje = findViewById(R.id.b_crea_pj);
+        b_mis_personajes = findViewById(R.id.b_mis_pjs);
+
+        progress_bar = findViewById(R.id.progressBar);
+
         //Acceder API Rest -> Cargar Clases y Razas
         obtenerDatos();
 
-        //btnCrear = findViewById(R.id.btnCrear);
-        /*btnCrear.setOnClickListener(new View.OnClickListener() {
+        //Temporizador
+        TareaAsincrona t = new TareaAsincrona();
+        t.execute(10);
+
+        b_crear_personaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),Crea_personaje_1.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 
-                DbHelper dbHelper = new DbHelper(MainActivity.this);
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                if (db!=null){
-                    Toast.makeText(MainActivity.this,"BASE CREADA",Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(MainActivity.this,"ERROR",Toast.LENGTH_LONG).show();
+            }
+        });
 
+        b_mis_personajes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),Mis_personajes.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            }
+        });
+
+    }
+
+
+    private class TareaAsincrona extends AsyncTask<Integer,Integer,String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Integer... integers) {
+            for (int i = 0; i < integers[0]; i++) {
+                publishProgress((i * 100) / integers[0]);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
-        });*/
-    }
-    public void ejecuta_crea_personaje(View view){
-        //dbPersonajes DBPersonajes = new dbPersonajes(MainActivity.this);
-        //long id = DBPersonajes.insertarPersonajeNull();
+            return "Carga completa!";
+        }
 
-        //if (id >0){
-           // Toast.makeText(MainActivity.this,"VAMOOOOOOOOSSS", Toast.LENGTH_LONG).show();
-        //}else{
-           // Toast.makeText(MainActivity.this,"SU PUTA MADRE", Toast.LENGTH_LONG).show();
-        //}
-        Intent i = new Intent(this, Crea_personaje_1.class);
-        startActivity(i);
-    }
-    public void ejecuta_mis_personajes(View view){
-        Intent j = new Intent(this, Mis_personajes.class);
-        startActivity(j);
+        /* AsyncTask<String,Void,Boolean>
+        @Override
+        protected Boolean doInBackground(String... urls) {
+            try{
+                obtenerDatos();
+                if(!esta_cargando){
+                    return true;
+                }else {
+                    return false;
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+            return false;
+        }
+
+         */
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            progress_bar.setProgress(0);
+            progress_bar.setVisibility(View.GONE);
+            b_crear_personaje.setVisibility(View.VISIBLE);
+            b_mis_personajes.setVisibility(View.VISIBLE);
+
+        }
     }
 
     private void obtenerDatos(){
@@ -102,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Clase>> call, Throwable t) {
-                Log.e("----- ERROR",t.getMessage());
+                Log.e("-- ERROR CARGAR API",t.getMessage());
             }
         });
 
@@ -124,12 +177,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Raza>> call, Throwable t) {
-                Log.e("----- ERROR",t.getMessage());
+                Log.e("-- ERROR CARGAR API",t.getMessage());
             }
         });
 
         //Cargar los datos
         Datos.iniDatosClases(ls_clases);
         Datos.initDatosRazas(ls_razas);
+        esta_cargando = false;
     }
 }
