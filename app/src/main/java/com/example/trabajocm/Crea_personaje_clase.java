@@ -246,13 +246,12 @@ public class Crea_personaje_clase extends AppCompatActivity {
                     p1.setHechizo4(clase.getHechizos().get(3));
 
 
-                }else if(clase.getHechizos().size() == 6){
+                }else if(clase.getHechizos().size() == 5){
                     p1.setHechizo1(clase.getHechizos().get(0));
                     p1.setHechizo2(clase.getHechizos().get(1));
                     p1.setHechizo3(clase.getHechizos().get(2));
                     p1.setHechizo4(clase.getHechizos().get(3));
                     p1.setHechizo5(clase.getHechizos().get(4));
-                    p1.setHechizo5(clase.getHechizos().get(5));
 
                 }else{
                     p1.setHabilidad_especial(clase.getHabilidad_esp().getNombre_hab());
@@ -314,8 +313,7 @@ public class Crea_personaje_clase extends AppCompatActivity {
     //BOTONES : Atras y Siguiente
 
     public void ejecuta_atras(View view){
-        Intent i = new Intent(this, Crea_personaje_2.class);
-        startActivity(i);
+        finish();
     }
 
     public void ejecuta_siguiente(View view){

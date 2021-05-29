@@ -41,7 +41,7 @@ public class Resumen_Personaje extends AppCompatActivity {
         setContentView(R.layout.activity_resumen__personaje);
 
 
-        volver =findViewById(R.id.atras);
+        volver =findViewById(R.id.Volvemos);
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -327,7 +327,7 @@ public class Resumen_Personaje extends AppCompatActivity {
                 ||personaje.getClase().equals("Clérigo")||personaje.getClase().equals("Druida"))){
 
 
-            if (H6.getText().toString().equals("vacio")){
+            if (H5.getText().toString().equals("vacio")){
                 H1.setVisibility(View.VISIBLE);
                 H2.setVisibility(View.VISIBLE);
                 H3.setVisibility(View.VISIBLE);
@@ -342,7 +342,8 @@ public class Resumen_Personaje extends AppCompatActivity {
                 H2.setVisibility(View.VISIBLE);
                 H3.setVisibility(View.VISIBLE);
                 H4.setVisibility(View.VISIBLE);
-                H5.setVisibility(View.VISIBLE);
+                H5.setVisibility(View.GONE);
+                H6.setText(H5.getText());
                 H6.setVisibility(View.VISIBLE);
                 NoHechizo.setVisibility(View.GONE);
             }

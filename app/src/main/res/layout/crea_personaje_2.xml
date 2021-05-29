@@ -188,10 +188,11 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/atras"
+        android:id="@+id/Volvemos"
         android:layout_width="123dp"
         android:layout_height="50dp"
         android:text="atrás"
+        android:onClick="ejecuta_atras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.138"

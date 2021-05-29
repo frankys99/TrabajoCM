@@ -27,6 +27,7 @@ public class Crea_personaje_2 extends Activity {
     private Integer reroll;
     private Button siguiente;
     private EditText edtFuerza;
+
     private EditText edtDestreza;
     private EditText edtConstitucion;
     private EditText edtSabiduria;
@@ -105,6 +106,8 @@ public class Crea_personaje_2 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         setContentView(R.layout.crea_personaje_2);
 
         //recibo el objeto p1
@@ -157,10 +160,8 @@ public class Crea_personaje_2 extends Activity {
 
 
 
-   // public void ejecuta_suguiente(View view){      // Cambiar por clase a la que va dirigida
-
-
-
-    //}
+   public void ejecuta_atras(View view){
+        finish();
+    }
 
 }

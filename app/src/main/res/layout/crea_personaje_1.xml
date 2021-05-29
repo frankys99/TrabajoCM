@@ -186,7 +186,7 @@
         app:srcCompat="@drawable/descarga" />
 
     <Button
-        android:id="@+id/atras"
+        android:id="@+id/Volvemos"
         android:layout_width="123dp"
         android:layout_height="50dp"
         android:text="atrás"

@@ -147,12 +147,11 @@ public class Crea_personaje_1 extends Activity {
 
 
         // Boton para ir hacia atrás
-        atras =findViewById(R.id.atras);
+        atras =findViewById(R.id.Volvemos);
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Crea_personaje_1.this, MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
