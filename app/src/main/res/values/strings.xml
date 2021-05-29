@@ -14,4 +14,5 @@
     <string name="siguiente">Siguiente</string>
     <string name="btn_galeria">Ir a galería</string>
     <string name="escribe_nombre">Escribe el nombre aquí</string>
+    <string name="info_raza">Según la raza que seleccione su personaje tendrá unas características u otras</string>
 </resources>

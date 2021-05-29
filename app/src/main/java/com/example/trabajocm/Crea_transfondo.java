@@ -51,7 +51,7 @@ public class Crea_transfondo extends Activity {
     public void setTransfondos(Map<String, List<String>> transfondosMapa) {
         this.transfondosMapa.put("Acólito",acólito);
         this.transfondosMapa.put("Animador", animador);
-        this.transfondosMapa.put("Artesano ",artesano);
+        this.transfondosMapa.put("Artesano",artesano);
         this.transfondosMapa.put("Charlatán", charlatán);
         this.transfondosMapa.put("Criminal",criminal);
         this.transfondosMapa.put("Ermitaño",ermitaño);
